@@ -1109,7 +1109,7 @@ $(document).on(':passagestart', function (ev) {
 	
     Nicholas leads you up the stage. &quot;Our boy Mr. Cao says it was like this when he got here, &#39;xept there was a body inside. We took the body out already, can&#39;t leave it here to rot. But yeah, that&#39;s where we found old man Watts. All slumped over, dried blood on his chest, probably from the who-knows-how-many stab wounds he had. I mean the coroner&#39;s office will know but like man I&#39;m pretty sure Dr. Mao hates my guts so...&quot; 
 	
-    You tune out Nicholas&#39;s rambling and walk over to the arcade machine. The CSI team had marked where Archibald Watts&#39;s legs were splayed out on the stage, but the inside of the arcade machine was unmarked. Seems like Watts wasn&#39;t a very tall man, which matched what you remembered of him. You crouch down and take a good look inside the machine. Despite Nicholas&#39;s observation of the body being stabbed, there was no blood inside the machine. 
+    You tune out Nicholas&#39;s rambling about how much the chief medical examiner supposedly hates him and walk over to the arcade machine. The CSI team had marked where Archibald Watts&#39;s legs were splayed out on the stage, but the inside of the arcade machine was unmarked. Seems like Watts wasn&#39;t a very tall man, which matched what you remembered of him. You crouch down and take a good look inside the machine. Despite Nicholas&#39;s observation of the body being stabbed, there was no blood inside the machine. 
 
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b08&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="Day 1 Investigate 02b08" tags="" position="3100,1400" size="100,100">&quot;...and I thought she&#39;d appreciate my efforts but I guess frogs just aren&#39;t her thing, who knew-&quot; Nicholas stops talking as you stand back up abruptly. &quot;What&#39;s up?&quot; 
 	
@@ -1131,7 +1131,7 @@ $(document).on(':passagestart', function (ev) {
 	
     You lower your hands which you&#39;d raised when he&#39;d suddenly pointed his finger at you. &quot;No?&quot; 
 	
-    &quot;Ah, well we found those. Some outside the back door, others inside the storage area behind the stage. We&#39;d probably be able to get a DNA profile off of those but other than the genral criminal database we don&#39;t have any suspects to compare that to. And it&#39;s just as likely it&#39;s an employee who didn&#39;t clean up after their smoke break. But figured I&#39;d at least mention it. But other than that I think I&#39;ve mentioned everything.&quot; 
+    &quot;Ah, well we found those. Some outside the back door, others inside the storage area behind the stage. We&#39;d probably be able to get a DNA profile off of those but other than the criminal DNA database we don&#39;t have any suspects to compare that to. And it&#39;s just as likely it&#39;s an employee who didn&#39;t clean up after their smoke break. But figured I&#39;d at least mention it. But other than that I think I&#39;ve mentioned everything.&quot; 
 
     &lt;&lt;link &quot;Ask if a murder weapon was found.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -1179,7 +1179,7 @@ $(document).on(':passagestart', function (ev) {
 	
     You push past Nicholas with your gun drawn at his yell and then immediately turn around and walk out of the room. 
 	
-    Nicholas swears in Spanish and slams the door shut. &quot;KEEP IT OUT OF THE WORKPLACE I swear some of these people have never learned what workpalce decency is I&#39;ll kill them both I-&quot; 
+    Nicholas swears in Spanish and slams the door shut. &quot;KEEP IT OUT OF THE WORKPLACE I swear some of these people have never learned what workplace decency is I&#39;ll kill them both I-&quot; 
 	
     You look at the ceiling and wish to erase the past five seconds from your memory. &quot;Careful what you say, I could arrest you for threatening a government employee.&quot; 
 	
@@ -1282,11 +1282,12 @@ $(document).on(':passagestart', function (ev) {
 
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b13&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="108" name="Day 1 Investigate 02b12c" tags="" position="3600,1900" size="100,100">You walk back on stage. 
 	
-    The entirity of the stage is wooden, though there are several spots that look to be circular panels installed in the stage.&lt;&lt;if $optional_evidence[&quot;latch&quot;]&gt;&gt; The panels are now raised.&lt;&lt;/if&gt;&gt; The arcade machine shell sits in the center of the stage, back facing towards the door so that if you stood where you would be if you were playing the machine, you would be staring at the door. The curtains behind the stage are closed. 
+    The entirety of the stage is wooden, though there are several spots that look to be circular panels installed in the stage.&lt;&lt;if $optional_evidence[&quot;latch&quot;]&gt;&gt; The panels are now raised.&lt;&lt;/if&gt;&gt; The arcade machine shell sits in the center of the stage, back facing towards the door so that if you stood where you would be if you were playing the machine, you would be staring at the door. The curtains behind the stage are closed. 
 
     &lt;&lt;link &quot;Examine the panels.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12c01a&quot;&gt;&gt;&lt;&lt;set $optional_evidence[&quot;panels&quot;] to true&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Examine the arcade machine.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12c01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Check the area behind the stage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12c01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="109" name="Day 1 Investigate 02b12c01a" tags="" position="3600,2025" size="100,100">You take a closer look at the panels at the back of the stage. 
+    &lt;&lt;link &quot;Check the area behind the stage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12c01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt; 
+    &lt;&lt;link &quot;Return.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b13&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="109" name="Day 1 Investigate 02b12c01a" tags="" position="3600,2025" size="100,100">You take a closer look at the panels at the back of the stage. 
 	
     &lt;&lt;if $optional_evidence[&quot;lever&quot;]&gt;&gt;You see that the panels are now raised. You lift each of the panels off of the metal bars they sit on and look underneath. All are empty except one which has a pink piece of cloth underneath. 
 

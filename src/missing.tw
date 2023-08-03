@@ -970,7 +970,7 @@
 	
     Nicholas leads you up the stage. "Our boy Mr. Cao says it was like this when he got here, 'xept there was a body inside. We took the body out already, can't leave it here to rot. But yeah, that's where we found old man Watts. All slumped over, dried blood on his chest, probably from the who-knows-how-many stab wounds he had. I mean the coroner's office will know but like man I'm pretty sure Dr. Mao hates my guts so..." 
 	
-    You tune out Nicholas's rambling and walk over to the arcade machine. The CSI team had marked where Archibald Watts's legs were splayed out on the stage, but the inside of the arcade machine was unmarked. Seems like Watts wasn't a very tall man, which matched what you remembered of him. You crouch down and take a good look inside the machine. Despite Nicholas's observation of the body being stabbed, there was no blood inside the machine. 
+    You tune out Nicholas's rambling about how much the chief medical examiner supposedly hates him and walk over to the arcade machine. The CSI team had marked where Archibald Watts's legs were splayed out on the stage, but the inside of the arcade machine was unmarked. Seems like Watts wasn't a very tall man, which matched what you remembered of him. You crouch down and take a good look inside the machine. Despite Nicholas's observation of the body being stabbed, there was no blood inside the machine. 
 
     <<link "Next">><<goto "Day 1 Investigate 02b08">><</link>>
 
@@ -998,7 +998,7 @@
 	
     You lower your hands which you'd raised when he'd suddenly pointed his finger at you. "No?" 
 	
-    "Ah, well we found those. Some outside the back door, others inside the storage area behind the stage. We'd probably be able to get a DNA profile off of those but other than the genral criminal database we don't have any suspects to compare that to. And it's just as likely it's an employee who didn't clean up after their smoke break. But figured I'd at least mention it. But other than that I think I've mentioned everything." 
+    "Ah, well we found those. Some outside the back door, others inside the storage area behind the stage. We'd probably be able to get a DNA profile off of those but other than the criminal DNA database we don't have any suspects to compare that to. And it's just as likely it's an employee who didn't clean up after their smoke break. But figured I'd at least mention it. But other than that I think I've mentioned everything." 
 
     <<link "Ask if a murder weapon was found.">><<set $route1["r1a"] to true>><<goto "Day 1 Investigate 02b10a">><</link>>
     <<link "Ask if there were fingerprints on the machine.">><<set $route1["r1b"] to true>><<goto "Day 1 Investigate 02b10b">><</link>>
@@ -1058,7 +1058,7 @@
 	
     You push past Nicholas with your gun drawn at his yell and then immediately turn around and walk out of the room. 
 	
-    Nicholas swears in Spanish and slams the door shut. "KEEP IT OUT OF THE WORKPLACE I swear some of these people have never learned what workpalce decency is I'll kill them both I-" 
+    Nicholas swears in Spanish and slams the door shut. "KEEP IT OUT OF THE WORKPLACE I swear some of these people have never learned what workplace decency is I'll kill them both I-" 
 	
     You look at the ceiling and wish to erase the past five seconds from your memory. "Careful what you say, I could arrest you for threatening a government employee." 
 	
@@ -1188,11 +1188,12 @@
 :: Day 1 Investigate 02b12c {"position":"3600,1900"}
     You walk back on stage. 
 	
-    The entirity of the stage is wooden, though there are several spots that look to be circular panels installed in the stage.<<if $optional_evidence["latch"]>> The panels are now raised.<</if>> The arcade machine shell sits in the center of the stage, back facing towards the door so that if you stood where you would be if you were playing the machine, you would be staring at the door. The curtains behind the stage are closed. 
+    The entirety of the stage is wooden, though there are several spots that look to be circular panels installed in the stage.<<if $optional_evidence["latch"]>> The panels are now raised.<</if>> The arcade machine shell sits in the center of the stage, back facing towards the door so that if you stood where you would be if you were playing the machine, you would be staring at the door. The curtains behind the stage are closed. 
 
     <<link "Examine the panels.">><<goto "Day 1 Investigate 02b12c01a">><<set $optional_evidence["panels"] to true>><</link>>
     <<link "Examine the arcade machine.">><<goto "Day 1 Investigate 02b12c01b">><</link>>
     <<link "Check the area behind the stage.">><<goto "Day 1 Investigate 02b12c01c">><</link>> 
+    <<link "Return.">><<goto "Day 1 Investigate 02b13">><</link>>
 
 :: Day 1 Investigate 02b12c01a {"position":"3600,2025"}
     You take a closer look at the panels at the back of the stage. 
