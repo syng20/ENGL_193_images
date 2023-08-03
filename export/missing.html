@@ -634,7 +634,7 @@ $(document).on(':passagestart', function (ev) {
     After a long silence, Captain Pottinger sits up again and looks at you. Her exhaustion is again hidden behind her usual indifferent expression. &quot;Any other questions?&quot; 
 
     ==&quot;Why me?&quot;==
-    &lt;&lt;link &quot;\&quot;Who else is on the case with me?\&quot;&quot;&gt;&gt;&lt;&lt;set $temp to 3&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;if $temp == 3&gt;&gt;==&quot;Who else is on the case with me?&quot;==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;\&quot;Who else is on the case with me?\&quot;&quot;&gt;&gt;&lt;&lt;set $temp to 3&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;link &quot;No questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Day 1 Intro 10b" tags="" position="625,1400" size="100,100">&quot;Who else is going to take the case with me?&quot; Usually you work as a pair with Mark, but he wasn&#39;t called in to the office. 
 
     &quot;No one. You&#39;ll be leading this case on your own. You&#39;ll be working with the usual CSI team because we never have enough of them to spare in the first place, and you can ask some patrol officers to help you own at your own discretion, but other than that you&#39;re on your own.&quot;
@@ -650,7 +650,7 @@ $(document).on(':passagestart', function (ev) {
     
     Captain Pottinger nods. &quot;Good. Any other questions? &quot;
 
-    &lt;&lt;link &quot;\&quot;Why me?\&quot;&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10a&quot;&gt;&gt;&lt;&lt;set $temp to 3&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;if $temp == 3&gt;&gt;==&quot;Why me?&quot;&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;\&quot;Why me?\&quot;&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10a&quot;&gt;&gt;&lt;&lt;set $temp to 3&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     ==&quot;Who else is on the case with me?&quot;==
     &lt;&lt;link &quot;No questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Day 1 Intro 11" tags="" position="500,1650" size="100,100">&quot;No questions.&quot;
 

@@ -296,7 +296,7 @@
     After a long silence, Captain Pottinger sits up again and looks at you. Her exhaustion is again hidden behind her usual indifferent expression. "Any other questions?" 
 
     =="Why me?"==
-    <<link "\"Who else is on the case with me?\"">><<set $temp to 3>><<goto "Day 1 Intro 10b">><</link>>
+    <<if $temp == 3>>=="Who else is on the case with me?"==<<else>><<link "\"Who else is on the case with me?\"">><<set $temp to 3>><<goto "Day 1 Intro 10b">><</link>><</if>>
     <<link "No questions.">><<goto "Day 1 Intro 11">><</link>>
 
 :: Day 1 Intro 10b {"position":"625,1400"}
@@ -321,7 +321,7 @@
     
     Captain Pottinger nods. "Good. Any other questions? "
 
-    <<link "\"Why me?\"">><<goto "Day 1 Intro 10a">><<set $temp to 3>><</link>>
+    <<if $temp == 3>>=="Why me?"<<else>><<link "\"Why me?\"">><<goto "Day 1 Intro 10a">><<set $temp to 3>><</link>><</if>>
     =="Who else is on the case with me?"==
     <<link "No questions.">><<goto "Day 1 Intro 11">><</link>>
 
