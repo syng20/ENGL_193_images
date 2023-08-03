@@ -1,0 +1,269 @@
+/***************************
+    Root
+***************************/
+:root {
+    --bg_color: #2c0eb2;
+    --shadow_color: #a018bc; 
+    --title_box_color: #c40f24; 
+    --title_shadow_color: #670a43; 
+    --passage_color1: #c40f24; 
+    --passage_color2: #f95064; 
+    --link_color: #2c0eb2; 
+    --link_shadow_color: #ded0e1ed; 
+    --link_select_color: #49e2ea;
+    --outline_color: #ffffff; 
+    --nb_shadow_color: #acf3f7; 
+    --nb_head_color: #0f6997; 
+    --nb_body_color1: #19afb7; 
+    --nb_body_color2: #0f6997; 
+    --nb_text: #ffffff; 
+    --scrollbar_color: #5322169d; 
+    --scrollbar_hover_color: #dfdada;; 
+}
+/***************************
+    SCROLLBAR
+***************************/
+/*~ Moz ~*/
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar_color), var(--scrollbar_hover_color);
+    scrollbar-gutter: auto;
+}
+/*~ Chrome ~*/
+  ::-webkit-scrollbar {width: 8px;}
+  ::-webkit-scrollbar-track {background: var(--scrollbar_color);}
+  ::-webkit-scrollbar-thumb {background: var(--scrollbar_hover_color);}
+
+/***************************
+    THEME 
+***************************/
+body { 
+    overflow: hidden; 
+    background-color: var(--bg_color);
+    background-image: url("https://github.com/syng20/ENGL_193_images/blob/main/grid-png-43577.png?raw=true");
+    background-position-x: center;
+    background-position-y: 35%;
+}
+
+    /***************************
+        Container on 3 levels 
+        -> Title 
+        -> Passage Text
+        -> Menu 
+    ***************************/
+#container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 1024px;
+    max-height: 640px;
+    outline: 1px solid var(--outline_color);
+    border: 4px solid var(--outline_color);
+    box-shadow: 10px 10px 15px var(--shadow_color), -10px 10px 15px var(--shadow_color), 10px -10px 15px var(--shadow_color), -10px -10px 15px var(--shadow_color);
+    border-radius: 2em;
+    overflow: scroll;
+    background-color: var(--outline_color);
+}
+        /***************************
+            Top Container:
+            Day + Title + Save 
+        ***************************/
+
+.topcontainter {
+    height: 15%;
+    overflow: hidden;
+    display: flex;
+    background: var(--title_box_color);
+}
+            /***************************
+                Day Block
+            ***************************/
+.dayblock {
+    width: 15%;
+    display: flex;
+    border-right: 2px solid var(--outline_color);
+    height: 100%;
+    background-position: center;
+    flex-direction: column;
+    font-size: 150%;
+    text-align: center;
+    margin: auto; 
+    text-shadow: 0 0 15px var(--link_shadow_color);
+}
+
+            /***************************
+                Title Block
+            ***************************/
+.titleblock {
+    background-size: 150%;
+    background-position: center;
+    flex-grow: 1;
+    border-radius: 50px;
+    margin: auto;
+    display: flex;
+}
+.titleblock h1 {
+    margin: auto;
+    font-size: xx-large;
+    text-align: center;
+    text-shadow: 5px 5px 30px var(--title_shadow_color), 5px -5px 30px var(--title_shadow_color), -5px 5px 30px var(--title_shadow_color), -5px -5px 30px var(--title_shadow_color);
+}
+            /***************************
+                Save Block
+            ***************************/
+.saveblock {
+    width: 15%;
+    display: flex;
+    border-left: 2px solid var(--outline_color);
+    height: 100%;
+    background-position: center;
+    flex-direction: column;
+}
+.saveblock a {
+    font-size: 150%;
+    text-align: center;
+    margin: auto; 
+    text-shadow: 0 0 15px var(--link_shadow_color);
+    color: var(--link_color);
+}
+.saveblock a:hover {
+    color: var(--link_select_color);
+    text-decoration: none;
+}
+        /***************************
+            Bottom Container: Menu  
+        ***************************/
+
+.bottomcontainter {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    background: var(--title_box_color);
+}
+            /***************************
+                Menu Block
+            ***************************/
+.menu {
+    display: flex;
+    height: 100%;
+    margin: auto;
+    padding-top: 15px;
+    border-radius: 10px;
+    background-position: bottom;
+    flex-direction: column;
+}
+.menu a {
+    font-size: 150%;
+    text-align: center;
+    margin: auto; 
+    text-shadow: 0 0 15px var(--link_shadow_color);
+    color: var(--link_color);
+}
+.menu a:hover {
+    color: var(--link_select_color);
+    text-decoration: none;
+}
+        /***************************
+            Passage Block
+        ***************************/
+#textbloc {
+    height: 75%;
+    max-width: 100%;
+    background: linear-gradient(var(--passage_color1), var(--passage_color2));
+    border-top: 3px solid var(--outline_color);
+}
+#passages {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 115%;
+    height: 96%;
+    width: 99%;
+    overflow: auto;
+    margin: 1% 0 1% 1%;
+}
+.passage {
+    padding: 1%;
+    padding-right: 2%;
+}
+/***************************
+    Links
+***************************/
+.passage a {
+    font-size: 110%;
+    font-weight: bold;
+    color: var(--link_color);
+    text-shadow: 0 0 15px var(--link_shadow_color);
+}
+.passage a:hover {
+    color: var(--link_select_color);
+    text-decoration: none;
+}
+
+
+/***************************
+    UI DIALOG BOX
+***************************/
+#ui-dialog {
+    width: 50vw;
+    max-width: 650px;
+    max-height: 75vh;
+    outline: 1px solid var(--outline_color);
+    border: 4px solid var(--outline_color);
+    box-shadow: 10px 10px 15px var(--nb_shadow_color), -10px 10px 15px var(--nb_shadow_color), 10px -10px 15px var(--nb_shadow_color), -10px -10px 15px var(--nb_shadow_color);
+    border-radius: 2em;
+    overflow: hidden;
+}
+
+#ui-dialog-titlebar {
+    background: var(--nb_head_color);
+    color: var(--nb_text);
+    padding: .3em .5em;
+    letter-spacing: 0.3em;
+    display: flex;
+    justify-content: center;
+    font-family: var(--computer);
+
+}
+#ui-dialog-title {padding: .2em;}
+#ui-dialog-close {
+    height: 100%;
+    color: #eee;
+}
+
+#ui-dialog-body {
+    max-height: calc(75vh - 5em);
+    background: linear-gradient(var(--nb_body_color2), var(--nb_body_color1));
+    border: none;
+    border-top: 3px solid var(--outline_color);
+    color: var(--nb_text);
+}
+#ui-dialog-body a {
+    font-weight: bold;
+    color: var(--link_color);
+}
+#ui-dialog-body a:hover {
+    color: var(--link_select_color);
+}
+
+
+/***************************
+    Headers
+***************************/
+h1 { 
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: x-large;
+}
+h2 { 
+    text-align: left;
+    font-size: large;
+}
+h3 { 
+    text-align: left;
+    font-size: medium;
+}

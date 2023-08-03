@@ -1,0 +1,1427 @@
+:: StoryTitle {"position":"25,25"}
+    The Cabinet Man
+
+:: StoryData {"position":"25,25"}
+{ 
+    "ifid": "4F520CA1-986F-4B5D-8F9F-21BA10A81EA2",
+    "format": "SugarCube", 
+    "format-version": "2.36.1",
+    "start": "Title Page",
+    "zoom": 0.3
+}
+
+:: StoryInit {"position":"25,150"}
+    /* character info */
+        <<set $name to "null">>
+        <<set $lname to "null">>
+        <<set $he to "he">>
+        <<set $him to "him">>
+        <<set $his to "his">>
+        <<set $He to "He">> 
+        <<set $Him to "Him">> 
+        <<set $His to "His">> 
+        <<set $p_sing to true>>
+    /* story path variables */
+        <<set $day to 1>>
+        <<set $toldMark to false>>
+        <<set $progress to 0>>
+        <<set $optional_evidence to {"lighter": false, "foundShed": false, "key": false, "trailer": false, "photos": false, "eBay": false, "panels": false, "lever": false, "scrunchie": false}>>
+        <<set $route1 to {"r1a": false, "r1b": false, "r1c": false, "r1d": false, "r1e": false, "r1g": false, "r1h": false, "r1i": false, "r1j": false, "r1k": false}>>
+        <<set $route2 to {"r2a": false, "r2b": false, "r2c": false, "r2d": false, "r2e": false, "r2g": false, "r2h": false, "r2i": false, "r2j": false, "r2k": false}>>
+        <<set $investigated to {"AH": false, "LL": false, "AW": false, "KC": false, "MK": false}>>
+    <<set $temp to 0>>
+
+:: Menu {"position":"25,650"}
+    <<link "Case File">><<script>>
+        Dialog.setup("Case File"); 
+        Dialog.wiki(Story.get("Case File Open").processText()); 
+        Dialog.open(); 
+    <</script>><</link>>
+
+:: StoryInterface {"position":"25,275"}
+	<div id="container">
+		<div class="topcontainter">
+			<div class="dayblock" data-passage="Day-Block"></div>
+            <div class="titleblock" data-passage="Title-Block"></div>
+            <div class="saveblock" data-passage="Save-Block"></div>
+		</div>
+		<div id="textbloc"><div id="passages"></div></div>
+        <div class="bottomcontainer"> 
+            <div class="menu" data-passage="Menu"></div>
+        </div>
+	</div>
+
+:: Title-Block [nobr] {"position":"25,400"}
+    <h1>The Cabinet Man</h1>
+
+:: Day-Block {"position":"275,400"}
+    <h1>Day $day</h1>
+
+:: Save-Block {"position":"150,400"}
+    <<link "Save Menu">><<script>>
+        Dialog.setup("Save Menu"); 
+        Dialog.wiki(Story.get("Save Menu").processText()); 
+        Dialog.open(); 
+    <</script>><</link>>
+:: Save Menu {"position":"150,525"}
+    <<link "Save Game">><<script>>UI.saves();<</script>><</link>>
+    <<link "Load Game">><<run UI.saves()>><</link>>
+    <<if Save.autosave.ok() and Save.autosave.has()>><<link "Resume Game">><<script>>Save.autosave.load()<</script>><</link>><</if>>
+
+:: Case File Open [cf] {"position":"25,775"}
+    <<if $progress >= 1>><h1> Case: The Cabinet Man </h1> 
+    <h2> Lead detective: Detecive $name $lname </h2>
+
+    <h2> The story so far: </h2> 
+    You've been assigned this case by Captain Pottinger. 
+    <<if $toldMark == false>> You chose not to tell your partner Mark that you were assigned to investigate the murder of Archibald Watts.<</if>>
+    
+    <<link "Collected evidence">><<script>>
+        Dialog.setup("Evidence"); 
+        Dialog.wiki(Story.get("Case File Evidence").processText()); 
+        Dialog.open(); 
+    <</script>><</link>>
+    <<link "Relevant People">><<script>>
+        Dialog.setup("People"); 
+        Dialog.wiki(Story.get("Case File Suspects").processText()); 
+        Dialog.open(); 
+    <</script>><</link>>
+    <<else>><h1> LOCKED </h1>
+    (Come back when you've completed more of the game.)<</if>>
+
+    <<link "Credits">><<script>>
+        Dialog.setup("Credits"); 
+        Dialog.wiki(Story.get("Credits").processText()); 
+        Dialog.open(); 
+    <</script>><</link>> 
+
+:: Case File Evidence [cf] {"position":"25,900"}
+    ''Not ready yet''
+
+    <<link "Return">><<script>>
+        Dialog.setup("Case File"); 
+        Dialog.wiki(Story.get("Case File Open").processText()); 
+        Dialog.open(); 
+    <</script>><</link>>
+
+:: Case File Suspects [cf] {"position":"150,900"}
+    <h2>People (in order of appearance):</h2> 
+    <<if $progress >= 1>><<link "Archibald Watts">><</link>> 
+        <<link "Mark Keeley">><</link>>
+        <<link "Grace Pottinger">><</link>>
+        <<link "The Dead Children">><</link>><</if>>
+    <<if $progress >= 2>><<link "Vera Efimov">><</link>>
+        <<link "Nicholas Huerta">><</link>>
+        <<link "Adam Watts">><</link>>
+        <<link "Khanh Cao">><</link>><</if>>
+
+    ''links do not work yet''
+
+    <<link "Return">><<script>>
+        Dialog.setup("Case File"); 
+        Dialog.wiki(Story.get("Case File Open").processText()); 
+        Dialog.open(); 
+    <</script>><</link>>
+
+:: Credits [cf] {"position":"275,900"}
+    Written by Sam Ng 
+    
+    Art by Alexis Ng ([[Instagram|https://www.instagram.com/k_roseheart/]])
+
+    The template used and modified to fit the theme of the story is the Space/Tech UI by manonamora ([[Tumblr|https://manonamora-if.tumblr.com/]]/[[Itch|https://manonamora.itch.io/]]) on Twine (v2.6.0)/Tweego with Sugarcube (v2.36.1). 
+    
+    Inspiration was taken from the video game series //Five Nights at Freddy's// and the album //Spirit Phone// by Lemon Demon. 
+    
+    Course works that influenced this story include //The Likeness// by Tara French (and //In the Woods// by Tara French, the first book in the Dublin Murder Squad series), //Rear Window// directed by Sir Alfred Hitchcock, and //The Man with the Twisted Lip// by Sir Arthur Conan Doyle. 
+
+    <<link "Return">><<script>>
+        Dialog.setup("Case File"); 
+        Dialog.wiki(Story.get("Case File Open").processText()); 
+        Dialog.open(); 
+    <</script>><</link>>
+
+:: Title Page {"position":"500,25"}
+    Please input your name: 
+    <<textbox "$name" "First name">> <<textbox "$lname" "Last name">> 
+
+    Please enter your pronouns: 
+    <<textbox "$he" "he">> <<textbox "$him" "him">> <<textbox "$his" "his">> 
+    These pronouns are: 
+    <<listbox "$p_sing" autoselect>>
+        <<option "singular (is)" true>>
+        <<option "plural (are)" false>>
+    <</listbox>>
+
+    <<link "Start game">><<goto "Day 1 Intro 00">><</link>>
+
+:: Day 1 Intro 00 {"position":"500,150"}
+    <h1>Day 1</h1>
+    Tip: Watch the people around you.
+
+    <<link "Next">><<goto "Day 1 Intro 01">><</link>>
+
+    <<set $He to $he.toUpperFirst()>> 
+    <<set $Him to $him.toUpperFirst()>> 
+    <<set $His to $his.toUpperFirst()>> 
+
+:: Day 1 Intro 01 {"position":"500,275"}
+    You heard about the fire before you even got into the office. 
+
+    <<link "Next">><<goto "Day 1 Intro 02">><</link>>
+
+:: Day 1 Intro 02 {"position":"500,400"}
+    The minute you woke up you were bombarded with text messages, missed calls, and news reports of the fire that took place less than an hour away from your apartment. You had replied to the most pressing messages and briefly glanced through the news reports. You wish you'd studied them a bit more carefully now. Maybe then you'd know why the mood in the police station was so… weird. 
+    
+    You set your stuff down at your desk and lean over to your partner's desk. "Hey Mark, what's up with everyone today? Feels like there's a surprise party planned and I'm the only one out of the loop."
+
+    <<link "Next">><<goto "Day 1 Intro 03">><</link>>
+
+:: Day 1 Intro 03 {"position":"500,525"}
+    Mark gives you a quick wave before focusing back on his laptop. "Didn't you hear? The Watts place burned down." 
+
+    So that's where the fire was. "Right, yeah, the Watts place… Oh." 
+
+    Mark nods. "Yeah, oh. I'm surprised it took so long for it to click for you." 
+
+    "Hey, in my defense I-" 
+
+    "$lname!"
+
+    <<link "Next">><<goto "Day 1 Intro 04">><</link>>
+
+:: Day 1 Intro 04 {"position":"500,650"}
+    You look up for the source of the shout and see Captain Pottinger standing in the doorway to her office. 
+
+    "Come over here. I need to talk to you for a second." 
+
+    As she walks back into her office, you glance at Mark. He grins and teasingly whispers, "Oooooh, someone's in trouble."
+
+    <<link "Ignore him.">><<goto "Day 1 Intro 05a">><</link>>
+    <<link "Tease him back.">><<goto "Day 1 Intro 05b">><</link>>
+
+:: Day 1 Intro 05a {"position":"500,775"}
+    You roll your eyes. Mark's joking nature sometimes comes out at the worst moments. You walk over to the office. 
+
+    <<link "Next">><<goto "Day 1 Intro 06">><</link>>
+
+:: Day 1 Intro 05b {"position":"625,775"}
+    "Bold words from the idiot who was called into her office last week because of the amount of coffee stains on his report." 
+
+    Mark rolls his eyes at you and turns back to his work. "Yeah, yeah. Better get in there before Pottinger blows a fuse." 
+
+    "Aye-aye, sir." You jokingly salute him and walk over to the office. 
+
+    <<link "Next">><<goto "Day 1 Intro 06">><</link>>
+
+:: Day 1 Intro 06 {"position":"500,900"}
+    As you knock on the door to Captain Pottinger's office, you feel yourself getting a bit nervous. You desperately try to remember anything that happened within the past week that could possibly get you written up. Nothing comes to mind, but it doesn't shake the uneasy feeling pooling in your gut. "Captain. It's Detective $lname."
+
+    "Come in."
+
+    You open the door and walk into the office. 
+
+    Captain Pottinger is sitting behind the large desk in the room and seems to be reading a paper when you walk in. When you close the door, she closes the file and looks at you, gesturing for you to take a seat on one of the chairs in front of her desk. 
+
+    You sit down. 
+
+    She folds her hands and stares at you over the table. "Do you know why I called you in today?" 
+
+    <<link "Preemptively apologize.">><<goto "Day 1 Intro 07a">><</link>>
+    <<link "Say no.">><<goto "Day 1 Intro 07b">><</link>>
+    <<link "Keep quiet.">><<goto "Day 1 Intro 07c">><</link>>
+
+:: Day 1 Intro 07a {"position":"500,1025"}
+    "Captain, if this is about the rubber ducks by the coffee machine, I really don't know anything about them. They just appeared one day in the break room and they've really been spelling out everyone's names at this point so my name being first one that was spelled really doesn't..."
+
+    Captain Pottinger raises her hand for you to stop talking. "That's not it. Though I will take that into consideration." 
+    
+    You die a little bit inside. 
+
+    "No, I called you in because of this." She slides the file she was reading earlier across the desk to you.
+
+    <<link "Next">><<goto "Day 1 Intro 08">><</link>>
+
+:: Day 1 Intro 07b {"position":"625,1025"}
+    "No, Captain." 
+
+    She nods. "I appreciate your honesty. Here, take a look at this." She slides the file she was reading earlier across the table to you. 
+
+    <<link "Next">><<goto "Day 1 Intro 08">><</link>>
+
+:: Day 1 Intro 07c {"position":"750,1025"}
+    "..." 
+
+    She quirks an eyebrow at you. "You're not in trouble if that's why you're being quiet. Here, take a look at this." She slides the file she was reading earlier across the table to you. 
+
+    <<link "Next">><<goto "Day 1 Intro 08">><</link>>
+
+:: Day 1 Intro 08 {"position":"500,1150"}
+    You pick up the file and open it. Inside is a typed report and several photos. Most of the photos are of the shells of arcade machines with bundles of clothes inside. You take a closer look and realize those bundles are children, curled up and shoved into the machine. "This is..." 
+
+    "This is the report from the serial killings of '98. I think you'll find it useful in your investigations." 
+
+    You look up, confused. "My investigations? I'm not assigned to any case right now, Captain."
+
+    "You are now." Captain Pottinger slides another file across her desk to you. "Your new assignment is to investigate the murder of Archibald Watts." 
+
+    <<link "Next">><<goto "Day 1 Intro 09">><</link>>
+
+:: Day 1 Intro 09 {"position":"500,1275"}
+    "Murder? I thought his house burnt down?" You pick up the second file and begin flipping through it. 
+
+    "It did. And then his charred body was found in the Lucy Lemon off Dalby Road. The techs are still out at both locations doing their preliminary investigations, but they'll probably be packing up soon. Any questions?"
+
+    <<link "\"Why me?\"">><<goto "Day 1 Intro 10a">><<set $temp to 2>><</link>>
+    <<link "\"Who else is on the case with me?\"">><<set $temp to 1>><<goto "Day 1 Intro 10b">><</link>>
+    <<link "No questions.">><<goto "Day 1 Intro 11">><</link>>
+
+:: Day 1 Intro 10a {"position":"500,1400"}
+    "Why me? This feels like a case that would usually be assigned to someone a bit more senior." Even though you were a detective, there were plenty of other detectives that had more experience than you. 
+
+    Captain Pottinger leans back in her chair and looks up at the ceiling. "When did you move to town, $name?" 
+    
+    You don't have to think long. "My junior year of high school. The summer of '05."
+
+    "Do you know how long every other detective has lived in this city?"
+
+    You genuinely don't know how to respond to that. 
+
+    <<link "Next">><<goto "Day 1 Intro 10a01">><</link>>
+
+:: Day 1 Intro 10a01 {"position":"500,1525"}
+    Captain Pottinger looks tired, like she aged 10 years in the ten seconds it took her to lean back in her chair. "We've all lived here longer than you. Not a single one of us is not connected to someone who died that year."
+    
+    You keep quiet. You sense that rushing answers from the captain would be a bad idea right now. 
+
+    After a long silence, Captain Pottinger sits up again and looks at you. Her exhaustion is again hidden behind her usual indifferent expression. "Any other questions?" 
+
+    =="Why me?"==
+    <<link "\"Who else is on the case with me?\"">><<set $temp to 3>><<goto "Day 1 Intro 10b">><</link>>
+    <<link "No questions.">><<goto "Day 1 Intro 11">><</link>>
+
+:: Day 1 Intro 10b {"position":"625,1400"}
+    "Who else is going to take the case with me?" Usually you work as a pair with Mark, but he wasn't called in to the office. 
+
+    "No one. You'll be leading this case on your own. You'll be working with the usual CSI team because we never have enough of them to spare in the first place, and you can ask some patrol officers to help you own at your own discretion, but other than that you're on your own."
+
+    <<link "Object.">><<goto "Day 1 Intro 10b01a">><</link>>
+    <<link "Keep quiet.">><<goto "Day 1 Intro 10b01b">><</link>>
+
+:: Day 1 Intro 10b01a {"position":"625,1525"}
+    "Captain, with all due respect, this doesn't feel like enough support." Usually teams consisted of two or more detectives, working with a team of police officers to cover the ground they needed to. Working a case on your own felt more than a little daunting. 
+
+    Captain Pottinger just shrugs. "Unfortunately, you have to work this one by yourself. There aren't any other detectives who can help you." 
+    
+    Dang, looks like you're own your own. 
+    
+    <<link "Next">><<goto "Day 1 Intro 10b01b">><</link>>
+
+:: Day 1 Intro 10b01b {"position":"750,1525"}
+    "Understood, Captain." 
+    
+    Captain Pottinger nods. "Good. Any other questions? "
+
+    <<link "\"Why me?\"">><<goto "Day 1 Intro 10a">><<set $temp to 3>><</link>>
+    =="Who else is on the case with me?"==
+    <<link "No questions.">><<goto "Day 1 Intro 11">><</link>>
+
+:: Day 1 Intro 11 {"position":"500,1650"}
+    "No questions."
+
+    Captain Pottinger nods. "Best of luck."
+
+    "Thanks." Taking it as a dismissal, you get up and turn to leave the room, but pause when you hear your name again.
+
+    "$lname?"
+
+    You turn around again to face the captain. "Yes?"
+
+    The captain is looking at the stack of files in her inbox, but is still clearly addressing you. "If you don't manage to find the killer... Let's just say that no one in this city will hold it against you."
+
+    "... understood." You leave the room. 
+
+    <<link "Next">><<goto "Day 1 Intro 12">><</link>>
+
+:: Day 1 Intro 12 {"position":"500,1775"}
+    You walk back to your desk and pick up the bag you'd just put down. 
+
+    Mark turns to face you. "Leaving already?" Seems like he's finished whatever he was working on earlier. 
+
+    "Yep, Pottinger's sending me out." 
+
+    "Damn, so much for a quiet day." He seems to catch sight of the two files you're holding. "What's the case?" 
+
+    <<link "Tell Mark.">><<set $toldMark to true>><<goto "Day 1 Intro 13a">><</link>>
+    <<link "Lie.">><<set $toldMark to false>><<goto "Day 1 Intro 13b">><</link>>
+
+:: Day 1 Intro 13a {"position":"500,1900"}
+    "Watts. I'm investigating Watts's death." 
+	
+	Mark scowls. "The bastard is better off dead." 
+
+    <<link "Admonish him.">><<goto "Day 1 Intro 13a01a">><</link>>
+    <<link "Agree with him.">><<goto "Day 1 Intro 13a01b">><</link>>
+    <<link "Keep quiet.">><<goto "Day 1 Intro 13a01c">><</link>>
+    
+:: Day 1 Intro 13a01a {"position":"500,2025"}
+    You frown. "Hey, it's rude to speak ill of the dead." 
+
+	Mark rolls his eyes. "Yeah, well when the dude was a serial killer I don't think being polite should be my top priority." He shakes his head. "Anyways, give me a minute and I'll be ready to head out." 
+
+    <<link "Next">><<goto "Day 1 Intro 13a02">><</link>>
+
+:: Day 1 Intro 13a01b {"position":"625,2025"}
+    You nod. "Can't say I disagree." 
+
+	Mark holds his fist out for a fist bump and you meet him halfway. Then he turns to his desk and starts grabbing his stuff. "Give me a minute and I'll be ready to head out." 
+
+    <<link "Next">><<goto "Day 1 Intro 13a02">><</link>>
+
+:: Day 1 Intro 13a01c {"position":"750,2025"}
+    You glance to the side. "..." 
+
+	Mark seems to take your silence as an agreement, shaking his head at the idea of Archibald Watts. "Anyways, give me a minute and I'll be ready to head out."
+
+    <<link "Next">><<goto "Day 1 Intro 13a02">><</link>>
+
+:: Day 1 Intro 13a02 {"position":"500,2150"}
+    "Nah, it's fine. You stay." 
+
+	Mark laughs. "Come on, $name. We're partners, of course I have to go with you." 
+
+	"Not this time." 
+
+	Mark looks over, his smile slowly dropping. "What?" He tries to disguise his confusion with a teasing tone. "Are you dumping me?"
+
+	You scoff and punch his shoulder lightly. "Don't joke about dating me when you've literally got a photo of you and your husband on your desk. But no, Pottinger told me that I'm to work this case alone." 
+
+	"Did she explain why?" Mark's smile has completely disappeared. 
+
+    <<link "Next">><<goto "Day 1 Intro 13a03">><</link>>
+    
+:: Day 1 Intro 13a03 {"position":"500,2275"}
+    <<if $temp >= 2>>"Yeah. She said that I'm the only one who hasn't been directly affected by the killings."
+
+	    Mark looks down at his desk, his bangs hiding his expression. Quietly, he replies, "yeah, she's probably right." 
+
+	    You make a mental note to look for Mark's last name in the case file. <<else>> "No, not really."
+
+		Mark glances over at the captain's office. "Hmmm." 
+    <</if>>
+
+    In an attempt to break the awkward silence, you cough and wave the files. "Anyways, I'll probably be in the field most of today. Two crime scene to cover and only one of me so..." 
+
+	"Yeah, sure. Don't let me keep you. Let me know if you need any help." Mark's usually laid-back and cheerful demeanor is absent, replaced by something much quieter and contemplative. 
+
+	You nod. "Will do." 
+    
+    You both know that's a lie. 
+
+    <<link "Next">><<set $progress to 1>><<goto "Day 1 Investigate 00">><</link>>
+    
+:: Day 1 Intro 13b {"position":"875,1900"}
+    "Not a new case. She wants me to follow up some stuff on the serial killings from '98. Because of Watt's death and everything. Said it's supposed to be solo work to keep me occupied. I think it's because she thinks I'm behind the rubber ducks that she's trying to keep me on desk work." 
+
+    Mark snorts. "Ah, leave it to Pottinger to not have a sense of humor." 
+
+    "Hah, yeah." Lying to Mark makes you feel a bit guilty, but you know that if you told him the truth that he'd take it pretty badly. "Anyways, I'm gonna head over to the archives, see if I can't get a bit more information than what's in here." You wave the case file in your hand. 
+
+    "Let me know if I can help with anything." Mark waves you goodbye. 
+
+    "Mhmm, will do." Another lie. 
+
+    <<link "Next">><<set $progress to 1>><<goto "Day 1 Investigate 00">><</link>>
+
+:: Day 1 Investigate 00 {"position":"1100,150"}
+    ''Unlocked: Case file'' 
+
+    Click the "Case File" button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game in there. The case file will be updated at the end of each section of the game. 
+
+    <<link "Next">><<goto "Day 1 Investigate 01">><</link>>
+
+:: Day 1 Investigate 01 {"position":"1100,275"}
+    You sit in the department-issued car, still in the parking lot, as you debate on where to go. You could either go to the scene of the arson or to where the body was found. 
+
+    <<link "Go to Watts's house">><<set $investigated["AH"] to true>><<goto "Day 1 Investigate 02a">><</link>>
+    <<link "Go to the Lucy Lemon">><<set $investigated["LL"] to true>><<goto "Day 1 Investigate 02b">><</link>>
+
+:: Day 1 Investigate 02a {"position":"1100,400"}
+    You decide to head over to Watts's house. 
+    
+    You set the location in your GPS and see that it's pretty far from the heart of the city. As you start driving, you wonder if that was on purpose or not. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a01">><</link>>
+
+:: Day 1 Investigate 02a01 {"position":"1100,525"}
+    You arrive at the address Pottinger gave you. 
+	
+    Miraculously finding an open spot, you park at the end of the block and grab your notebook from the cup holder where you'd placed it earlier. As you approach the crime scene tape, you pull out your badge to show to one of the officers on the scene who lets you through. 
+    
+    You walk over to the head of the CSI unit who's standing in the front door. Sarcastically, you announce your presence, "Efimov, just who I was hoping to see." 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a02">><</link>>
+
+:: Day 1 Investigate 02a02 {"position":"1100,650"}
+    Vera Efimov doesn't even look up at you from her phone. "That makes one of us, $lname." 
+    
+    "Well, what do you have for me?" 
+    
+    At this, Vera turns off her phone and gestures around her. "Burnt house." 
+    
+    "Hilarious," you deadpan. 
+    
+    Vera smirks at you. "I aim to please." 
+    
+    <<link "Next">><<goto "Day 1 Investigate 02a03">><</link>>
+
+:: Day 1 Investigate 02a03 {"position":"1100,775"}
+    A moment passes before you break your snarky character to smile back at her. "How've you been, Vera?" 
+
+    You and Vera had both moved here during high school and became fast friends. Her quick wit and surpringly insightful analysis of the texts assigned in English class were fun to listen to and even more fun to debate with. You were surprised when she went into science rather than literature, but whenever you asked she just shrugged and said that science was her first love. 
+    
+    Vera shrugs. "No better than the last time you saw me $name. Still hanging around crime scenes like my job depends on it. Oh wait." 
+	
+    You shake your head. Classic Vera. "If it's so tedious then we should get you out of here as soon as possible. What do you have for me?" 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a04">><</link>>
+
+:: Day 1 Investigate 02a04 {"position":"1100,900"}
+    Vera passes you a pair of latex gloves and gestures for you to follow her into the house. "See for yourself." 
+		
+    You pull on the gloves as you look around. The inside of the house is what you would expect from a house that barely survived a fire. You can barely make out the original color of the walls. Any curtains or rugs that may have been in the house before have been burned to ash. The wooden furniture is badly charred. 
+		
+    Vera leads you into the foyer and then into the kitchen. "Our preliminary investigation suggests that the fire started in the kitchen, probably from the stove or something. You know how it goes: gas leak, someone lights a smoke, boom." 
+
+    <<link "Ask if someone was smoking.">><<goto "Day 1 Investigate 02a05a">><<set $optional_evidence["lighter"] to true>><</link>>
+    <<link "Ask if someone was in the house when it caught on fire.">><<goto "Day 1 Investigate 02a05b">><</link>>
+
+:: Day 1 Investigate 02a05a {"position":"1100,900"}
+    "Did you find evidence that someone had been smoking?" 
+	
+    "Yep." Vera taps a CSI on the shoulder and gestures to the bag the CSI was carrying. "The lighter." 
+		
+    The CSI hurridly hands her the lighter before turning back and continuing to photograph the gas stove. 
+	
+    Vera passes you an evidence bag with a silver lighter inside. You study the lighter carefully. It's the kind you need to flip the cap open in order to use, probably used often by the amount of wear and tear you can see on the casing. On one side of the casing, there's a sideways M, or is it a W? 
+	
+    <<link "Next">><<goto "Day 1 Investigate 02a05a01">><</link>>
+
+:: Day 1 Investigate 02a05a01 {"position":"1100,1025"}
+    You take a photo of the lighter and hand it back to Vera. "Is there any evidence Watts used to smoke?"
+	
+    Vera shrugs. "There are a few ashtrays scattered around the house so maybe? But check with the coroner. I'm not the body person." 
+	
+    You hum in acknowledgement. 
+	
+    Vera turns to hand the bag back to the CSI before gesturing for you to continue to follow her. "Let's go upstairs. There's something I want to show you." 
+	
+    You raise your eyebrows. "Wow, cryptic." 
+	
+    Vera smiles. "That's how I keep my air of allure around me. Never reveal any secrets." 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a06">><</link>>
+
+:: Day 1 Investigate 02a05b {"position":"1225,900"}
+    You glance at your notebook to verify you suspicions. "But there was no one in the house when it went up." 
+		
+    Vera frowns. "I'm not entirely sure. There's no body here, but when we investigated the bedroom we did find traces that someone had been there recently. Here, let's go up so I can show you." 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a06">><</link>>
+
+:: Day 1 Investigate 02a06 {"position":"1100,1150"}
+    The two of you arrive at the second floor of the house. 
+    
+    Vera passes by three rooms seemingly filled to the brim with junk. "Those rooms are a work in progress. We'll be cataloging everything in there for the next week probably. I'll let you know if we find anything, but so far it looks like random junk: empty arcade cabinets, old bike frames, random stacks of playing cards, anything you can think of. Think I found like seven Bibles earlier. Anyways, try to stay away from those rooms for now. I don't need you knocking something over and forcing us to recategorize." 
+	
+    You make a note and underline it. Don't enter the guest rooms yet.  
+
+    <<link "Next">><<goto "Day 1 Investigate 02a07">><</link>>
+
+:: Day 1 Investigate 02a07 {"position":"1100,1275"}
+    Vera leads you into the room furthest from the staircase, which turns out to be the master bedroom, or what was left of it. The bed is burned to high hell and the dressers aren't much better. The attached bathroom seems to have come away a bit better, but only because most of it is tile and ceramic. The ceiling still has evidence of the fire and the walls and mirror are covered with soot. 
+	
+    Vera points to the bathtub. "When we got here, there was water in here. I assume the ceiling was intact before the fire and even if it wasn't, it hasn't rained in the last few days. We've already drained the water, but we collected some samples before we did. I'll let you know what the results say once we do some proper analysis. Couldn't get much out of it because it was so clogged up with ash." 
+
+    Your pen is halfway to your notebook before you register what the bath water means. "So someone was in the bath during the fire?"
+
+    Vera shrugs. "I'll let you know if we find skin cells or organic matter, but other than that I can't say." 
+
+	You make a note to follow up about the bath samples. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a08">><</link>>
+
+:: Day 1 Investigate 02a08 {"position":"1100,1400"}
+    Vera leads you back to the front of the house. "Anyways, that's about what I've got for you. My crew will probably pack up in an hour or so, so if you've got questions ask them before we leave or I get to threaten you with the good ol' '3 to 5 business days.'" 
+	
+    You nod. "Will do. Thanks Vera." 
+	
+    "No problem, $name." Vera picks up her phone again and begins scrolling through it.
+	
+    You decide to move to your next location.	
+
+    <<link "Talk to Vera.">><<goto "Day 1 Investigate 02a09a">><</link>>
+    <<link "Walk around the perimeter of the house.">><<goto "Day 1 Investigate 02a09b">><</link>>
+    <<link "Check the garage.">><<goto "Day 1 Investigate 02a09c">><</link>>
+    <<link "Check the living room.">><<goto "Day 1 Investigate 02a09d">><</link>>
+    <<link "Check the kitchen.">><<goto "Day 1 Investigate 02a09e">><</link>>
+    <<link "Check upstairs.">><<goto "Day 1 Investigate 02a09f">><</link>>
+    <<link "Leave.">><<goto "Day 1 Investigate 02a11">><</link>>
+
+:: Day 1 Investigate 02a09a {"position":"1100,1525"}
+    You walk over to the front door where Vera stands. 
+
+    She looks up from her phone. "What's up?"
+
+    <<link "Ask her how she's been.">><<set $route2["r2a"] to true>><<goto "Day 1 Investigate 02a09a01a">><</link>>
+    <<link "Ask if she knows about Watts's reputation.">><<set $route2["r2b"] to true>><<goto "Day 1 Investigate 02a09a01b">><</link>>
+    <<if $optional_evidence["shed"] is true>><<link "Ask if anyone has found a key.">><<goto "Day 1 Investigate 02a09a01c">><</link>>
+    <</if>><<link "Leave.">><<goto "Day 1 Investigate 02a09a02">><</link>>
+
+:: Day 1 Investigate 02a09a01a {"position":"1100,1650"}
+    "How's life been treating you lately?" 
+	
+    Vera shrugs. "Meh. Work, work, and more work it feels like. If I'm not careful, I might be married to this job in the future." 
+	
+    "I heard you ended things with the girl from Dispatch." 
+	
+    "Yeah. Or, well, she did. I guess we just wanted different things. She wanted someone who would be there when she woke up in the morning and I wanted to keep my job." 
+	
+    "Well, if it helps, I still owe you a drink after the last case we worked together." 
+	
+    "Yeah, maybe I'll take you up on this after we're done here. A strong cocktail and a book to take my mind off of shit sounds great right now." Vera laughs, but you can tell she's still hurting a little. 
+	
+    You decide not to push it further. 
+
+    She shakes her head. "Anything else?"
+
+    ==Ask her how she's been.==
+    <<if $route2["r2b"]>>==Ask if she knows about Watts's reputation==<<else>><<link "Ask if she knows about Watts's reputation.">><<set $route2["r2b"] to true>><<goto "Day 1 Investigate 02a09a01b">><</link>><</if>>
+    <<if $optional_evidence["shed"] is true>><<link "Ask if anyone has found a key.">><<goto "Day 1 Investigate 02a09a01c">><</link>>
+    <</if>><<link "Leave.">><<goto "Day 1 Investigate 02a09a02">><</link>>
+
+:: Day 1 Investigate 02a09a01b {"position":"1225,1650"}
+    "Do you know anything about Watts's reputation here?"
+
+    Vera gives you a weird look. "Who doesn't? Dude was everyone's prime suspect for the murders in '98. Only reason he was never charged is because they couldn't find enough evidence against him. It must have been a nightmare living here at that time. We were, what, 8 years old?" 
+	
+    You do the math in your head. "Yeah, 8 years old." 
+	
+    Vera nods. "There's a lot of resentment towards him. I'm surprised you don't know, detective. Isn't it your job to know about these sorts of people?" 
+	
+    You put your hands up in surrender. "Point taken, point taken. I was just trying to figure out if you knew anything beyond what I did."
+	
+    Vera shakes her head. "Out of luck. Go fish. Anything else?" 
+
+    <<if $route2["r2a"]>>==Ask her how she's been.==<<else>><<link "Ask her how she's been.">><<set $route2["r2a"] to true>><<goto "Day 1 Investigate 02a09a01b">><</link>><</if>>
+    ==Ask if she knows anything about Watts's reputation==
+    <<if $optional_evidence["shed"] is true>><<link "Ask if anyone has found a key.">><<goto "Day 1 Investigate 02a09a01c">><</link>>
+    <</if>><<link "Leave.">><<goto "Day 1 Investigate 02a09a02">><</link>>
+
+:: Day 1 Investigate 02a09a01c {"position":"1350,1650"}
+    "Has anyone found a key? Or maybe a very very tiny and long gear?"
+	
+    Vera looks up in thought. "Key... gear... No, I don't think so... Ah, wait." She shoves her phone back in her pocket and runs over to one of the CSIs. You can see her gesture to something and the CSI handing her something. She walks back over to you and hands you a small evidence baggie. "We found this in the driveway. It's the closest I can think of." 
+	
+    You take the baggie and study the item inside. It looks like a tiny ice pick, but there are curves and ridges on the side similar to an old hand-crank pencil sharpener. "Can I take this?" 
+	
+    Vera squints at you. "We haven't fingerprinted it yet or anything. Can you wait until we at least catalog it?" 
+	
+    "When will that be?" 
+	
+    "Give me a few minutes and then it's yours. Or, it's yours until we leave." 
+	
+    "Deal." You hand the bag to Vera. "Can you meet me in the backyard when you're done?" 
+	
+    Vera nods and walks over to the van. "Yep, can do." 
+
+    <<link "Next">><<set $route1["r1a"] to true>><<set $optional_evidence["key"] to true>><<goto "Day 1 Investigate 02a10">><</link>>
+
+:: Day 1 Investigate 02a09a02 {"position":"1100,1775"}
+    "Nope, nothing."
+
+    Vera nods and looks back down at her phone. "Alright. Happy investigating."
+
+    <<link "Next">><<goto "Day 1 Investigate 02a10">><</link>>
+
+:: Day 1 Investigate 02a09b {"position":"1475,1525"}
+    You take a walk around the perimeter. 
+	
+    The outside of the house is just as flame-ridden as you'd expect. Once-light-grey paint charred black from the fire, scorch marks extremely evident around the windows. The fire didn't spread to the grass outside the house thanks to the brick walkway that surrounds the house. Lucky the fire department got there before the fire spread to the neighbors' houses. You don't want to think about the casualties that could have resulted from that. 
+	
+    You enter the backyard and see a shed on the far side of the backyard.
+
+    <<link "Check out the shed.">><<set $optional_evidence["shed"] to true>><<goto "Day 1 Investigate 02a09b01a">><</link>>
+    <<link "Go back to the front of the house.">><<goto "Day 1 Investigate 02a09b01b">><</link>>
+
+:: Day 1 Investigate 02a09b01a {"position":"1475,1650"}
+    You go check out the shed. 
+
+    <<if $route1[r1a]>>You look behind you to see Vera walking up. She hands you the bag with the key in it. "Make sure to wear your gloves while handling it." 
+	
+    You waggle you already-gloved hands in her face and she makes a face and pushes them aside. You snicker and turn back around to unlock the door to the shed. 
+	
+    You try to stick the key in the lock, but realize that the sides of the key are all slightly different widths, and that the key needs to be put in a specific way. It takes you a few tries, but you eventually figure out the correct orientation for the key.
+
+    When you open the door, you realize the shed is actually a workshop.
+    
+    <<link "Next">><<goto "Day 1 Investigate 02a09b01a01">><</link>><<else>>You walk over to the shed and notice that it's in much better shape than you'd expect. It was seemingly untouched by the fire. Good thing too; the wooden structure likely would have lit up like a bonfire. You go to open the door and notice that there's a lock on the door. The keyhole looks like a gear shape, nowhere near a regular key. You'll have to see if anyone found the key.
+    
+    <<link "Next">><<goto "Day 1 Investigate 02a09b01b">><</link>>
+    <</if>>
+
+:: Day 1 Investigate 02a09b01a01 {"position":"1475,1775"}
+    You look around the workshop. 
+    
+    Inside are two tables: one on the wall next to the door and another on the far wall next to a window. The first table has several electronic devices carelessly placed on it, each one with a note taped to it. You recognize a few video game consoles from your childhood. The other table has a set of tool carefully placed in an organizer leaning against the wall. There's an open laptop lying on the bench. 
+
+    <<link "Investigate the table closer to you.">><<goto "Day 1 Investigate 02a09b01a02a">><</link>>
+    <<link "Investigate the bench by the window.">><<goto "Day 1 Investigate 02a09b01a02b">><</link>>
+    <<link "Leave.">><<goto "Day 1 Investigate 02a09ba03">><</link>>
+
+:: Day 1 Investigate 02a09b01a02a {"position":"1475,1900"}
+    There are several electronic devices on the table, some of which you recognize, most of which you don't. Each one has a note taped to it. The notes all have a name and an address attached to them. Most of these addresses are outside the city, if not outside the country. 
+	
+    You write each one down. They might come in handy later. 
+
+    <<link "Return">><<goto "Day 1 Investigate 02a09b01a01">><</link>>
+
+:: Day 1 Investigate 02a09b01a02b {"position":"1600,1900"}
+
+    There are several small screwdrivers, tweezers, and wrenches in a tool organizer leaning against the wall. There's an unplugged soldering iron in its station on the table. Also on the table is an open laptop and a note with a name and an address. You try turning the laptop on but nothing happens. Looks like it's either dead or broken. Either way, you won't be getting any information from it until one of the CSIs can take a look at it. You jot down the name and address just in case. 
+    
+    There's a drawer in the table. Opening it reveals several electronic components that you can't make heads or tails of. You take photos of them anyways, hoping inspiration might strike later. 
+
+    <<link "Return">><<goto "Day 1 Investigate 02a09b01a01">><</link>>
+
+:: Day 1 Investigate 02a09ba03 {"position":"1475,2025"}
+    You don't see anything else of interest in the shed. 
+	
+    You turn to Vera who's doing some photographing of her own. "I'm heading out." 
+	
+    Vera nods. "Okay. Stay out of trouble." 
+	
+    You do your best exhausted teenager, "yes mom," and move back to the backyard. There doesn't seem to be anything else of note in the backyard, so you decide to keep moving. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a09b01b">><</link>>
+
+:: Day 1 Investigate 02a09b01b {"position":"1600,1650"}
+    You circle the other side of the house. 
+    
+    It looks pretty much the same as the first side you walked around. You find yourself back at the front of the house. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a10">><</link>>
+
+:: Day 1 Investigate 02a09c {"position":"1725,1525"}
+    You walk through the open garage door and look inside. A truck and horse trailer take up the majority of the space, leaving only a small walkway around either. 
+
+    <<link "Investigate the truck.">><<goto "Day 1 Investigate 02a09c01a">><</link>>
+    <<link "Investigate the trailer.">><<set $optional_evidence["trailer"] to true>><<goto "Day 1 Investigate 02a09c01b">><</link>>
+    <<link "Return.">><<goto "Day 1 Investigate 02a10">><</link>>
+
+:: Day 1 Investigate 02a09c01a {"position":"1725,1650"}
+    You look inside the truck. The glove compartment has been ransacked, probably by the CSIs. You can see insurance papers, car registration, and a user's manual. A small air freshener hangs on the review mirror, but the lack of smell suggests that whoever put it there just never replaced it. There's nothing on the side compartments or in the back. Boring guy. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09c">><</link>>
+
+:: Day 1 Investigate 02a09c01b {"position":"1850,1650"}
+    You look in the horse trailer. Even though the trailer is meant for horses, you can see that there's no horses to speak of inside. Instead, a bunch of standing arcade games are inside. None of them are connected to power. Maybe these are left over from when Archibald still worked at Spirit Cell Arcade. You make a note to review that later. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09c">><</link>>
+
+:: Day 1 Investigate 02a09d {"position":"1975,1525"}
+    You walk to the center of the living room and take another look around. 
+    
+    Just as burned as when you last saw it. The CSIs have mostly finished up in here. 
+
+    <<link "Look at the floor.">><<goto "Day 1 Investigate 02a09d01a">><</link>>
+    <<link "Look at the walls.">><<set $optional_evidence["photos"] to true>><<goto "Day 1 Investigate 02a09d01b">><</link>>
+    <<link "Look at the furniture.">><<goto "Day 1 Investigate 02a09d01c">><</link>>
+    <<link "Look at the furniture.">><<goto "Day 1 Investigate 02a09d01d">><</link>>
+    <<link "Leave.">><<goto "Day 1 Investigate 02a10">><</link>>
+
+:: Day 1 Investigate 02a09d01a {"position":"1975,1650"}
+    You study the floor. 
+	
+    It's covered in soot and footprints. There's no way for you to figure out which belong to who. You walk over to the wall and notice some shattered glass there. You should probably watch where you step. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09d">><</link>>
+
+:: Day 1 Investigate 02a09d01b {"position":"2100,1650"}
+    You look at the walls. 
+    
+    They're really burnt. You can see a few picture frames, but the glass has been shattered and the flames have claimed the photos. It's impossible for you to make out what was inside. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09d">><</link>>
+
+:: Day 1 Investigate 02a09d01c {"position":"2225,1650"}
+    You look at the couches and tables in the room. 
+	
+    You can't make out much because of the burn damage, but they look old. There appear to be relatively fresh scuff marks on the legs of every piece of furniture in the room, but you aren't sure if that was from the firefighters, the CSIs, or someone else entirely. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09d">><</link>>
+
+:: Day 1 Investigate 02a09d01d {"position":"2350,1650"}
+    You look at the windows. 
+	
+    The windows are closed and covered in ash. You can't see out of them. The temptation to draw a smiley face in the ash suddenly seizes you and you have swat your arm to keep yourself from doing something stupid. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09d">><</link>>
+
+:: Day 1 Investigate 02a09e {"position":"2475,1525"}
+    You take a look around the kitchen. 
+
+    The light streaming in from the window above the sink really shows how badly the place is scorched. Good thing no one will be cooking here any time soon. 
+
+    <<link "Look at the stove.">><<goto "Day 1 Investigate 02a09e01a">><</link>>
+    <<link "Look at the pantry and fridge.">><<goto "Day 1 Investigate 02a09e01b">><</link>>
+    <<link "Look at the drawers.">><<goto "Day 1 Investigate 02a09e01c">><</link>>
+    <<link "Leave.">><<goto "Day 1 Investigate 02a10">><</link>>
+
+:: Day 1 Investigate 02a09e01a {"position":"2475,1650"}
+    You look at the stove. 
+    
+    It's a gas stove like Vera told you earlier. The working theory is that someone left the gas on and then lit a flame that set the whole house on fire. You examine the stove top and don't see any evidence of tampering or any traces of a cloth or anything that could have lit the house on fire. Then again, maybe one of the CSIs found something and bagged it already. You make a note to ask. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09e">><</link>>
+
+:: Day 1 Investigate 02a09e01b {"position":"2600,1650"}
+    You open the pantry and look inside. 
+    
+    Everything, including the door, is burnt. You don't envy the person who has to categorize what all that is. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a09e01b01">><</link>>
+
+:: Day 1 Investigate 02a09e01b01 {"position":"2600,1775"}
+	You open the fridge and look inside. 
+	
+    Surprisingly, the fridge and most of its contents are still intact, even if the fridge currently doesn't have any power. Guess that's because it's metal? 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09e">><</link>>
+
+:: Day 1 Investigate 02a09e01c {"position":"2725,1650"}
+    You examine the drawers under the sink and stove. 
+	
+    They also look extremely burnt. You try to open the drawers under the sink but find them to be stuck. There doesn't appear to be a keyhole or anything. 
+
+    <<link "Apply force.">><<goto "Day 1 Investigate 02a09e01c01a">><</link>>
+    <<link "Leave them be.">><<goto "Day 1 Investigate 02a09e01c01b">><</link>>
+
+:: Day 1 Investigate 02a09e01c01a {"position":"2725,1775"}
+    You heave your weight into pulling the drawer and it flies out, forcing you to stumble to regain your balance. You peer inside the drawer and find it completely empty. So much for that. 
+	
+    You try your best to put the drawer back in when a CSI walks into the room. Both of you look at each other for a second, frozen in place. Eventually the CSI gestures to the drawer and awkwardly says, "I can, uh, I can take that if you want." 
+	
+    "Oh, sure thanks. It uh, it goes over here." You point uselessly to the drawer and the gaping hole under the sink as you pass the drawer to the CSI. "I'll just get going." 
+	
+    The CSI looks hopelessly at the hole. "Yeah, sure." 
+	
+    You walk out of the kitchen as quickly as you can. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a10">><</link>>
+
+:: Day 1 Investigate 02a09e01c01b {"position":"2850,1775"}
+    You leave the drawers alone for now.
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09e">><</link>>
+
+:: Day 1 Investigate 02a09f {"position":"2975,1525"}
+    You walk upstairs. 
+	
+    At the top of the stairs are four doors. It looks like techs are in the guest bathroom and the two guest rooms. You remember Vera's warning and turn to Watts's bedroom. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02a09f01">><</link>>
+
+:: Day 1 Investigate 02a09f01 {"position":"2975,1650"}
+    You stand in the bedroom and look around. 
+
+    The sunlight coming in through the large window illuminates the dust and ash particles floating around, giving the room a post-apocalyptic feel. 
+
+    <<link "Check the furniture.">><<goto "Day 1 Investigate 02a09f02a">><</link>>
+    <<link "Check the bathroom.">><<goto "Day 1 Investigate 02a09f02b">><</link>>
+
+:: Day 1 Investigate 02a09f02a {"position":"2975,1775"}
+    You look at the sparse furniture in the bedroom. 
+	
+    There are the remains of a king sized bed frame, a partially burnt dresser, an even-worse-off closet, and what looks like it may have been a rocking chair. Nothing of note in the dresser or the closet other than melted hangers and burnt clothes. You don't touch the bed frame or chair for fear of making them crumble to ashes. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09f01">><</link>>
+
+:: Day 1 Investigate 02a09f02b {"position":"3100,1900"}
+    You enter the bathroom. 
+	
+    Any spare towels that might have been in here are gone, either taken by the CSIs or burnt to ash. The bathtub that Vera mentioned is still wet, even if they'd removed the water already. The attached shower is completely dry, as is the sink. The toilet doesn't have any water in it, but looks damp like the bathtub. You decide not to try the toilet. You're not sure you want to risk Vera's wrath if it suddenly overflows. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02a09f01">><</link>>
+
+:: Day 1 Investigate 02a10 {"position":"1100,2150"}
+    You decide your next move. 
+
+    <<if $route1["r1a"]>>==Talk to Vera.==<<else>><<link "Talk to Vera.">><<goto "Day 1 Investigate 02a09a">><</link>><</if>>
+    <<link "Walk around the perimeter of the house.">><<goto "Day 1 Investigate 02a09b">><</link>>
+    <<link "Check the garage.">><<goto "Day 1 Investigate 02a09c">><</link>>
+    <<link "Check the living room.">><<goto "Day 1 Investigate 02a09d">><</link>>
+    <<link "Check the kitchen.">><<goto "Day 1 Investigate 02a09e">><</link>>
+    <<link "Check upstairs.">><<goto "Day 1 Investigate 02a09f">><</link>>
+    <<link "Leave.">><<goto "Day 1 Investigate 02a11">><</link>>
+
+:: Day 1 Investigate 02a11 {"position":"1100,2275"}
+    You decide to leave the house. 
+
+    <<if $route1[r1a]>>You make a quick detour to the shed to bid Vera goodbye. You see her standing outside the shed, discussing something with another CSI. 
+	
+    You cup your hands around your mouth. "Vera!! I'm leaving!!!" 
+	
+    Vera looks up and gives you a quick wave before becoming once again engrossed in whatever is on the other CSI's tablet.
+    
+    <<else>>You stop by the front of the house to say good-bye to Vera. She's still on her phone, scrolling through who knows what. 
+    
+    "Vera, I'm heading out." 
+    
+    She glances up at you. "Alright. Don't die. You still owe me that drink." 
+	
+    You smile back. "I'll try not to." <</if>>You wave good-bye and head back to your car. 
+
+    <<nobr>><<link "Next">><<goto "Day 1 Investigate 03">>
+        <<set $route1["r1a"] to false>>
+        <<set $route2["r2a"] to false>>
+        <<set $route2["r2b"] to false>><</link>><</nobr>>
+
+:: Day 1 Investigate 02b {"position":"3100,400"}
+    You decide to head over to the Lucy Lemon. 
+    
+    You set the location in your GPS and see that it's about a 45 minute drive from where you are. As you start the car, you wonder how this murder would impact the business. Sure, any publicity is good publicity, but a murder suspect found dead in an entertainment center can't be good for the family-friendly image. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02b01">><</link>>
+
+:: Day 1 Investigate 02b01 {"position":"3100,525"}
+    You pull up to the Lucy Lemon and see the entire parking lot blocked off with road blocks. When an officer realizes you've arrived, they walk over to wave you away but you lean out and show your badge. A part of the blockade is quickly lifted and your car is waved through. 
+	
+    As you park, you spot the head of this CSI team. "Nicholas!" 
+    
+    <<link "Next">><<goto "Day 1 Investigate 02b02">><</link>>
+
+:: Day 1 Investigate 02b02 {"position":"3100,650"}
+    Nicholas Huerta stands up abruptly from where he had been leaning in the shade of the building and looks around frantically, shoving his phone in his pocket. When he spots you leaning out of the side of the car he runs over. "$name! You're the detective on this case?" 
+	
+    You had met Nicholas when he was a new recruit to the CSI team and you were a police officer. He had the sense of humor of a 13 year-old (and sometimes had the same amount of sense as one), but he did his job so you can't really say anything too bad about him. With a mouth that talked a mile a minute and a brain that could discern a person's biggest insecurity in half that time, he was a formidable force to deal with. The two of you have a mutual understanding that he never mentions how bad you are at first-person shooter games and you never mention the time he threw up in your car during a car chase. 
+	
+    You exit the car. "Well, Pottinger didn't give me much of a choice. How's it going?" 
+
+    <<link "Next">><<goto "Day 1 Investigate 02b03">><</link>>
+
+:: Day 1 Investigate 02b03 {"position":"3100,775"}
+    Nicholas lets out a long sigh. "Me personally? Not great. The crime scene? Even worse." 
+	
+    You grimace. "Lead the way." 
+	
+    Nicholas dutifully leads you to the van he and his crew arrived in. "Safety first, gotta get your gloves on." He passes you a pair of latex gloves before turning around and walking away from the entrance, around the side of the building. 
+	
+    You follow him, pulling on your gloves as you go. "Where are we going?" 
+	
+    Nicholas smiles and whispers conspiratorily, "We're going in the way the perp did." 
+
+    <<link "Next">><<goto "Day 1 Investigate 02b04">><</link>>
+
+:: Day 1 Investigate 02b04 {"position":"3100,900"}
+    You give him an incredulous look. 
+	
+    Nicholas sighs and leans away. "You're no fun. No appreciation for the dramatics I put in for you." 
+	
+    You silently wait with your eyebrows raised.  
+	
+    "Ugh, fine. We're going in the back because the lock there looks like it's been picked." 
+	
+    "Thanks Nicholas." 
+	
+    "No fun, I swear." He continues grumbling until the two of you reach the back of the building. "Anyways, here's what I was talking about."
+
+    <<link "Next">><<goto "Day 1 Investigate 02b05">><</link>>
+
+:: Day 1 Investigate 02b05 {"position":"3100,1025"}
+    You stand frozen for a second before speaking. "Hey Nicholas." 
+	
+    "Yeah." 
+	
+    "Where's the door?" Your question comes out more like a statement with how deadpan your voice is. The two of you stand in front of an empty doorway with a clear view into the kitchen. 
+	
+    Nicholas grins. "Ah, it's inside." 
+	
+    Alarmed, you turn to face him. "Did they break-"
+	
+    "Break the door down? No, we unscrewed the hinges so that we could take a better look at the lock. Couldn't get the lock out otherwise." 
+	
+    You sigh. This man is going to give you a heart attack at this rate. "Did you find anything?"
+	
+    "We cataloged and sent the lock in earlier this morning. I got word right before you pulled up that there's evidence of the lock being picked, probably by an amateur judging by the amount of scratching on the pins." Nicholas leads you further into the building. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02b06">><</link>>
+
+:: Day 1 Investigate 02b06 {"position":"3100,1150"}
+    As you pass through the kitchen, Nicholas continues to talk. "We collected samples of a black dust we found on the floor but there really wasn't enough to make a full footpri- ah, don't step there." 
+	
+    You freeze in place and realize you narrowly missed kicking someone's evidence marker. You murmur an apology and watch your feet a little more carefully as you walk. 
+	
+    "But yeah no footprints. But that's not what you're here for. You're here for this bad boy." 
+
+    <<link "Next">><<goto "Day 1 Investigate 02b07">><</link>>
+
+:: Day 1 Investigate 02b07 {"position":"3100,1275"}
+    The two of you walk through the propped-open double doors that lead to the main eating area. To your left is a stage with an arcade machine on it. The back of it is open, pointing to the front door. 
+	
+    Nicholas leads you up the stage. "Our boy Mr. Cao says it was like this when he got here, 'xept there was a body inside. We took the body out already, can't leave it here to rot. But yeah, that's where we found old man Watts. All slumped over, dried blood on his chest, probably from the who-knows-how-many stab wounds he had. I mean the coroner's office will know but like man I'm pretty sure Dr. Mao hates my guts so..." 
+	
+    You tune out Nicholas's rambling and walk over to the arcade machine. The CSI team had marked where Archibald Watts's legs were splayed out on the stage, but the inside of the arcade machine was unmarked. Seems like Watts wasn't a very tall man, which matched what you remembered of him. You crouch down and take a good look inside the machine. Despite Nicholas's observation of the body being stabbed, there was no blood inside the machine. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02b08">><</link>>
+
+:: Day 1 Investigate 02b08 {"position":"3100,1400"}
+    "...and I thought she'd appreciate my efforts but I guess frogs just aren't her thing, who knew-" Nicholas stops talking as you stand back up abruptly. "What's up?" 
+	
+    "Aren't you going to finish telling me about the case?" You turn to face him.  
+	
+    "But I did." 
+	
+    "No, all you told me was you found ashy footprints and the arcade machine. What else is there?" 
+	
+    "I told you about the body too." 
+	
+    "That counts as the arcade machine." 
+    
+    <<link "Next">><<goto "Day 1 Investigate 02b09">><</link>>
+
+:: Day 1 Investigate 02b09 {"position":"3100,1525"}
+    Nicholas deflates slightly. He rubs the back of his neck with his hand and stares at the curtains behind the stage. "Well, there's honestly not much else. None of the machines were on when we got here, we can't exactly do luminol testing here because, well, it's a Lucy Lemon. Kids spit and pee and bleed all over this place basically 24/7, and the custodians don't get paid enough to clean that shit up. 
+    
+    "And don't even think of asking us to fingerprint those arcade machines. We already tried a few and there are so many overlapping and smudged prints that there might as well not be anything at all. We didn't find anything in any of the trashcans either. No knife, no bloody tablecloth, no nothing." 
+    
+    As he spoke, Nicholas became more and more animated until he got to the point where he was waving his arms in the air agitatedly. He then suddenly froze and pointed at you. "Did I say anything about the cigarette butts?" 
+	
+    You lower your hands which you'd raised when he'd suddenly pointed his finger at you. "No?" 
+	
+    "Ah, well we found those. Some outside the back door, others inside the storage area behind the stage. We'd probably be able to get a DNA profile off of those but other than the genral criminal database we don't have any suspects to compare that to. And it's just as likely it's an employee who didn't clean up after their smoke break. But figured I'd at least mention it. But other than that I think I've mentioned everything." 
+
+    <<link "Ask if a murder weapon was found.">><<set $route1["r1a"] to true>><<goto "Day 1 Investigate 02b10a">><</link>>
+    <<link "Ask if there were fingerprints on the machine.">><<set $route1["r1b"] to true>><<goto "Day 1 Investigate 02b10b">><</link>>
+    <<link "Ask if there's any security footage.">><<set $route1["r1c"] to true>><<goto "Day 1 Investigate 02b10c">><</link>>
+    <<link "Ask about the storage area.">><<set $route1["r1d"] to true>><<goto "Day 1 Investigate 02b10d">><</link>>
+    <<link "No further questions.">><<goto "Day 1 Investigate 02b11">><</link>>
+
+:: Day 1 Investigate 02b10a {"position":"3100,1525"}
+    "Was there a murder weapon found?" 
+
+    Nicholas shakes his head. "Nope, nothing. We're checking the knives but so far they're all passing the luminol test." 
+
+    ==Ask if a murder weapon was found.==
+    <<if $route1["r1b"]>>==Ask if there were fingerprints on the machine.==<<else>><<link "Ask if there were fingerprints on the machine.">><<set $route1["r1b"] to true>><<goto "Day 1 Investigate 02b10b">><</link>><</if>>
+    <<if $route1["r1c"]>>==Ask if there's any security footage.==<<else>><<link "Ask if there's any security footage.">><<set $route1["r1c"] to true>><<goto "Day 1 Investigate 02b10c">><</link>><</if>>
+    <<if $route1["r1d"]>>==Ask about the storage area.==<<else>><<link "Ask about the storage area.">><<set $route1["r1d"] to true>><<goto "Day 1 Investigate 02b10d">><</link>><</if>>
+    <<link "No further questions.">><<goto "Day 1 Investigate 02b11">><</link>>
+
+:: Day 1 Investigate 02b10b {"position":"3225,1525"}
+    "Did you fingerprint the cabinet?" You gesture to the one on the stage.
+	
+    "Yep. Clean as a whistle." 
+	
+    "What?" 
+	
+    Nicholas walks over to the machine and runs his gloved hand over the top of it. "There was nothing on it. No fingerprints, no glove prints, no ear prints, no prints to speak of. It's as if this little baby came off a completely automated factory line right before Watts's body was shoved in. Any prints that were on it were wiped off really meticulously. Or there weren't any to begin with." 
+
+    <<if $route1["r1a"]>>==Ask if a murder weapon was found.==<<else>><<link "Ask if there were fingerprints on the machine.">><<set $route1["r1a"] to true>><<goto "Day 1 Investigate 02b10b">><</link>><</if>>
+    ==Ask if there were fingerprints on the machine.==
+    <<if $route1["r1c"]>>==Ask if there's any security footage.==<<else>><<link "Ask if there's any security footage.">><<set $route1["r1c"] to true>><<goto "Day 1 Investigate 02b10c">><</link>><</if>>
+    <<if $route1["r1d"]>>==Ask about the storage area.==<<else>><<link "Ask about the storage area.">><<set $route1["r1d"] to true>><<goto "Day 1 Investigate 02b10d">><</link>><</if>>
+    <<link "No further questions.">><<goto "Day 1 Investigate 02b11">><</link>>
+
+:: Day 1 Investigate 02b10c {"position":"3350,1525"}
+    "Has your team reviewed the security footage yet?" 
+	
+    "Well we have the footage from the night, but we need time to go through it completely. We've already downloaded it for evidence, but there's a couple people reviewing the footage in the security booth right now if you want to go check on them." 
+	
+    "Yeah, I think I want to do that. Can you show me where they are?" 
+	
+    Nicholas nods and gestures for you to follow him. "Sure thing boss." 
+	
+    "I'm not your boss." 
+	
+    "Righte-o, big bro." 
+	
+    "I'm not your bro. I'm younger than you too." 
+	
+    "A-okay... yeah that one isn't going to work." 
+	
+    You sigh. "I wholeheartedly agree." 
+
+    <<link "Next">><<goto "Day 1 Investigate 02b10c01">><</link>>
+
+:: Day 1 Investigate 02b10c01 {"position":"3350,1650"}
+	The two of you approach a red door marked "EMPLOYEES ONLY" which Nicholas pushes open. "Janie, Kev- OH GOD." 
+	
+    You push past Nicholas with your gun drawn at his yell and then immediately turn around and walk out of the room. 
+	
+    Nicholas swears in Spanish and slams the door shut. "KEEP IT OUT OF THE WORKPLACE I swear some of these people have never learned what workpalce decency is I'll kill them both I-" 
+	
+    You look at the ceiling and wish to erase the past five seconds from your memory. "Careful what you say, I could arrest you for threatening a government employee." 
+	
+    Nicholas scoffs. "No one respects me here, I swear." 
+	
+    You hum and decide to ask for a summary of the security footage later. You'd rather not venture back in that booth any time soon. 
+
+    <<if $route1["r1a"]>>==Ask if a murder weapon was found.==<<else>><<link "Ask if there were fingerprints on the machine.">><<set $route1["r1a"] to true>><<goto "Day 1 Investigate 02b10b">><</link>><</if>>
+    <<if $route1["r1b"]>>==Ask if there were fingerprints on the machine.==<<else>><<link "Ask if there were fingerprints on the machine.">><<set $route1["r1b"] to true>><<goto "Day 1 Investigate 02b10b">><</link>><</if>>
+    ==Ask if there's any security footage.==
+    <<if $route1["r1d"]>>==Ask about the storage area.==<<else>><<link "Ask about the storage area.">><<set $route1["r1d"] to true>><<goto "Day 1 Investigate 02b10d">><</link>><</if>>
+    <<link "No further questions.">><<goto "Day 1 Investigate 02b11">><</link>>
+
+:: Day 1 Investigate 02b10d {"position":"3475,1525"}
+    "What's this about a storage area?"
+	
+    "Oh that? It's right through the curtains." Nicholas points to the back of the stage. "It's where they keep the animatronics when they aren't in use. We found some extra stuff too, like spare parts, tools, extra prizes, all that fun stuff. We checked for blood but couldn't find anything in there." 
+	
+    You make a note of where the storage area is. 
+
+    <<if $route1["r1a"]>>==Ask if a murder weapon was found.==<<else>><<link "Ask if there were fingerprints on the machine.">><<set $route1["r1a"] to true>><<goto "Day 1 Investigate 02b10b">><</link>><</if>>
+    <<if $route1["r1b"]>>==Ask if there were fingerprints on the machine.==<<else>><<link "Ask if there were fingerprints on the machine.">><<set $route1["r1b"] to true>><<goto "Day 1 Investigate 02b10b">><</link>><</if>>
+    <<if $route1["r1c"]>>==Ask if there's any security footage.==<<else>><<link "Ask if there's any security footage.">><<set $route1["r1c"] to true>><<goto "Day 1 Investigate 02b10c">><</link>><</if>>
+    ==Ask about the storage area.==
+    <<link "No further questions.">><<goto "Day 1 Investigate 02b11">><</link>>
+
+:: Day 1 Investigate 02b11 {"position":"3100,1775"}
+    Nicholas leans against the wall and takes out his phone. "I think we're gonna pack up soon, but I'll tell the rest of the crew to wait until you're done to head out. Just let me know before you leave." 
+	
+    "Will do." You turn away from Nicholas and think about your next move. 
+
+    <<link "Talk to Nicholas">><<goto "Day 1 Investigate 02b12a">><</link>>
+    <<link "Walk along the outside of the building.">><<goto "Day 1 Investigate 02b12b">><</link>>
+    <<link "Check the stage.">><<goto "Day 1 Investigate 02b12c">><</link>>
+    <<link "Check the eating area.">><<goto "Day 1 Investigate 02b12d">><</link>>
+    <<link "Check the arcade machine area.">><<goto "Day 1 Investigate 02b12e">><</link>>
+    <<link "Leave">><<goto "Day 1 Investigate 02b14">><</link>>
+
+:: Day 1 Investigate 02b12a {"position":"3100,1900"}
+    You walk over to Nicholas. 
+
+    He looks up. "'Sup?"
+
+    <<link "Ask him how he's been.">><<set $route2["r2a"] to true>><<goto "Day 1 Investigate 02b12a01a">><</link>>
+    <<link "Ask if he knows about Watts's reputation.">><<set $route2["r2b"] to true>><<goto "Day 1 Investigate 02b12a01b">><</link>>
+    <<if $optional_evidence["panels"]>><<if $route2["r2c"]>>==Ask about the panels in the stage.==<<else>><<link "Ask about the panels in the stage.">><<goto "Day 1 Investigate 02b12a01c">><</link>><</if>><</if>>
+    <<link "Leave.">><<goto "Day 1 Investigate 02b12a02">><</link>>
+
+:: Day 1 Investigate 02b12a01a {"position":"3100,2025"}
+    "How's life been treating you lately?" 
+	
+    Nicholas groans and stares at the ceiling. "Where do I begin? Feels like the world's stacked against me this week. My sister's been breathing down my neck trying to get me to visit so I can 'finally visit my new niece' but I'm so tired of trying to play nice with her husband that I'm almost glad for the case to give me an excuse put off going for a little longer. 
+    
+    "And I ordered a custom keycap for Janice but it got lost in the mail and I'm scrambling to find a different gift. Our anniverary's in a couple weeks you know? Where am I supposed to find something in a couple weeks?" 
+	
+    You awkwardly pat Nicholas's shoulder. "I know a florist I can give you the contact info for, if it comes down to it." 
+	
+    Nicholas grimly smiles at you. "Thanks, but Janice is allergic to pollen." 
+	
+    "Ah." 
+	
+    "Yeah. And I already did fake flowers for their birthday so flowers plus more flowers... I need some variety you know?" Nicholas shakes his head before turning back to you. "Ah, well, I'll figure something out. But anyways, was there anything you needed to know about the case?"
+
+    ==Ask him how he's been.==
+    <<if $route2["r2b"]>>==Ask if he knows about Watts's reputation.==<<else>><<link "Ask if he knows about Watts's reputation.">><<set $route2["r2b"] to true>><<goto "Day 1 Investigate 02b12a01b">><</link>><</if>>
+    <<if $optional_evidence["panels"]>><<if $route2["r2c"]>>==Ask about the panels in the stage.==<<else>><<link "Ask about the panels in the stage.">><<goto "Day 1 Investigate 02b12a01c">><</link>><</if>><</if>>
+    <<link "Leave.">><<goto "Day 1 Investigate 02b12a02">><</link>>
+
+:: Day 1 Investigate 02b12a01b {"position":"3225,2025"}
+    "Do you know anything about Watts's reputation?" <<set $optional_evidence["eBay"] to true>>
+			
+    Nicholas rolls his eyes. "Other than the fact that he's the prime suspect of a serial killing that was never solved and was basically cast out of society because no one wanted to be associated with a potential serial killer?" 
+			
+    You sigh. "Yeah, other than that." 
+			
+    "Nope. Heard he had an eBay store for fixed up game consoles, but I'm more of a modern games man so I never went looking. Besides, not sure I wouldn't trust him to not kill me if we met up to do a sale." 
+			
+    "I'll check that out. Thanks Nicholas."
+			
+    "Mhmm, no prob. Was there anything you needed to know about the case?"  
+
+    <<if $route2["r2a"]>>==Ask him how he's been.==<<else>><<link "Ask him how he's been.">><<set $route2["r2a"] to true>><<goto "Day 1 Investigate 02b12a01a">><</link>><</if>>
+    ==Ask if he knows about Watts's reputation.==
+    <<if $optional_evidence["panels"]>><<if $route2["r2c"]>>==Ask about the panels in the stage.==<<else>><<link "Ask about the panels in the stage.">><<goto "Day 1 Investigate 02b12a01c">><</link>><</if>><</if>>
+    <<link "Leave.">><<goto "Day 1 Investigate 02b12a02">><</link>>
+
+:: Day 1 Investigate 02b12a01c {"position":"3350,2025"}
+    "Were you able to look under the circular panels on the stage?" 
+
+    Nicholas looks over to where you're pointing. "Oh those? No, we weren't. You're supposed to be able to raise them up with a lever behind the stage, but apparently it's been stuck since yesterday before opening. That's why Mr. Cao came in this morning to give it a look." 
+
+    "So it was broken before the crime took place?"
+
+    "Well, the bug activity show that the body's been dead for less than a day in regular conditions. Unless the killer stored his body in a freezer or something I think we can safely say that yeah it was before Watts was killed." 
+
+    "Do you think you can get it working again?"
+
+    Nicholas scratches his head. "Well, Mr. Cao is the handyman so I don't know what's what really. If you find another way to get the switch working we'll all be happy campers, but until then we're stuck."
+
+    "I see."
+
+    "Yeah. Anyways, anything else?"
+
+    <<if $route2["r2a"]>>==Ask him how he's been.==<<else>><<link "Ask him how he's been.">><<set $route2["r2a"] to true>><<goto "Day 1 Investigate 02b12a01a">><</link>><</if>>
+    <<if $route2["r2b"]>>==Ask if he knows about Watts's reputation.==<<else>><<link "Ask if he knows about Watts's reputation.">><<set $route2["r2b"] to true>><<goto "Day 1 Investigate 02b12a01b">><</link>><</if>>
+    ==Ask about the panels in the stage.==
+    <<link "Leave.">><<goto "Day 1 Investigate 02b12a02">><</link>>
+
+:: Day 1 Investigate 02b12a02 {"position":"3100,2150"}
+    "Nope, nothing." 
+
+    Nicholas nods and looks back at what he was doing earlier. "Mkay. Later gator."
+
+    <<link "Next">><<goto "Day 1 Investigate 02b13">><</link>>
+
+:: Day 1 Investigate 02b12b {"position":"3475,1900"}
+    You exit the building through the back door, making sure to watch your step. 
+		
+    As you walk out the back door, you notice the bright yellow sign next to the door, likely marking where the cigarette butts were found. You slowly walk around the building, but don't find anything of note. As you approach the front, you see the police officers attempting to ward off a hoard of reporters. Behind them, you can see news vans parked up and down the street, unable to access the parking lot. 
+		
+    One reporter spots you and starts yelling, asking if you had anything to say about the case. You shield your face from the cameras and turn around. Best not to talk to the press until you have something to say other than "no comment." 
+		
+    You head back inside the building. 
+
+    <<link "Next">><<goto "Day 1 Investigate 02b13">><</link>>
+
+:: Day 1 Investigate 02b12c {"position":"3600,1900"}
+    You walk back on stage. 
+	
+    The entirity of the stage is wooden, though there are several spots that look to be circular panels installed in the stage.<<if $optional_evidence["latch"]>> The panels are now raised.<</if>> The arcade machine shell sits in the center of the stage, back facing towards the door so that if you stood where you would be if you were playing the machine, you would be staring at the door. The curtains behind the stage are closed. 
+
+    <<link "Examine the panels.">><<goto "Day 1 Investigate 02b12c01a">><<set $optional_evidence["panels"] to true>><</link>>
+    <<link "Examine the arcade machine.">><<goto "Day 1 Investigate 02b12c01b">><</link>>
+    <<link "Check the area behind the stage.">><<goto "Day 1 Investigate 02b12c01c">><</link>> 
+
+:: Day 1 Investigate 02b12c01a {"position":"3600,2025"}
+    You take a closer look at the panels at the back of the stage. 
+	
+    <<if $optional_evidence["lever"]>>You see that the panels are now raised. You lift each of the panels off of the metal bars they sit on and look underneath. All are empty except one which has a pink piece of cloth underneath. 
+
+    "Oh damn what's that?" Nicholas had walked onto the stage without you noticing and peaks over your shoulder. 
+
+    "Not sure, but I think it's a scrunchie."
+
+    Nicholas crouches down and squints at the scrunchie. "Can't tell how long it's been down there. I'll catalog this and let you know."
+
+    You take a photo for your own records. "Thanks Nicholas."
+
+    "That's my job." He stands up and jogs out the door, probably to grab whatever he needs from the van. <<set $optional_evidence["scrunchie"] to true>><<else>>Each panel is large enough for you and maybe another person to stand on side-by-side. You figure they must be where the animatronics are placed during the day. You don't see any way to lift them up, so if there's a portion underneath it's likely not accessible by regular means. You make a note to ask if any of the CSIs have been able to look underneath.<</if>> 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02b12c">><</link>>
+
+:: Day 1 Investigate 02b12c01b {"position":"3725,2025"}
+    In front of you is the arcade machine. 
+	
+    The monitor, joystick, and buttons have been removed, leaving only the empty cabinet behind. You check the side and see that it was originally a PACMAN game. Well, doesn't look like it'll be operational any time soon. 
+	
+    You check where the body was sitting. As you noticed before, there's no bloodstains on the inside of the cabinet. You try to imagine what the body must have looked like in there when a sudden chill runs down your spine. You remember the case file Pottinger had handed you on the murders of '98 and the photos inside. 
+	
+    "Another cabinet killing..." you murmer quietly to yourself. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02b12c">><</link>>
+
+:: Day 1 Investigate 02b12c01c {"position":"3850,2025"} 
+    You walk to the back of the stage. 
+	
+    Upon opening the curtains, you're immediately greeted with four 10 foot tall animatronics standing in front of you. You startle slightly but shake yourself and snap out of it. The stars of the show- Oliver Orange, Lance Lime, Gary Grapefruit, and of course Lucy Lemon herself- stand motionless behind the curtain. 
+    
+    You can see the door to the storage room behind the animatronics on the right wall. The other wall holds a large lever switch with yellow crime scene tape taped around it. 
+
+    <<link "Go to the storage room.">><<goto "Day 1 Investigate 02b12c01c01a">><</link>> 
+    <<link "Investigate the switch">><<goto "Day 1 Investigate 02b12c01c01b">><</link>> 
+    <<link "Return.">><<goto "Day 1 Investigate 02b12c">><</link>>
+
+:: Day 1 Investigate 02b12c01c01a {"position":"3850,2150"} 
+    You scootch past the animatronics and open up the storage area door. 
+    
+    Behind it is a windowless room that matches what Nicholas had described earlier. Tools hang on one wall, a stack of drawers with labels cover another, and animatronic body parts decorate the third. The floor has several yellow evidence markers, which is probably where the cigarette butts were found. 
+
+    You take a closer look at the drawers. The plastic drawers are of varying sizes. The ones at the bottom come up to your knee and you can see a few at the top that look no larger than the height of a milk carton. 
+	
+    You try to read some of the labels on the drawers closest to you. "Bouncy balls." "Rings." "Frisbees." "Finger traps." These were all prizes, probably the extras that weren't stored at the front. You take a peak inside the one labeled "bouncy balls" and confirm that there are indeed several bouncy balls inside, enough that the tub is almost full. The bright colors and designs swirl before your eyes. You surpress the urge to grab one and see if it works. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02b12c01c02">><</link>>
+
+:: Day 1 Investigate 02b12c01c01b {"position":"3975,2150"}
+    You walk over to the lever. 
+
+    The base of the switch is still attached to the wall but the actual lever is lying on the floor, snapped clean off the wall. 
+
+    You bend down to look at the lever. One end of the lever has a grip on it and the other is jagged. You decide not to touch it in case they haven't fingerprinted it yet. 
+
+    You check the part still on the wall. It's coated in a thick layer of dust, enough to make you- oh no. "ACHOOO." You sneeze and blow away a layer of dust. One of the CSIs behind you starts sobbing. Oops. 
+    
+    Upon closer inspection, you realize that there's a small latch beside the lever base. You use the tip of your pen to undo the latch, revealing a button that reads "EMERGENCY UNLOCK." <<if $optional_evidence["panels"]>>That sounds appropriate. <</if>>You click it. 
+
+    You hear a dull thud come from somewhere on the stage. 
+
+    <<link "Return.">><<set $optional_evidence["lever"] to true>><<goto "Day 1 Investigate 02b12c01c02">><</link>>
+
+:: Day 1 Investigate 02b12c01c02 {"position":"3850,2275"}
+    You stand in the area behind the stage. 
+
+    On one wall is the door to the storage room. The other wall holds a large lever switch with yellow crime scene tape taped around it. The animatronics stand motionless in the center, silent giants standing guard over the area. 
+
+    <<link "Go to the storage room.">><<goto "Day 1 Investigate 02b12c01c01a">><</link>> 
+    <<link "Investigate the switch">><<goto "Day 1 Investigate 02b12c01c01b">><</link>> 
+    <<link "Return.">><<goto "Day 1 Investigate 02b12c">><</link>>
+
+:: Day 1 Investigate 02b12d {"position":"4100,2025"}
+    The eating area is right in front of the stage. 
+	
+    Rows and rows of tables and chairs curve around the stage, stretching almost wall to wall. You look under a few of the tables, but there doesn't seem to be anything of note except a disgusting array of chewed gum. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02b13">><</link>>
+
+:: Day 1 Investigate 02b12e {"position":"4225,2025"}
+    You walk over to the arcade area. 
+	
+    All the machines are shut down. Their usual flashing lights and loud sounds are absent, replaced with dim screens and silence. Instead of children running around and shrieking, you see a small group of CSIs examining the area, talking to each other as they dust powders and take photos. You aren't quite sure what they're doing, but figure you'll figure it out from their report later. 
+	
+    You wander for a bit and glace at the machine next to you. It's a pinball machine with a zombies theme, the kind you'd expect ghoulish screams to come from every time you light up a section. Rather morbid for a family entertainment center, but you figure that maybe it was for the older kids who got dragged here by family to play. You look around the machine for a bit but come up empty. 
+
+    <<link "Return.">><<goto "Day 1 Investigate 02b13">><</link>>
+
+:: Day 1 Investigate 02b13 {"position":"3100,2400"}
+    You decide your next move. 
+
+    <<link "Talk to Nicholas">><<goto "Day 1 Investigate 02b12a">><</link>>
+    <<link "Walk along the outside of the building.">><<goto "Day 1 Investigate 02b12b">><</link>>
+    <<link "Check the stage.">><<goto "Day 1 Investigate 02b12c">><</link>>
+    <<link "Check the eating area.">><<goto "Day 1 Investigate 02b12d">><</link>>
+    <<link "Check the arcade machine area.">><<goto "Day 1 Investigate 02b12e">><</link>>
+    <<link "Leave">><<goto "Day 1 Investigate 02b14">><</link>>
+
+:: Day 1 Investigate 02b14 {"position":"3100,2525"}
+    You walk back over to where Nicholas is. "Hey, I'm heading out."
+
+    He gives you a two-fingered salute. "Alrighty. See you on the other side." 
+
+    You wave goodbye and leave the building. 
+
+    <<nobr>><<link "Next">><<goto "Day 1 Investigate 03">>
+        <<set $route1["r1a"] to false>>
+        <<set $route1["r1b"] to false>>
+        <<set $route1["r1c"] to false>>
+        <<set $route1["r1d"] to false>>
+        <<set $route2["r2a"] to false>>
+        <<set $route2["r2b"] to false>>
+        <<set $route2["r2c"] to false>><</link>><</nobr>>
+
+
+:: Day 1 Investigate 03 {"position":"1100,2650"}
+    <<if ($investigated["AH"] is false) or ($investigated["LL"] is false)>>It's roughly 3PM when you get into your car.
+    
+    Where to next? 
+    
+    <<if $investigated["AH"]>>==Go to Watts's house==<<else>><<link "Go to Watts's house">><<set $investigated["AH"] to true>><<goto "Day 1 Investigate 02a">><</link>><</if>>
+    <<if $investigated["LL"]>>==Go to Lucy Lemon==<<else>><<link "Go to the Lucy Lemon">><<set $investigated["LL"] to true>><<goto "Day 1 Investigate 02b">><</link>><</if>>
+    
+    <<else>>It's fast approaching evening when you get into your car. You decide it's time to call it a night and head home. 
+    
+    <<link "Next">><<set $progress to 2>><<goto "Day 1 Outro 00">><</link>><</if>>
+
+:: Day 1 Outro 00 {"position":"4450,150"}
+    ''The case file has been updated.'' 
+
+    Click the "Case File" button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game in there. The case file will be updated at the end of each section of the game. 
+
+    <<link "Next">><<goto "Day 1 Outro 01">><</link>>
+    
+:: Day 1 Outro 01 {"position":"4450,275"}
+    The day took more out of you than you'd care to admit. Deciding that leftovers sound fine, you grab a container from the fridge and throw it in the microwave. As you wait for the food to heat up, you open your laptop, figuring you could unwind by watching a movie or something. Unfortunately for you, the last page you had been on was the local news, meaning the minute you open your browser you're greeted with a rerun of this afternoon's broadcast. 
+
+    The screen is split between a newscaster and an on-the-ground reporter. Looking closely at the reporter's background, you can see a blurry yellow sign. The sign looks like the one that's above the entrance to... You wonder if this was about your case. 
+
+    <<link "Next">><<goto "Day 1 Outro 02">><</link>>
+    
+:: Day 1 Outro 02 {"position":"4450,400"}
+    Almost as if to confirm your thoughts, the newscaster began talking. "This afternoon, we have updates on the fire that claimed the house of Archibald Watts. At 2:45AM this morning, Archibald Watts's son Adam Watts called 911 saying that his father's house was on fire. The fire department quickly arrived on the scene and were able to put out the blaze before it spread to its neighbors. 
+
+    "Adam Watts, who had arrived in town an hour prior, says he had swung by the house to see if his father was still awake. When he got there, the house was already starting to burn. He ran in to check if anyone was in there, but had to exit the house because the fire was too unbearable. Authorities confirmed that they didn't find anyone inside the house. 
+
+    "The older Watt's location had been a mystery until this morning when his body was found in a Lucy Lemon Family Entertainment Center. Natalie, what can you tell us about the current situation?" 
+
+    Ah so it is about your case. 
+
+    <<link "Next">><<goto "Day 1 Outro 03">><</link>>
+    
+:: Day 1 Outro 03 {"position":"4450,525"}
+    The reporter responds in a grim tone. "Well Fredrick, the authorities have not been very forthcoming with how the investigation is going, so we know very little. All we know right now is that Archibald Watts was found dead in the Lucy Lemon that you can see behind me." At this she gestures to the building behind her and for a brief moment the camera shifts its focus to the giant lemon sign on the roof.
+
+    The reporter continues talking as the camera shifts back to focus on her. "A worker came in to do pre-opening maintenance work on the animatronics and apparently found Archibald Watts's body inside, causing him to call 911. When the authorities arrived, they determined that Archibald Watts was dead and declared the building a crime scene. As a result, this Lucy Lemon will not be operational until investigations wrap up and the building can be completely disinfected. 
+    
+    "We are waiting for further news from the investigative team, but because this case involves an individual tied so closely to this city's history, it seems like the authorities are waiting to have a more complete idea of what happened before they present it to the public. Back to you Frederick." 
+
+    The newscaster nods and the screen shifts to push the reporter's view out and focus again on the newscaster. "Thank you for your work Natalie. In a public statement, Lucy Lemon management has apologized for the inconvenience and is asking parents who had reservations to reach out to them so that they can either arrange a different date for their celebration or begin the refund process." 
+
+    <<link "Next">><<goto "Day 1 Outro 04">><</link>>
+    
+:: Day 1 Outro 04 {"position":"4450,650"}
+    You pause the video and close the tab. The grim reminder that you're now under the public eye more than you ever have been before scares you, but makes you a bit more determined to complete this job to the best of your ablility. There's too much riding on this for you to mess it up. 
+
+    You remember your food and grab it from the microwave. It's still hot but you decide you're too hungry to care. You put the plate next to your laptop and pull up your work email. In your inbox sit three emails: one from Vera, one from Nicholas, and one from the coroner's office. As you start eating, you click on the emails one by one. 
+
+    <<link "Read Vera's email.">><<set $route1["r1a"] to true>><<goto "Day 1 Outro 05a">><</link>>
+    <<link "Read Nicholas's email.">><<set $route1["r1b"] to true>><<goto "Day 1 Outro 05b">><</link>>
+    <<link "Read the coroner's office's email.">><<set $route1["r1c"] to true>><<goto "Day 1 Outro 05c">><</link>>
+
+:: Day 1 Outro 05a {"position":"4450,775"}
+    You click on Vera's email. 
+    
+    In it, she details what the team has cataloged so far from <<if $optional_evidence["trailer"]>>the various upstairs rooms, the shed, and the garage<<else>>the various upstairs rooms and the shed<</if>>. The amount of items is slightly overwhelming, so you scroll to the end of the email in hopes of something other than a video game console name. At the very end, Vera mentions that the water in the bathtub indeed had human skin cells, but it was a mixture of at least two different people's DNA. They could fairly confidently say that Archibald Watts was one of the contributors, but they were unable to determine who the second person was. 
+    At the end of the email she reminds you of that drink you owe her and attaches an image. You open the attachment to find a very shaky photograph of Vera's three bulldogs all trying to jump at the camera, giant smiles on their faces. 
+
+    You make a note of these new observations and save the image to your Camera Roll. 
+
+    ==Read Vera's email.== 
+    <<if $route1["r1b"]>>==Read Nicholas's email.==<<else>><<link "Read Nicholas's email.">><<set $route1["r1b"] to true>><<goto "Day 1 Outro 05b">><</link>><</if>>
+    <<if $route1["r1c"]>>==Read the coroner's office's email.==<<else>><<link "Read the coroner's office's email.">><<set $route1["r1c"] to true>><<goto "Day 1 Outro 05c">><</link>><</if>>
+
+:: Day 1 Outro 05b {"position":"4575,775"}
+    You click on Nicholas's email. 
+    
+    At the top of it is what looks like a large black arc. As you scroll, you realize it's just a really big image of a zero. You can almost hear him laughing at you. 
+    
+    You scroll a bit faster and finally reach the bluk of the email. In it, Nicholas tells you that his team ultimately didn't find a murder weapon or anything like that in the building. They've got a DNA profile on the cigarette butts but no match in the criminal database. There was also one unsmoke cigarette left outside the back door, but there's also no match for the DNA on that one. <<if $optional_evidence["lever"]>>He also mentions that the button you clicked caused the panels on the stage to pop up, and they found a pink scrunchie inside. The scrunchie itself looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. <<elseif $optional_evidence["scrunchie"]>>He also mentions that the scrunchie you found in the looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. <</if>>
+    
+    You make a note of these new observations and make a note to kick Nicholas the next time you see him. 
+
+    <<if $route1["r1a"]>>==Read Vera's email.==<<else>><<link "Read Vera's email.">><<set $route1["r1a"] to true>><<goto "Day 1 Outro 05a">><</link>><</if>>
+    ==Read Nicholas's email.==
+    <<if $route1["r1c"]>>==Read the coroner's office's email.==<<else>><<link "Read the coroner's office's email.">><<set $route1["r1c"] to true>><<goto "Day 1 Outro 05c">><</link>><</if>>
+
+:: Day 1 Outro 05c {"position":"4700,775"}
+    You click on the email from the coroner's office. 
+    
+    Attached is a copy of the report from the coroner's office. Their best guess is that Archibald Watts had died some time between 12AM and 3AM this morning. There are traces of cyanide in his bloodstream and eighteen stab wounds to the torso, but they established cause of death to be due to the cyanide poisoning. The stab wounds happened later, but soon enough after the poisoning that blood still flowed out of the wounds. 
+    
+    They also note that there was evidence that Watts's body was moved frequently until he died, and that his final resting position was sitting upright but leaning backwards against something. <<if $optional_evidence["lighter"]>> 
+
+    In response to a message you had sent prior, the coroner also wrote that Watts's lungs didn't look like those of a heavy smoker, and if he smoked he didn't do it very often. <</if>>
+
+    You make a note of these new observations. 
+
+    <<if $route1["r1a"]>>==Read Vera's email.==<<else>><<link "Read Vera's email.">><<set $route1["r1a"] to true>><<goto "Day 1 Outro 05a">><</link>><</if>>
+    <<if $route1["r1b"]>>==Read Nicholas's email.==<<else>><<link "Read Nicholas's email.">><<set $route1["r1b"] to true>><<goto "Day 1 Outro 05b">><</link>><</if>>
+    ==Read the coroner's office's email.==
+
+:: Day 1 Outro 06 {"position":"4450,900"}
+    After you finish reading the emails, you take a break from your laptop and finish eating your food. As you eat, you try to organize everything you just read in your brain. Unknown DNA, cyanide poisoning, stab wounds... Seems this case was more complicated than you thought. Hopefully a good night's sleep will allow you to organize your thoughts.
+
+    <<link "Next">><<set $progress to 3>><<set $day to 2>><<goto "Day 2 Intro 00">><</link>>
+
+:: Day 2 Intro 00 {"position":"4925,150"}
+    ''The case file has been updated.'' 
+
+    Click the "Case File" button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game in there. The case file will be updated at the end of each section of the game. 
+
+    ''This is as far as I've gotten so far. Please let me know if you've found any bugs and in the meantime, please feel free to <<link "play again">><<goto "Title Page">><</link>>.
+
+
+
+    
+
+

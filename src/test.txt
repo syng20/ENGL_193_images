@@ -1,0 +1,48 @@
+The day took more out of you than you'd care to admit. Deciding that leftovers sound fine, you grab a container from the fridge and throw it in the microwave. As you wait for the food to heat up, you open your laptop, figuring you could unwind by watching a movie or something. Unfortunately for you, the last page you had been on was the local news, meaning the minute you open your browser you're greeted with a rerun of this afternoon's broadcast. 
+
+The screen is split between a newscaster and an on-the-ground reporter. Looking closely at the reporter's background, you can see a blurry yellow sign. The sign looks like the one that's above the entrance to... You wonder if this was about your case. 
+
+Almost as if to confirm your thoughts, the newscaster began talking. "This afternoon, we have updates on the fire that claimed the house of Archibald Watts. At 2:45AM this morning, Archibald Watts's son Adam Watts called 911 saying that his father's house was on fire. The fire department quickly arrived on the scene and were able to put out the blaze before it spread to its neighbors. 
+
+"Adam Watts, who had arrived in town an hour prior, says he had swung by the house to see if his father was still awake. When he got there, the house was already starting to burn. He ran in to check if anyone was in there, but had to exit the house because the fire was too unbearable. Authorities confirmed that they didn't find anyone inside the house. 
+
+"The older Watt's location had been a mystery until this morning when his body was found in a Lucy Lemon Family Entertainment Center. Natalie, what can you tell us about the situation?" 
+
+Ah so it is about your case. 
+
+The reporter responds in a grim tone. "Well Fredrick, the authorities have not been very forthcoming with how the investigation is going, so we know very little. All we know right now is that Archibald Watts was found dead in the Lucy Lemon that you can see behind me." At this she gestures to the building behind her and for a brief moment the camera shifts its focus to the giant lemon sign on the roof.
+
+The reporter continues talking as the camera shifts back to focus on her. "A worker came in to do pre-opening maintenance work on the animatronics and apparently found Archibald Watts's body inside, causing him to call 911. When the authorities arrived, they determined that Archibald Watts was dead and declared the building a crime scene. As a result, this Lucy Lemon will not be operational until investigations wrap up and the building can be completely disinfected. We are waiting for further news from the investigative team, but because this case involves an individual tied so closely to this city's history, it seems like the authorities are waiting to have a more complete idea of what happened before they present it to the public. Back to you Frederick." 
+
+The newscaster nods and the screen shifts to push the reporter's view out and focus again on the newscaster. "Thank you for your work Natalie. Lucy Lemon management in a public statement apologized for the inconvenience and asked parents who had reservations to reach out to them so that they can either arrange a different date for their celebration or begin the refund process." 
+
+You pause the video and close the tab. The grim reminder that you're now under the public eye more than you ever have been before scares you, but makes you a bit more determined to complete this job to the best of your ablility. There's too much riding on this for you to mess it up. 
+
+You remember your food and grab it from the microwave. It's still hot but you decide you're too hungry to care. You put the plate next to your laptop and pull up your work email. In your inbox sit three emails: one from Vera, one from Nicholas, and one from the coroner's office. As you start eating, you click on the emails one by one. 
+> Vera's email 
+    You click on Vera's email. 
+    In it, she details what the team has cataloged so far from <<if $optional_evidence["trailer"]>>the various upstairs rooms, the shed, and the garage<<else>>the various upstairs rooms and the shed<<?if>>. The amount of items is slightly overwhelming, so you scroll to the end of the email in hopes of something other than a video game console name. At the very end, Vera mentions that the water in the bathtub indeed had human skin cells, but it was a mixture of at least two different people's DNA. They could fairly confidently say that Archibald Watts was one of the contributors, but they were unable to determine who the second person was. 
+    At the end of the email she reminds you of that drink you owe her and attaches an image. You open the attachment to find a very shaky photograph of Vera's three bulldogs all trying to jump at the camera, giant smiles on their faces. 
+    You make a note of these new observations and save the image to your Camera Roll. 
+> Nicholas's email 
+    You click on Nicholas's email. 
+    At the top of it is what looks like a large black arc. As you scroll, you realize it's just a really big image of a zero. You can almost hear him laughing at you. 
+    You scroll a bit faster and finally reach the bluk of the email. In it, Nicholas tells you that his team ultimately didn't find a murder weapon or anything like that in the building. They've got a DNA profile on the cigarette butts but no match in the criminal database. There was also one unsmoke cigarette left outside the back door, but there's also no match for the DNA on that one. 
+    You make a note of these new observations and make a note to kick Nicholas the next time you see him. 
+> Coroner's office's email 
+    You click on the email from the coroner's office. 
+    Attached is a copy of the report from the coroner's office. Their best guess is that Archibald Watts had died some time between 12AM and 3AM this morning. There are traces of cyanide in his bloodstream and eighteen stab wounds to the torso, but they established cause of death to be due to the cyanide poisoning. The stab wounds happened later, but soon enough after the poisoning that blood still flowed out of the wounds. 
+    They also note that there was evidence that Watts's body was moved frequently until he died, and that his final resting position was sitting upright but leaning backwards against something. <<if $optional_evidence["lighter"]>> 
+    In response to a message you had sent priot, the coroner also wrote that Watts's lungs didn't look like those of a heavy smoker, and if he smoked he didn't do it very often.
+    <</if>>
+    You make a note of these new observations. 
+After you finish reading the emails, you take a break from your laptop and finish eating your food. As you eat, you try to organize everything you just read in your brain. Unknown DNA, cyanide poisoning, stab wounds... Seems this case was more complicated than you thought. Hopefully a good night's sleep will allow you to organize your thoughts.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,276 @@
+Investigate the scene of the arson: 
+	- Prelim walkthrough
+		You arrive at the address Pottinger gave you. 
+		Miraculously finding an open spot, you park at the end of the block. As you approach the crime scene tape, you pull out your badge to show to one of the officers on the scene who lets you through. You walk over to the head of the CSI unit who's standing in the front door. Sarcastically, you announce your presence, "Efimov, just who I was hoping to see." 
+		Vera Efimov doesn't even look up at you from her phone. "That makes one of us, $lname." 
+		"Well, what do you have for me?" 
+		At this, Vera turns off her phone and gestures around her. "Burnt house." 
+		"Hilarious," you deadpan. 
+		Vera smirks at you. "I aim to please." 
+		A moment passes before you break your snarky character to smile back at her. "How've you been, Vera?" 
+		You and Vera had both moved here during high school and became fast friends. Her quick wit and surpringly insightful analysis of the texts assigned in English class were fun to listen to and even more fun to debate with. You were surprised when she went into science rather than literature, but whenever you asked she just shrugged and said that science was her first love. 
+		Vera shrugs. "No better than the last time you saw me $name. Still hanging around crime scenes like my job depends on it. Oh wait." 
+		You shake your head. Classic Vera. "If it's so tedious then we should get you out of here as soon as possible. What do you have for me?" 
+		Vera passes you a pair of latex gloves and gestures for you to follow her into the house. "See for yourself." 
+		You pull on the gloves as you look around. The inside of the house is what you would expect from a house that barely survived a fire. You can barely make out the original color of the walls. Any curtains or rugs that may have been in the house before have been burned to ash. The wooden furniture is badly charred. 
+		Vera leads you into the foyer and then into the kitchen. "Our preliminary investigation suggests that the fire started in the kitchen, probably from the stove or something. You know how it goes: gas leak, someone lights a smoke, boom." 
+		> "Did you find evidence that someone had been smoking?" 
+			"Yep." Vera taps a CSI on the shoulder and gestures to the bag the CSI was carrying. "The lighter." 
+			The CSI hurridly hands her the lighter before turning back and continuing to photograph the gas stove. 
+			Vera passes you an evidence bag with a silver lighter inside. You study the lighter carefully. It's the kind you need to flip the cap open in order to use, probably used often by the amount of wear and tear you can see on the casing. On one side of the casing, there's a sideways M, or is it a W? 
+			You take a photo of the lighter and hand it back to Vera. "Is there any evidence Watts used to smoke?"
+			Vera shrugs. "There are a few ashtrays scattered around the house so maybe? But check with the coroner. I'm not the body person." 
+			You hum in acknowledgement. 
+			Vera turns to hand the bag back to the CSI before gesturing for you to continue to follow her. "Let's go upstairs. There's something I want to show you." 
+			You raise your eyebrows. "Wow, cryptic." 
+			Vera smiles. "That's how I keep my air of allure around me. Never reveal any secrets." 
+		> You glance at your notebook to verify you suspicions. "But there was no one in the house when it went up." 
+			"Well you're half right. There's no body here, but when we investigated the bedroom we did find traces that someone had been there recently. Here, let's go up so I can show you." 
+		The two of you arrive at the second floor of the house. Vera passes by three rooms seemingly filled to the brim with junk. "Those rooms are a work in progress. We'll be cataloging everything in there for the next week probably. I'll let you know if we find anything, but so far it looks like random junk: empty arcade cabinets, old bike frames, random stacks of playing cards, anything you can think of. Think I found like seven Bibles earlier. Anyways, try to stay away from those rooms for now. I don't need you knocking something over and forcing us to recategorize." 
+		You make a note and underline it. Don't enter the guest rooms yet.  
+		Vera leads you into the room furthest from the staircase, which turns out to be the master bedroom, or what was left of it. The bed is burned to high hell and the dressers aren't much better. The attached bathroom seems to have come away a bit better, but only because most of it is tile and ceramic. The ceiling still has evidence of the fire and the walls and mirror are covered with soot. 
+		Vera points to the bathtub. "When we got here, there was water in here. I assume the ceiling was intact before the fire and even if it wasn't, it hasn't rained in the last few days. We've already drained the water, but we collected some samples before we did. I'll let you know what the results say once we do some proper analysis. Couldn't get much out of it because it was so clogged up with ash." 
+		> "What does that mean?" 
+		> "So someone was in the bath during the fire?" 
+		Vera shrugs. "I'll let you know if we find skin cells or organic matter, but other than that I can't say." 
+		You make a note to follow up about the bath samples. 
+		Vera leads you back to the front of the house. "Anyways, that's about what I've got for you. My crew will probably pack up in an hour or so, so if you've got questions ask them before we leave or I get to threaten you with the good ol' '3 to 5 business days.'" 
+		You nod. "Will do. Thanks Vera." 
+		"No problem, $name." Vera picks up her phone again and begins scrolling through it.
+		Leaving Vera behind, you decide to move to your next location.	
+	- Walk around the perimeter 
+		You walk around the perimeter. 
+		The outside of the house is just as flame-ridden as you'd expect. Once-light-grey paint charred black from the fire, scorch marks extremely evident around the windows. The fire didn't spread to the grass outside the house thanks to the brick walkway that surrounds the house. Lucky the fire department got there before the fire spread to the neighbors' houses. You don't want to think about the casualties that could have resulted from that. 
+		You enter the backyard and see a shed on the far side of the backyard.
+		> check the shed 
+			You walk over to the shed and notice that it's in much better shape than you'd expect. It was seemingly untouched by the fire. Good thing too; the wooden structure likely would have lit up like a bonfire. You go to open the door and notice that there's a lock on the door. The keyhole looks like a gear shape, nowhere near a regular key. You'll have to see if anyone found the key. 
+			> talked to the Vera, has the key 
+				"$name." 
+				You look behind you to see Vera walking up. She hands you the bag with the key in it. "Make sure to wear your gloves while handling it." 
+				You waggle you already-gloved hands in her face and she makes a face and pushes them aside. You snicker and turn back around to unlock the door to the shed. 
+				You try to stick the key in the lock, but realize that the sides of the key are all slightly different widths, and that the key needs to be put in a specific way. It takes you a few tries, but you eventually figure out the correct orientation for the key.
+				You open the door to the shed and find a workshop. Inside are two tables, one on the wall next to the door and another on the far wall next to a window. The first table has several electronic devices carelessly placed on it, each one with a note taped to it. You recognize a few video game consoles from your childhood. The other table has a set of tool carefully placed in an organizer leaning against the wall. There's an open laptop lying on the bench. 
+				> investigate the table closer to you 
+					There are several electronic devices on the table, some of which you recognize, most of which you don't. Each one has a note taped to it. The notes all have a name and an address attached to them. Most of these addresses are outside the city, if not outside the country. 
+					You write each one down. They might come in handy later. 
+				> investigate the bench by the window 
+					There are several small screwdrivers, tweezers, and wrenches in a tool organizer leaning against the wall. There's an unplugged soldering iron in its station on the table. Also on the table is an open laptop and a note with a name and an address. You try turning the laptop on but nothing happens. Looks like it's either dead or broken. Either way, you won't be getting any information from it until one of the CSIs can take a look at it. You jot down the name and address just in case. 
+					There's a drawer in the table. Opening it reveals several electronic components that you can't make heads or tails of. You take photos of them anyways, hoping inspiration might strike. 
+				> leave 
+					You don't see anything else of interest in the shed. 
+					You turn to Vera who's doing some photographing of her own. "I'm heading out." 
+					Vera nods. "Sure thing." 
+					You move back to the backyard. 
+		> go back to the front 
+			You circle the other side of the house. 
+			It looks pretty much the same as the first side you walked around. You find yourself back at the front of the house. 
+	- Talk to Vera (if she isn't in the shed)
+		> How's life been? 
+			"How's life been treating you lately?" 
+			Vera shrugs. "Meh. Work, work, and more work it feels like. If I'm not careful, I might be married to this job in the future." 
+			"I heard you ended things with the girl from Dispatch." 
+			"Yeah. Or, well, she did. I guess we just wanted different things. She wanted someone who would be there when she woke up in the morning and I wanted to keep my job." 
+			"Well, if it helps, I still owe you a drink after the last case we worked together." 
+			"Yeah, maybe I'll take you up on this after we're done here. A strong cocktail and a book to take my mind off of shit sounds great right now." Vera laughs, but you can tell she's still hurting a little. 
+			You decide not to push it further. 
+		> Do you know anything about Watts's reputation around here? 
+			Vera gives you a weird look. "Who doesn't? Dude was everyone's prime suspect for the murders in '98. Only reason he was never charged is because they couldn't find enough evidence against him. It must have been a nightmare living here at that time. We were, what, 8 years old?" 
+			You do the math in your head. "Yeah, 8 years old." 
+			Vera nods. "There's a lot of resentment towards him. I'm surprised you don't know, detective. Isn't it your job to know about these sorts of people?" 
+			You put your hands up in surrender. "Point taken, point taken. I was just trying to figure out if you knew anything beyond what I did."
+			Vera shakes her head. "Out of luck. Go fish."  
+		> (if been to shed) Has anyone found a key? 
+			"Has anyone found a key? Or maybe a very very tiny and long gear?"
+			Vera looks up in thought. "Key... gear... No, I don't think so... Ah, wait." She shoves her phone back in her pocket and runs over to one of the CSIs. You can see her gesture to something and the CSI handing her something. She walks back over to you and hands you a small evidence baggie. "We found this in the driveway. It's the closest I can think of." 
+			You take the baggie and study the item inside. It looks like a tiny ice pick, but there are curves and ridges on the side similar to an old hand-crank pencil sharpener. "Can I take this?" 
+			Vera squints at you. "We haven't fingerprinted it yet or anything. Can you wait until we at least catalog it?" 
+			"When will that be?" 
+			"Give me ten minutes and then it's yours. Or, it's yours until we leave." 
+			"Deal." You hand the bag to Vera. "Can you meet me in the backyard when you're done?" 
+			Vera nods and walks over to the van. "Yep, can do." 
+	- Garage 
+		You walk through the open garage door and look inside. A truck and horse trailer take up the majority of the space, leaving only a small walkway around either. 
+		> Look in the truck. 
+			You look inside the truck. The glove compartment has been ransacked, probably by the CSIs. You can see insurance papers, car registration, and a user's manual. A small air freshener hangs on the review mirror, but the lack of smell suggests that whoever put it there just never replaced it. There's nothing on the side compartments or in the back. Boring guy. 
+		> Look in the trailer. 
+			You look in the horse trailer. Even though the trailer is meant for horses, you can see that there's no horses to speak of inside. Instead, a bunch of standing arcade games are inside. None of them are connected to power. Maybe these are left over from when Archibald still worked at Spirit Cell Arcade. You make a note to review that later. 
+	- Living room 
+		You walk to the living room and take another look around. Just as burned as when you last saw it. The CSIs have mostly finished up in here. 
+		> Look at the floor 
+			You study the floor. 
+			It's covered in soot and footprints. There's no way for you to figure out which belong to who. There's also some shattered glass. You should probably watch where you step.  
+		> Look at the walls 
+			You look at the walls. 
+			It's really burnt. You can see a few picture frames but the glass has been shattered and the flames claimed the photos. It's impossible for you to make out what was inside. 
+		> Look at the furniture 
+			You look at the couches and tables in the room. 
+			You can't make out much because of the burn damage, but they look old. There appear to be relatively fresh scuff marks on the legs of every piece of furniture in the room, but you aren't sure if that was from the firefighters, the CSIs, or someone else entirely. 
+		> Look at the windows 
+			You look at the windows. 
+			The windows are closed and covered in ash. You can't see out of them. The temptation to draw a smiley face in the ash suddenly seizes you and you have swat your arm to keep yourself from doing something stupid. 
+	- Kitchen 
+		You head over to the kitchen. 
+		The light streaming in from the window above the sink really shows how badly the place is scorched.
+		> Look at the stove 
+			You look at the stove. 
+			It's a gas stove like Vera told you earlier. The working theory is that someone left the gas on and then lit a flame that set the whole house on fire. You examine the stove top and don't see any evidence of tampering or any traces of a cloth or anything that could have lit the house on fire. Then again, maybe one of the CSIs found something and bagged it already. You make a note to ask. 
+		> Look at the pantry and fridge 
+			You open the pantry and look inside. Everything, including the door, is burnt. You don't envy the person who has to categorize what all that is. 
+			You open the fridge and look inside. 
+			Surprisingly, the fridge and most of its contents are still intact, even if the fridge currently doesn't have any power. Guess that's because it's metal? 
+		> Look at the drawers 
+			You examine the drawers under the sink and stove. 
+			They also look extremely burnt. You try to open the drawers under the sink but find them to be stuck. There doesn't appear to be a keyhole or anything. 
+			> Apply force 
+				You heave your weight into pulling the drawer and it flies out, forcing you to stumble to regain your balance. You peer inside the drawer and find it completely empty. So much for that. 
+				You try your best to put the drawer back in when a CSI walks into the room. Both of you look at each other for a second, frozen in place. Eventually the CSI gestures to the drawer and awkwardly says, "I can, uh, I can take that if you want." 
+				"Oh, sure thanks. It uh, it goes over here." You point uselessly to the drawer and the gaping hole under the sink as you pass the drawer to the CSI. "I'll just get going." 
+				The CSI looks hopelessly at the hole. "Yeah, sure." 
+				You walk out of the kitchen as quickly as you can. 
+				You find yourself back in the living room. 
+			> Leave them 
+				You leave the drawers alone for now. 
+	- Upstairs 
+		You walk upstairs. 
+		At the top of the stairs are four doors. It looks like techs are in the guest bathroom, and the two guest rooms. You remember Vera's warning and turn to Watts's bedroom. 
+		> Check the furniture 
+			You look at the sparse furniture in the bedroom. 
+			There are the remains of a king sized bed frame, a partially burnt dresser, an even-worse-off closet, and what looks like it may have been a rocking chair. Nothing of note in the dresser or the closet other than melted hangers and burnt clothes. You don't touch the bed frame or chair for fear of making them crumble to ashes. 
+		> Watts's bathroom 
+				You enter the bathroom. 
+				Any spare towels that might have been in here are gone, either taken by the CSIs or burnt to ash. The bathtub that Vera mentioned is still wet, even if they'd removed the water already. The attached shower is completely dry, as is the sink. The toilet doesn't have any water in it, but looks damp like the bathtub. You decide not to try the toilet. You're not sure you want to risk Vera's wrath if it suddenly overflows.  
+	- Leave 
+		You decide to leave the house. 
+		> if Vera in shed
+			You make a quick detour to the shed to bid Vera goodbye. You see her standing outside the shed, discussing something with another CSI. 
+			You cup your hands around your mouth. "Vera!! I'm leaving!!!" 
+			Vera doesn't even look up and chooses instead to flip you off. "Go die!" 
+			You laugh and wave 
+			You shout that you're leaving and she gives you a quick wave, not taking her eyes off the other CSI's tablet. 
+		> if Vera not in shed 
+			You stop by the front of the house to say good-bye to Vera. She's still on her phone, scrolling through who knows what. 
+			"Vera, I'm heading out." 
+			She glances up at you. "Alright. Don't die. You still owe me that drink." 
+			You smile back. "I'll try not to." 
+		You wave and head back to your car. Where to now? 
+
+
+
+Investigate the scene of the body: 
+	- Prelim walkthrough 
+		You pull up to the Lucy Lemon and see the entire parking lot blocked off with road blocks. When an officer realizes you've arrived, they walk over to wave you away but you lean out and show your badge. A part of the blockade is quickly lifted and your car is waved through. 
+		As you park, you spot the head of this CSI team. "Nicholas!" 
+		Nicholas Huerta stands up abruptly from where he had been leaning in the shade of the building and looks around frantically, shoving his phone in his pocket. When he spots you leaning out of the side of the car he runs over. "$name! You're the detective on this case?" 
+		You had met Nicholas when he was a new recruit to the CSI team and you were a police officer. He had the sense of humor of a 13 year-old (and sometimes had the same amount of sense as one), but he did his job so you can't really say anything too bad about him. With a mouth that talked a mile a minute and a brain that could discern a person's biggest insecurity in half that time, he was a formidable force to deal with. The two of you have a mutual understanding that he never mentions how bad you are at first-person shooter games and you never mention the time he threw up in your car during a car chase. 
+		You exit the car. "Well, Pottinger didn't give me much of a choice. How's it going?" 
+		Nicholas lets out a long sigh. "Me personally? Not great. The crime scene? Even worse." 
+		You grimace. "Lead the way." 
+		Nicholas dutifully leads you to the van he and his crew arrived in. "Safety first, gotta get your gloves on." He passes you a pair of latex gloves before turning around and walking away from the entrance, around the side of the building. 
+		You follow him, pulling on your gloves as you go. "Where are we going?" 
+		Nicholas smiles and whispers conspiratorily, "We're going in the way the perp did." 
+		You give him an incredulous look. 
+		Nicholas sighs and leans away. "You're no fun. No appreciation for the dramatics I put in for you." 
+		You just raise your eyebrows. 
+		"Ugh, fine. We're going in the back because the lock there looks like it's been picked." 
+		"Thanks Nicholas." 
+		"No fun, I swear." He continues grumbling until the two of you reach the back of the building. "Anyways, here's what I was talking about."
+		"Hey Nicholas." 
+		"Yeah." 
+		"Where's the door?" Your question comes out more like a statement with how deadpan your voice is. The two of you stand in front of an empty doorway with a clear view into the kitchen. 
+		Nicholas grins. "Ah, it's inside." 
+		Alarmed, you turn to face him. "Did they break-"
+		"Break the door down? No, we unscrewed the hinges so that we could take a better look at the lock. Couldn't get the lock out otherwise." 
+		You sigh. This man is going to give you a heart attack at this rate. "Did you find anything?"
+		"We cataloged and sent the lock in earlier this morning. I got word right before you pulled up that there's evidence of the lock being picked, probably by an amateur judging by the amount of scratching on the pins." Nicholas leads you further into the building. 
+		As you pass through the kitchen, Nicholas continues to talk. "We collected samples of a black dust we found on the floor but there really wasn't enough to make a full footpri- ah, don't step there." 
+		You freeze in place and realize you narrowly missed kicking someone's evidence marker. You murmur an apology and watch your feet a little more. 
+		"But yeah no footprints. But that's not what you're here for. You're here for this bad boy." 
+		The two of you walk through the propped-open double doors that lead to the main eating area. To your left is a stage with an arcade machine on it. The back of it is open, pointing to the front door. 
+		Nicholas leads you up the stage. "Our boy Mr. Cao says it was like this when he got here, 'xept there was a body inside. We took the body out already, can't leave it here to rot. But yeah, that's where we found old man Watts. All slumped over, dried blood on his chest, probably from the who-knows-how-many stab wounds he had. I mean the coroner's office will know but like man I'm pretty sure Dr. Mao hates my guts so..." 
+		You tune out Nicholas's rambling and walk over to the arcade machine. The CSI team had marked where Archibald Watts's legs were splayed out on the stage, but the inside of the arcade machine was unmarked. Seems like Watts wasn't a very tall man, which matched what you remembered of him. You crouch down and take a good look inside the machine. Despite Nicholas's observation of the body being stabbed, there was no blood inside the machine. 
+		"...and I thought she'd appreciate my efforts but I guess frogs just aren't her thing, who knew-" Nicholas stops talking as you stand back up abruptly. "What's up?" 
+		"Aren't you going to finish telling me about the case?" You turn to face him.  
+		"But I did." 
+		"No, all you told me was you found ashy footprints and the arcade machine. What else is there?" 
+		"I told you about the body too." 
+		"That counts as the arcade machine." 
+		Nicholas deflates slightly. He rubs the back of his neck with his hand and stares at the curtains behind the stage. "Well, there's honestly not much else. None of the machines were on when we got here, we can't exactly do luminol testing here because, well, it's a Lucy Lemon. Kids spit and pee and bleed all over this place basically 24/7, and the custodians don't get paid enough to clean that shit up. And don't even think of asking us to fingerprint those arcade machines. We already tried a few and there are so many overlapping and smudged prints that there might as well not be anything at all. And we didn't find anything in any of the trashcans either. No knife, no bloody tablecloth, no nothing." As he spoke, Nicholas became more and more animated until he got to the point where he was waving his arms in the air agitatedly. He then suddenly froze and pointed at you. "Did I say anything about the cigarette butts?" 
+		You lower your hands which you'd raised when he'd suddenly pointed his finger at you. "No?" 
+		"Ah, well we found those. Some outside the back door, others inside the storage area behind the stage. We'd probably be able to get a DNA profile off of those but other than the genral criminal database we don't have any suspects to compare that to. And it's just as likely it's an employee who didn't clean up after their smoke break. But figured I'd at least mention it. But other than that I think I've mentioned everything."  
+		> machine fingerprints 
+			"Did you fingerprint this machine?" You gesture to the one on the stage.
+			"Yep. Clean as a whistle." 
+			"What?" 
+			Nicholas walks over to the machine and runs his gloved hand over the top of it. "There was nothing on it. No fingerprints, no glove prints, no ear prints, no prints to speak of. It's as if this little baby came off a completely automated factory line right before Watts's body was shoved in. Any prints that were on it were wiped off really meticulously. Or there weren't any to begin with." 
+		> security footage 
+			"Has your team reviewed the security footage yet?" 
+			"Well we have the footage from the night, but we need time to go through it completely. We've already downloaded it for evidence, but there's a couple people reviewing the footage in the security booth right now if you want to go check on them." 
+			"Yeah, I think I want to do that. Can you show me where they are?" 
+			Nicholas nods and gestures for you to follow him. "Sure thing boss." 
+			"I'm not your boss." 
+			"Righte-o, big bro." 
+			"I'm not your bro." 
+			"A-okay... yeah that one isn't going to work." 
+			You sigh. "I wholeheartedly agree." 
+			The two of you approach a red door marked "EMPLOYEES ONLY" which Nicholas pushes open. "Janie, Kev- OH GOD." 
+			You push past Nicholas with your gun drawn at his yell and then immediately turn around and walk out of the room. 
+			Nicholas swears in Spanish and slams the door shut. "KEEP IT OUT OF THE WORKPLACE I swear some of these people have never learned what workpalce decency is I'll kill them both I-" 
+			You look at the ceiling and wish for mental bleach. "Careful what you say, I might have to arrest you for threatening a government employee." 
+			Nicholas scoffs. "No one respects me here, I swear." 
+			You hum and decide to ask for a summary of the security footage later. You'd rather not venture back in that booth any time soon. 
+		> storage area
+			"What's this about a storage area?"
+			"Oh that? It's right through the curtains." Nicholas points to the back of the stage. "It's where they keep the animatronics when they aren't in use. We found some extra stuff too, like spare parts, tools, extra prizes, all that fun stuff. We checked for blood but couldn't find anything in there." 
+			You make a note of where the storage area is. 
+		Nicholas leans against the wall and takes out his phone. "I think we're gonna pack up soon, but I'll tell the rest of the crew to wait until you're done to head out. Just let me know before you leave." 
+		"Will do." You turn away from Nicholas and think about your next move. 
+	- Talk to Nicholas 
+		> How's life been? 
+			"How's life been treating you lately?" 
+			Nicholas groans and stares at the ceiling. "Where do I begin? Feels like the world's stacked against me this week. My sister's been breathing down my neck trying to get me to visit so I can 'finally visit my new niece' but I'm so tired of trying to play nice with her husband that I'm almost glad for the case to give me an excuse. And I ordered a custom keycap for Janice but it got lost in the mail and I'm scrambling to find a different gift. Our anniverary's in a couple weeks you know? Where am I supposed to find something in a couple weeks?" 
+			You awkwardly pat Nicholas's shoulder. "I know a florist I can give you the contact info for, if it comes down to it." 
+			Nicholas grimly smiles at you. "Thanks, but Janice is allergic to pollen." 
+			"Ah." 
+			"Yeah. And I already did fake flowers for her birthday so flowers plus more flowers... I need some variety you know?" Nicholas shakes his head before turning back to you. "Ah, well, I'll figure something out. But anyways, was there anything you needed to know about the case?"
+		> Do you know anything about Watts's reputation around here? 
+			"Do you know anything about Watts's reputation?" 
+			Nicholas rolls his eyes. "Other than the fact that he's the prime suspect of a serial killing that was never solved and was basically cast out of society because no one wanted to be associated with a potential serial killer?" 
+			You sigh. "Yeah, other than that." 
+			"Nope. Heard he had an eBay store for fixed up game consoles, but I'm more of a modern games man so I never went looking. Besides, not sure I wouldn't trust him to kill me if we met up to do a sale." 
+			"I'll check that out. Thanks Nicholas."
+			"Mhmm, no prob."  
+	- Check the surrounding area 
+		You exit the building through the back door, making sure to watch your step. 
+		As you walk out the back door, you notice the bright yellow sign next to the door, likely marking where the cigarette butts were found. You slowly walk around the building, but don't find anything of note. As you approach the front, you see the police officers attempting to ward off a hoard of reporters. You can see news vans parked up and down the street, unable to access the parking lot. 
+		One reporter spots you and starts yelling, asking if you had anything to say about the case. You shield your face from the cameras and turn around. Best not to talk to the press until you have something to say other than "no comment." 
+		You head back inside the building. 
+	- Check the stage 
+		You walk back on stage. 
+		The entirity of the stage is wooden, though there are several spots that look to be circular panels installed in the stage. Those are probably where the animatronics stand during operating hours. The arcade machine shell sits in the center of the stage, back facing towards the door so that if you stood where you would be if you were playing the machine, you would be staring at the door. The curtains hiding the storage area are closed. 
+		> look at the panels 
+			You take a closer look at the panels at the back of the stage. 
+			Each panel is large enough for you and maybe another person to stand on side-by-side. You figure they must be where the animatronics are placed during the day. You don't see any way to lift them up, so if there's a portion underneath it's likely not accessible by regular means. You make a note to ask if any of the CSIs have been able to look underneath. 
+		> examine the arcade machine  
+			In front of you is the arcade machine. 
+			The monitor, joystick, and buttons have been removed, leaving only the empty cabinet behind. You check the side and see that it was originally a PACMAN game. Well, doesn't look like it'll be operational any time soon. 
+			You check where the body was sitting. As you noticed before, there's no bloodstains on the inside of the cabinet. You try to imagine what the body must have looked like in there when a sudden chill runs down your spine. You remember the case file Pottinger had handed you on the murders of '98 and the photos inside. 
+			"Another cabinet killing..." you murmer quietly to yourself. 
+		> check the storage area 
+			You walk to the back of the stage. 
+			Upon opening the curtains, you're immediately greeted with four 10 foot tall animatronics standing in front of you. You startle slightly but shake yourself and snap out of it. The stars of the show- Oliver Orange, Lance Lime, Gary Grapefruit, and of course Lucy Lemon herself- stand motionless behind the curtain. You can see the door to the storage room behind the animatronics on the right wall. 
+			You scootch past the animatronics and open up the storage area door. Behind it is a windowless room that matches what Nicholas had described earlier. Tools hang on one wall, a stack of drawers with labels cover another, and animatronic body parts decorate the third. The floor has several yellow evidence markers, which is probably where the cigarette butts were found. 
+			> check the drawers 
+				You walk closer to the drawers. 
+				The plastic drawers are of varying sizes. The ones at the bottom come up to your knee and you can see a few at the top that look no larger than the height of a milk carton. 
+				You try to read some of the labels on the drawers closest to you. 
+				"Bouncy balls." "Rings." "Frisbees." "Finger traps." These were all prizes, probably the extras that weren't stored at the front. You take a peak inside the one labeled "bouncy balls" and confirm that there are indeed several bouncy balls inside, enough that the tub is almost full. The bright colors and designs swirl before your eyes. You surpress the urge to grab one and see if it works. 
+			> leave 
+				You walk back to the stage and consider your next move. 
+	- Check the eating area 
+		The eating area is right in front of the stage. 
+		Rows and rows of tables and chairs curve around the stage, stretching almost wall to wall. You look under a few of the tables, but there doesn't seem to be anything of note except a disgusting array of chewed gum. 
+	- Check the arcade machine area 
+		You walk over to the arcade area. 
+		All the machines are shut down. Their usual flashing lights and loud sounds are absent, replaced with dim screens and silence. Instead of children running around and shrieking, you see a small group of CSIs examining the area, talking to each other as they dust powders and take photos. You aren't quite sure what they're doing, but figure you'll figure it out from their report later. 
+		You wander for a bit and glace at the machine next to you. It's a pinball machine with a zombies theme, the kind you'd expect ghoulish screams to come from every time you light up a section. Rather morbid for a family entertainment center, but you figure that maybe it was for the older kids who got dragged here by family to play. You look around the machine for a bit but come up empty. 
+	
