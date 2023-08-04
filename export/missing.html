@@ -437,12 +437,12 @@ $(document).on(':passagestart', function (ev) {
         &lt;&lt;set $His to &quot;His&quot;&gt;&gt; 
         &lt;&lt;set $p_sing to true&gt;&gt;
     /* story path variables */
-        &lt;&lt;set $day to 1&gt;&gt;
+        /* time */
+            &lt;&lt;set $day to 1&gt;&gt;
+            &lt;&lt;set $time to 1&gt;&gt;
+            &lt;&lt;set $progress to 0&gt;&gt;
         &lt;&lt;set $toldMark to false&gt;&gt;
-        &lt;&lt;set $progress to 0&gt;&gt;
         &lt;&lt;set $optional_evidence to {&quot;lighter&quot;: false, &quot;foundShed&quot;: false, &quot;key&quot;: false, &quot;trailer&quot;: false, &quot;photos&quot;: false, &quot;eBay&quot;: false, &quot;panels&quot;: false, &quot;lever&quot;: false, &quot;scrunchie&quot;: false}&gt;&gt;
-        &lt;&lt;set $route1 to {&quot;r1a&quot;: false, &quot;r1b&quot;: false, &quot;r1c&quot;: false, &quot;r1d&quot;: false, &quot;r1e&quot;: false, &quot;r1g&quot;: false, &quot;r1h&quot;: false, &quot;r1i&quot;: false, &quot;r1j&quot;: false, &quot;r1k&quot;: false}&gt;&gt;
-        &lt;&lt;set $route2 to {&quot;r2a&quot;: false, &quot;r2b&quot;: false, &quot;r2c&quot;: false, &quot;r2d&quot;: false, &quot;r2e&quot;: false, &quot;r2g&quot;: false, &quot;r2h&quot;: false, &quot;r2i&quot;: false, &quot;r2j&quot;: false, &quot;r2k&quot;: false}&gt;&gt;
         &lt;&lt;set $investigated to {&quot;AH&quot;: false, &quot;LL&quot;: false, &quot;AW&quot;: false, &quot;KC&quot;: false, &quot;MK&quot;: false}&gt;&gt;
     &lt;&lt;set $temp to 0&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Menu" tags="" position="25,650" size="100,100">&lt;&lt;link &quot;Case File&quot;&gt;&gt;&lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;Case File&quot;); 
@@ -458,7 +458,8 @@ $(document).on(':passagestart', function (ev) {
         &lt;div class=&quot;bottomcontainer&quot;&gt; 
             &lt;div class=&quot;menu&quot; data-passage=&quot;Menu&quot;&gt;&lt;/div&gt;
         &lt;/div&gt;
-	&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="Title-Block" tags="nobr" position="25,400" size="100,100">&lt;h1&gt;The Cabinet Man&lt;/h1&gt;</tw-passagedata><tw-passagedata pid="5" name="Day-Block" tags="" position="275,400" size="100,100">&lt;h1&gt;Day $day&lt;/h1&gt;</tw-passagedata><tw-passagedata pid="6" name="Save-Block" tags="" position="150,400" size="100,100">&lt;&lt;link &quot;Save Menu&quot;&gt;&gt;&lt;&lt;script&gt;&gt;
+	&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="Title-Block" tags="nobr" position="25,400" size="100,100">&lt;h1&gt;The Cabinet Man&lt;/h1&gt;</tw-passagedata><tw-passagedata pid="5" name="Day-Block" tags="" position="275,400" size="100,100">&lt;h1&gt;Day $day
+    &lt;&lt;if $time == 1&gt;&gt;Morning &lt;&lt;elseif $time == 2&gt;&gt;Afternoon &lt;&lt;else&gt;&gt;Evening &lt;&lt;/if&gt;&gt;&lt;/h1&gt;</tw-passagedata><tw-passagedata pid="6" name="Save-Block" tags="" position="150,400" size="100,100">&lt;&lt;link &quot;Save Menu&quot;&gt;&gt;&lt;&lt;script&gt;&gt;
         Dialog.setup(&quot;Save Menu&quot;); 
         Dialog.wiki(Story.get(&quot;Save Menu&quot;).processText()); 
         Dialog.open(); 
@@ -615,8 +616,8 @@ $(document).on(':passagestart', function (ev) {
 
     &quot;It did. And then his charred body was found in the Lucy Lemon off Dalby Road. The techs are still out at both locations doing their preliminary investigations, but they&#39;ll probably be packing up soon. Any questions?&quot;
 
-    &lt;&lt;link &quot;\&quot;Why me?\&quot;&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10a&quot;&gt;&gt;&lt;&lt;set $temp to 2&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;\&quot;Who else is on the case with me?\&quot;&quot;&gt;&gt;&lt;&lt;set $temp to 1&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;\&quot;Why me?\&quot;&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;\&quot;Who else is on the case with me?\&quot;&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;No questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Day 1 Intro 10a" tags="" position="500,1400" size="100,100">&quot;Why me? This feels like a case that would usually be assigned to someone a bit more senior.&quot; Even though you were a detective, there were plenty of other detectives that had more experience than you. 
 
     Captain Pottinger leans back in her chair and looks up at the ceiling. &quot;When did you move to town, $name?&quot; 
@@ -634,10 +635,10 @@ $(document).on(':passagestart', function (ev) {
     After a long silence, Captain Pottinger sits up again and looks at you. Her exhaustion is again hidden behind her usual indifferent expression. &quot;Any other questions?&quot; 
 
     ==&quot;Why me?&quot;==
-    &lt;&lt;if $temp == 3&gt;&gt;==&quot;Who else is on the case with me?&quot;==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;\&quot;Who else is on the case with me?\&quot;&quot;&gt;&gt;&lt;&lt;set $temp to 3&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;link &quot;No questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Day 1 Intro 10b" tags="" position="625,1400" size="100,100">&quot;Who else is going to take the case with me?&quot; Usually you work as a pair with Mark, but he wasn&#39;t called in to the office. 
+    &lt;&lt;if hasVisited(&quot;Day 1 Intro 10b&quot;)&gt;&gt;==&quot;Who else is on the case with me?&quot;==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;\&quot;Who else is on the case with me?\&quot;&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;link &quot;No questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Day 1 Intro 10b" tags="" position="625,1400" size="100,100">&quot;Who else is going to take the case with me?&quot; Usually you work as a pair with Mark, but he wasn&#39;t called into the office. 
 
-    &quot;No one. You&#39;ll be leading this case on your own. You&#39;ll be working with the usual CSI team because we never have enough of them to spare in the first place, and you can ask some patrol officers to help you own at your own discretion, but other than that you&#39;re on your own.&quot;
+    &quot;No one. You&#39;ll be leading this case on your own. You&#39;ll be working with the usual CSI team because we never have enough of them to spare in the first place, and you can ask some patrol officers to help you out at your own discretion, but other than that you&#39;re on your own.&quot;
 
     &lt;&lt;link &quot;Object.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10b01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Keep quiet.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10b01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="Day 1 Intro 10b01a" tags="" position="625,1525" size="100,100">&quot;Captain, with all due respect, this doesn&#39;t feel like enough support.&quot; Usually teams consisted of two or more detectives, working with a team of police officers to cover the ground they needed to. Working a case on your own felt more than a little daunting. 
@@ -650,7 +651,7 @@ $(document).on(':passagestart', function (ev) {
     
     Captain Pottinger nods. &quot;Good. Any other questions? &quot;
 
-    &lt;&lt;if $temp == 3&gt;&gt;==&quot;Why me?&quot;&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;\&quot;Why me?\&quot;&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10a&quot;&gt;&gt;&lt;&lt;set $temp to 3&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Intro 10a&quot;)&gt;&gt;==&quot;Why me?&quot;&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;\&quot;Why me?\&quot;&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 10a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     ==&quot;Who else is on the case with me?&quot;==
     &lt;&lt;link &quot;No questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Day 1 Intro 11" tags="" position="500,1650" size="100,100">&quot;No questions.&quot;
 
@@ -705,9 +706,9 @@ $(document).on(':passagestart', function (ev) {
 
 	&quot;Did she explain why?&quot; Mark&#39;s smile has completely disappeared. 
 
-    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 13a03&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Day 1 Intro 13a03" tags="" position="500,2275" size="100,100">&lt;&lt;if $temp &gt;= 2&gt;&gt;&quot;Yeah. She said that I&#39;m the only one who hasn&#39;t been directly affected by the killings.&quot;
+    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Intro 13a03&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Day 1 Intro 13a03" tags="" position="500,2275" size="100,100">&lt;&lt;if hasVisited(&quot;Day 1 Intro 10b01b&quot;)&gt;&gt;&quot;Yeah. She said that I&#39;m the only one who hasn&#39;t been directly affected by the killings.&quot;
 
-	    Mark looks down at his desk, his bangs hiding his expression. Quietly, he replies, &quot;yeah, she&#39;s probably right.&quot; 
+	    Mark looks down at his desk, his bangs hiding his expression. Quietly, he replies, &quot;She&#39;s probably right.&quot; 
 
 	    You make a mental note to look for Mark&#39;s last name in the case file. &lt;&lt;else&gt;&gt; &quot;No, not really.&quot;
 
@@ -722,7 +723,7 @@ $(document).on(':passagestart', function (ev) {
     
     You both know that&#39;s a lie. 
 
-    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;set $progress to 1&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 00&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="Day 1 Intro 13b" tags="" position="875,1900" size="100,100">&quot;Not a new case. She wants me to follow up some stuff on the serial killings from &#39;98. Because of Watt&#39;s death and everything. Said it&#39;s supposed to be solo work to keep me occupied. I think it&#39;s because she thinks I&#39;m behind the rubber ducks that she&#39;s trying to keep me on desk work.&quot; 
+    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;set $progress to 1&gt;&gt;&lt;&lt;set $time to 2&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 00&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="Day 1 Intro 13b" tags="" position="875,1900" size="100,100">&quot;Not a new case. She wants me to follow up some stuff on the serial killings from &#39;98. Because of Watt&#39;s death and everything. Said it&#39;s supposed to be solo work to keep me occupied. I think it&#39;s because she thinks I&#39;m behind the rubber ducks that she&#39;s trying to keep me on desk work.&quot; 
 
     Mark snorts. &quot;Ah, leave it to Pottinger to not have a sense of humor.&quot; 
 
@@ -732,9 +733,9 @@ $(document).on(':passagestart', function (ev) {
 
     &quot;Mhmm, will do.&quot; Another lie. 
 
-    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;set $progress to 1&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 00&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="Day 1 Investigate 00" tags="" position="1100,150" size="100,100">&#39;&#39;Unlocked: Case file&#39;&#39; 
+    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;set $progress to 1&gt;&gt;&lt;&lt;set $time to 2&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 00&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="Day 1 Investigate 00" tags="" position="1100,150" size="100,100">&#39;&#39;Unlocked: Case file&#39;&#39; 
 
-    Click the &quot;Case File&quot; button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game in there. The case file will be updated at the end of each section of the game. 
+    Click the &quot;Case File&quot; button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game there. The case file will be updated at the end of each section of the game. 
 
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 01&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="41" name="Day 1 Investigate 01" tags="" position="1100,275" size="100,100">You sit in the department-issued car, still in the parking lot, as you debate on where to go. You could either go to the scene of the arson or to where the body was found. 
 
@@ -745,7 +746,7 @@ $(document).on(':passagestart', function (ev) {
 
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a01&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Day 1 Investigate 02a01" tags="" position="1100,525" size="100,100">You arrive at the address Pottinger gave you. 
 	
-    Miraculously finding an open spot, you park at the end of the block and grab your notebook from the cup holder where you&#39;d placed it earlier. As you approach the crime scene tape, you pull out your badge to show to one of the officers on the scene who lets you through. 
+    The block is lined with cars parked almost end to end. Most of them seem to belong to the houses they&#39;re parking in front of, but you have a feeling more than a few of them belong to reporters trying to get scoop of what&#39;s going on. Miraculously finding an open spot, you park at the end of the block and grab your notebook from the cup holder where you&#39;d placed it earlier. You dodge around the reporters gathered around the area as you make your way to the house. As you approach the crime scene tape, you pull out your badge to show to one of the officers on the scene who lets you through. 
     
     You walk over to the head of the CSI unit who&#39;s standing in the front door. Sarcastically, you announce your presence, &quot;Efimov, just who I was hoping to see.&quot; 
 
@@ -761,15 +762,17 @@ $(document).on(':passagestart', function (ev) {
     
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a03&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="45" name="Day 1 Investigate 02a03" tags="" position="1100,775" size="100,100">A moment passes before you break your snarky character to smile back at her. &quot;How&#39;ve you been, Vera?&quot; 
 
-    You and Vera had both moved here during high school and became fast friends. Her quick wit and surpringly insightful analysis of the texts assigned in English class were fun to listen to and even more fun to debate with. You were surprised when she went into science rather than literature, but whenever you asked she just shrugged and said that science was her first love. 
+    You and Vera had both moved here during high school and became fast friends. Her quick wit and surprisingly insightful analysis of the texts assigned in English class were fun to listen to and even more fun to debate with. You were surprised when she went into science rather than literature, but whenever you asked she just shrugged and said that science was her first love. 
     
     Vera shrugs. &quot;No better than the last time you saw me $name. Still hanging around crime scenes like my job depends on it. Oh wait.&quot; 
 	
     You shake your head. Classic Vera. &quot;If it&#39;s so tedious then we should get you out of here as soon as possible. What do you have for me?&quot; 
 
-    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a04&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="Day 1 Investigate 02a04" tags="" position="1100,900" size="100,100">Vera passes you a pair of latex gloves and gestures for you to follow her into the house. &quot;See for yourself.&quot; 
+    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a04&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="46" name="Day 1 Investigate 02a04" tags="" position="1100,900" size="100,100">Vera passes you a pair of latex gloves and gestures for you to follow her into the house. &quot;See for yourself. Oh, and watch your step. We&#39;ve marked out where the wood is the weakest so I won&#39;t help you if you fall through the floor.&quot; 
 		
-    You pull on the gloves as you look around. The inside of the house is what you would expect from a house that barely survived a fire. You can barely make out the original color of the walls. Any curtains or rugs that may have been in the house before have been burned to ash. The wooden furniture is badly charred. 
+    You nod as you pull on the gloves. &quot;Fair enough.&quot; 
+    
+    The two of you enter the house. The inside is pretty much what you would expect from a house that barely survived a fire. You can barely make out the original color of the walls. Any curtains or rugs that may have been in the house before have been burned to ash. The wooden furniture is badly charred. 
 		
     Vera leads you into the foyer and then into the kitchen. &quot;Our preliminary investigation suggests that the fire started in the kitchen, probably from the stove or something. You know how it goes: gas leak, someone lights a smoke, boom.&quot; 
 
@@ -778,7 +781,7 @@ $(document).on(':passagestart', function (ev) {
 	
     &quot;Yep.&quot; Vera taps a CSI on the shoulder and gestures to the bag the CSI was carrying. &quot;The lighter.&quot; 
 		
-    The CSI hurridly hands her the lighter before turning back and continuing to photograph the gas stove. 
+    The CSI hurriedly hands her the lighter before turning back and continuing to photograph the gas stove. 
 	
     Vera passes you an evidence bag with a silver lighter inside. You study the lighter carefully. It&#39;s the kind you need to flip the cap open in order to use, probably used often by the amount of wear and tear you can see on the casing. On one side of the casing, there&#39;s a sideways M, or is it a W? 
 	
@@ -794,7 +797,7 @@ $(document).on(':passagestart', function (ev) {
 	
     Vera smiles. &quot;That&#39;s how I keep my air of allure around me. Never reveal any secrets.&quot; 
 
-    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a06&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="Day 1 Investigate 02a05b" tags="" position="1225,900" size="100,100">You glance at your notebook to verify you suspicions. &quot;But there was no one in the house when it went up.&quot; 
+    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a06&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="Day 1 Investigate 02a05b" tags="" position="1225,900" size="100,100">You glance at your notebook to verify your suspicions. &quot;But there was no one in the house when it went up.&quot; 
 		
     Vera frowns. &quot;I&#39;m not entirely sure. There&#39;s no body here, but when we investigated the bedroom we did find traces that someone had been there recently. Here, let&#39;s go up so I can show you.&quot; 
 
@@ -832,8 +835,8 @@ $(document).on(':passagestart', function (ev) {
 
     She looks up from her phone. &quot;What&#39;s up?&quot;
 
-    &lt;&lt;link &quot;Ask her how she&#39;s been.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Ask if she knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Ask her how she&#39;s been.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Ask if she knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;if $optional_evidence[&quot;shed&quot;] is true&gt;&gt;&lt;&lt;link &quot;Ask if anyone has found a key.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;/if&gt;&gt;&lt;&lt;link &quot;Leave.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a02&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="54" name="Day 1 Investigate 02a09a01a" tags="" position="1100,1650" size="100,100">&quot;How&#39;s life been treating you lately?&quot; 
 	
@@ -852,7 +855,7 @@ $(document).on(':passagestart', function (ev) {
     She shakes her head. &quot;Anything else?&quot;
 
     ==Ask her how she&#39;s been.==
-    &lt;&lt;if $route2[&quot;r2b&quot;]&gt;&gt;==Ask if she knows about Watts&#39;s reputation==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if she knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02a09a01b&quot;)&gt;&gt;==Ask if she knows about Watts&#39;s reputation==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if she knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;if $optional_evidence[&quot;shed&quot;] is true&gt;&gt;&lt;&lt;link &quot;Ask if anyone has found a key.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;/if&gt;&gt;&lt;&lt;link &quot;Leave.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a02&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="Day 1 Investigate 02a09a01b" tags="" position="1225,1650" size="100,100">&quot;Do you know anything about Watts&#39;s reputation here?&quot;
 
@@ -866,7 +869,7 @@ $(document).on(':passagestart', function (ev) {
 	
     Vera shakes her head. &quot;Out of luck. Go fish. Anything else?&quot; 
 
-    &lt;&lt;if $route2[&quot;r2a&quot;]&gt;&gt;==Ask her how she&#39;s been.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask her how she&#39;s been.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02a09a01a&quot;)&gt;&gt;==Ask her how she&#39;s been.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask her how she&#39;s been.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     ==Ask if she knows anything about Watts&#39;s reputation==
     &lt;&lt;if $optional_evidence[&quot;shed&quot;] is true&gt;&gt;&lt;&lt;link &quot;Ask if anyone has found a key.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;/if&gt;&gt;&lt;&lt;link &quot;Leave.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a02&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="56" name="Day 1 Investigate 02a09a01c" tags="" position="1350,1650" size="100,100">&quot;Has anyone found a key? Or maybe a very very tiny and long gear?&quot;
@@ -885,22 +888,24 @@ $(document).on(':passagestart', function (ev) {
 	
     Vera nods and walks over to the van. &quot;Yep, can do.&quot; 
 
-    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1a&quot;] to true&gt;&gt;&lt;&lt;set $optional_evidence[&quot;key&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a10&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="Day 1 Investigate 02a09a02" tags="" position="1100,1775" size="100,100">&quot;Nope, nothing.&quot;
+    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;set $optional_evidence[&quot;key&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a10&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="57" name="Day 1 Investigate 02a09a02" tags="" position="1100,1775" size="100,100">&quot;Nope, nothing.&quot;
 
     Vera nods and looks back down at her phone. &quot;Alright. Happy investigating.&quot;
 
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a10&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="58" name="Day 1 Investigate 02a09b" tags="" position="1475,1525" size="100,100">You take a walk around the perimeter. 
 	
-    The outside of the house is just as flame-ridden as you&#39;d expect. Once-light-grey paint charred black from the fire, scorch marks extremely evident around the windows. The fire didn&#39;t spread to the grass outside the house thanks to the brick walkway that surrounds the house. Lucky the fire department got there before the fire spread to the neighbors&#39; houses. You don&#39;t want to think about the casualties that could have resulted from that. 
+    The outside of the house is just as flame-ridden as you&#39;d expect. The once-light-grey paint charred black from the fire with scorch marks extremely evident around the windows. The fire didn&#39;t spread to the grass outside the house thanks to the brick walkway that surrounds the house. It&#39;s a good thing the fire department got there before the fire spread to the neighbors&#39; houses. You don&#39;t want to think about the casualties that could have resulted from that. 
 	
     You enter the backyard and see a shed on the far side of the backyard.
 
     &lt;&lt;link &quot;Check out the shed.&quot;&gt;&gt;&lt;&lt;set $optional_evidence[&quot;shed&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09b01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Go back to the front of the house.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09b01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Day 1 Investigate 02a09b01a" tags="" position="1475,1650" size="100,100">You go check out the shed. 
 
-    &lt;&lt;if $route1[r1a]&gt;&gt;You look behind you to see Vera walking up. She hands you the bag with the key in it. &quot;Make sure to wear your gloves while handling it.&quot; 
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02a09a01c&quot;)&gt;&gt;&quot;$name!&quot; 
+    
+    You look behind you to see Vera walking up. She hands you the bag with the key in it. &quot;Make sure to wear your gloves while handling it.&quot; 
 	
-    You waggle you already-gloved hands in her face and she makes a face and pushes them aside. You snicker and turn back around to unlock the door to the shed. 
+    You waggle your already-gloved hands in her face and she makes a face and pushes them aside. You snicker and turn back around to unlock the door to the shed. 
 	
     You try to stick the key in the lock, but realize that the sides of the key are all slightly different widths, and that the key needs to be put in a specific way. It takes you a few tries, but you eventually figure out the correct orientation for the key.
 
@@ -911,7 +916,7 @@ $(document).on(':passagestart', function (ev) {
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09b01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Day 1 Investigate 02a09b01a01" tags="" position="1475,1775" size="100,100">You look around the workshop. 
     
-    Inside are two tables: one on the wall next to the door and another on the far wall next to a window. The first table has several electronic devices carelessly placed on it, each one with a note taped to it. You recognize a few video game consoles from your childhood. The other table has a set of tool carefully placed in an organizer leaning against the wall. There&#39;s an open laptop lying on the bench. 
+    Inside are two tables: one on the wall next to the door and another on the far wall next to a window. The first table has several electronic devices carelessly placed on it, each one with a note taped to it. You recognize a few video game consoles from your childhood. The other table has a set of tools carefully placed in an organizer leaning against the wall. There&#39;s an open laptop lying on the bench. 
 
     &lt;&lt;link &quot;Investigate the table closer to you.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09b01a02a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Investigate the bench by the window.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09b01a02b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -939,7 +944,7 @@ $(document).on(':passagestart', function (ev) {
 
     &lt;&lt;link &quot;Investigate the truck.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09c01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Investigate the trailer.&quot;&gt;&gt;&lt;&lt;set $optional_evidence[&quot;trailer&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09c01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Return.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a10&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="Day 1 Investigate 02a09c01a" tags="" position="1725,1650" size="100,100">You look inside the truck. The glove compartment has been ransacked, probably by the CSIs. You can see insurance papers, car registration, and a user&#39;s manual. A small air freshener hangs on the review mirror, but the lack of smell suggests that whoever put it there just never replaced it. There&#39;s nothing on the side compartments or in the back. Boring guy. 
+    &lt;&lt;link &quot;Return.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a10&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="Day 1 Investigate 02a09c01a" tags="" position="1725,1650" size="100,100">You look inside the truck. The glove compartment has been ransacked, probably by the CSIs. You can see insurance papers, car registration, and a user&#39;s manual. A small air freshener hangs on the rearview mirror, but the lack of smell suggests that whoever put it there just never replaced it. There&#39;s nothing on the side compartments or in the back. Boring guy. 
 
     &lt;&lt;link &quot;Return.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="Day 1 Investigate 02a09c01b" tags="" position="1850,1650" size="100,100">You look in the horse trailer. Even though the trailer is meant for horses, you can see that there&#39;s no horses to speak of inside. Instead, a bunch of standing arcade games are inside. None of them are connected to power. Maybe these are left over from when Archibald still worked at Spirit Cell Arcade. You make a note to review that later. 
 
@@ -995,7 +1000,7 @@ $(document).on(':passagestart', function (ev) {
 	
     You try your best to put the drawer back in when a CSI walks into the room. Both of you look at each other for a second, frozen in place. Eventually the CSI gestures to the drawer and awkwardly says, &quot;I can, uh, I can take that if you want.&quot; 
 	
-    &quot;Oh, sure thanks. It uh, it goes over here.&quot; You point uselessly to the drawer and the gaping hole under the sink as you pass the drawer to the CSI. &quot;I&#39;ll just get going.&quot; 
+    &quot;Oh, sure, thanks. It uh, it goes over here.&quot; You point uselessly to the drawer and the gaping hole under the sink as you pass the drawer to the CSI. &quot;I&#39;ll just get going.&quot; 
 	
     The CSI looks hopelessly at the hole. &quot;Yeah, sure.&quot; 
 	
@@ -1022,7 +1027,7 @@ $(document).on(':passagestart', function (ev) {
 
     &lt;&lt;link &quot;Return.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09f01&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="Day 1 Investigate 02a10" tags="" position="1100,2150" size="100,100">You decide your next move. 
 
-    &lt;&lt;if $route1[&quot;r1a&quot;]&gt;&gt;==Talk to Vera.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Talk to Vera.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02a09a01c&quot;)&gt;&gt;==Talk to Vera.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Talk to Vera.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;link &quot;Walk around the perimeter of the house.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Check the garage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Check the living room.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -1030,24 +1035,28 @@ $(document).on(':passagestart', function (ev) {
     &lt;&lt;link &quot;Check upstairs.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a09f&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Leave.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02a11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="Day 1 Investigate 02a11" tags="" position="1100,2275" size="100,100">You decide to leave the house. 
 
-    &lt;&lt;if $route1[r1a]&gt;&gt;You make a quick detour to the shed to bid Vera goodbye. You see her standing outside the shed, discussing something with another CSI. 
-	
-    You cup your hands around your mouth. &quot;Vera!! I&#39;m leaving!!!&quot; 
-	
-    Vera looks up and gives you a quick wave before becoming once again engrossed in whatever is on the other CSI&#39;s tablet.
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02a09a01c&quot;)&gt;&gt;You make a quick detour to the backyard to bid Vera goodbye. You see her standing outside the shed, discussing something with another CSI. As quietly as you can, you jog behind her and tap her shoulder. You whisper, &quot;Vera.&quot;
     
-    &lt;&lt;else&gt;&gt;You stop by the front of the house to say good-bye to Vera. She&#39;s still on her phone, scrolling through who knows what. 
-    
-    &quot;Vera, I&#39;m heading out.&quot; 
+    She grabs your hand and before you know it has you in a standing arm lock. After a beat, she realizes it&#39;s you. &quot;Oh, $name.&quot;
+
+    &quot;Yeah, me. Let me go?&quot;
+
+    She drops your arm and gives you an unimpressed look. &quot;Thought you&#39;d have quicker reflexes as a detective.&quot;
+
+    &quot;You put me in an arm bar every time I surprise you. At this point I&#39;ve given up resisting.&quot;
+
+    She clicks her tongue disapprovingly at you but you can tell she&#39;s smug. 
+
+    You move your arm around a bit, trying to reduce the pain. &quot;Anyways, I&#39;m going to head out. I think I&#39;ve gathered all I can from here.&quot; 
+
+    Vera nods. &quot;Alright, I&#39;ll send you my report later. Don&#39;t die before then.&quot;
+    &lt;&lt;else&gt;&gt;You stop by the front of the house to say good-bye to Vera who&#39;s still on her phone, scrolling through who knows what. &quot;Vera, I&#39;m heading out.&quot; 
     
     She glances up at you. &quot;Alright. Don&#39;t die. You still owe me that drink.&quot; 
-	
-    You smile back. &quot;I&#39;ll try not to.&quot; &lt;&lt;/if&gt;&gt;You wave good-bye and head back to your car. 
+	&lt;&lt;/if&gt;&gt;
+    You smile back. &quot;I&#39;ll try not to.&quot; You wave good-bye and head back to your car. 
 
-    &lt;&lt;nobr&gt;&gt;&lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 03&quot;&gt;&gt;
-        &lt;&lt;set $route1[&quot;r1a&quot;] to false&gt;&gt;
-        &lt;&lt;set $route2[&quot;r2a&quot;] to false&gt;&gt;
-        &lt;&lt;set $route2[&quot;r2b&quot;] to false&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="Day 1 Investigate 02b" tags="" position="3100,400" size="100,100">You decide to head over to the Lucy Lemon. 
+    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 03&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="Day 1 Investigate 02b" tags="" position="3100,400" size="100,100">You decide to head over to the Lucy Lemon. 
     
     You set the location in your GPS and see that it&#39;s about a 45 minute drive from where you are. As you start the car, you wonder how this murder would impact the business. Sure, any publicity is good publicity, but a murder suspect found dead in an entertainment center can&#39;t be good for the family-friendly image. 
 
@@ -1069,7 +1078,7 @@ $(document).on(':passagestart', function (ev) {
 	
     You follow him, pulling on your gloves as you go. &quot;Where are we going?&quot; 
 	
-    Nicholas smiles and whispers conspiratorily, &quot;We&#39;re going in the way the perp did.&quot; 
+    Nicholas smiles and whispers conspiratorially, &quot;We&#39;re going in the way the perp did.&quot; 
 
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b04&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Day 1 Investigate 02b04" tags="" position="3100,900" size="100,100">You give him an incredulous look. 
 	
@@ -1103,7 +1112,7 @@ $(document).on(':passagestart', function (ev) {
 	
     You freeze in place and realize you narrowly missed kicking someone&#39;s evidence marker. You murmur an apology and watch your feet a little more carefully as you walk. 
 	
-    &quot;But yeah no footprints. But that&#39;s not what you&#39;re here for. You&#39;re here for this bad boy.&quot; 
+    &quot;But yeah, no footprints. But that&#39;s not what you&#39;re here for. You&#39;re here for this bad boy.&quot; 
 
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b07&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="Day 1 Investigate 02b07" tags="" position="3100,1275" size="100,100">The two of you walk through the propped-open double doors that lead to the main eating area. To your left is a stage with an arcade machine on it. The back of it is open, pointing to the front door. 
 	
@@ -1133,18 +1142,18 @@ $(document).on(':passagestart', function (ev) {
 	
     &quot;Ah, well we found those. Some outside the back door, others inside the storage area behind the stage. We&#39;d probably be able to get a DNA profile off of those but other than the criminal DNA database we don&#39;t have any suspects to compare that to. And it&#39;s just as likely it&#39;s an employee who didn&#39;t clean up after their smoke break. But figured I&#39;d at least mention it. But other than that I think I&#39;ve mentioned everything.&quot; 
 
-    &lt;&lt;link &quot;Ask if a murder weapon was found.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Ask if there&#39;s any security footage.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1c&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Ask about the storage area.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1d&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Ask if a murder weapon was found.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Ask if there&#39;s any security footage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Ask about the storage area.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;No further questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="96" name="Day 1 Investigate 02b10a" tags="" position="3100,1525" size="100,100">&quot;Was there a murder weapon found?&quot; 
 
     Nicholas shakes his head. &quot;Nope, nothing. We&#39;re checking the knives but so far they&#39;re all passing the luminol test.&quot; 
 
     ==Ask if a murder weapon was found.==
-    &lt;&lt;if $route1[&quot;r1b&quot;]&gt;&gt;==Ask if there were fingerprints on the machine.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $route1[&quot;r1c&quot;]&gt;&gt;==Ask if there&#39;s any security footage.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there&#39;s any security footage.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1c&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $route1[&quot;r1d&quot;]&gt;&gt;==Ask about the storage area.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask about the storage area.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1d&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10b&quot;)&gt;&gt;==Ask if there were fingerprints on the machine.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10c&quot;)&gt;&gt;==Ask if there&#39;s any security footage.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there&#39;s any security footage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10d&quot;)&gt;&gt;==Ask about the storage area.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask about the storage area.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;link &quot;No further questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="Day 1 Investigate 02b10b" tags="" position="3225,1525" size="100,100">&quot;Did you fingerprint the cabinet?&quot; You gesture to the one on the stage.
 	
     &quot;Yep. Clean as a whistle.&quot; 
@@ -1153,10 +1162,10 @@ $(document).on(':passagestart', function (ev) {
 	
     Nicholas walks over to the machine and runs his gloved hand over the top of it. &quot;There was nothing on it. No fingerprints, no glove prints, no ear prints, no prints to speak of. It&#39;s as if this little baby came off a completely automated factory line right before Watts&#39;s body was shoved in. Any prints that were on it were wiped off really meticulously. Or there weren&#39;t any to begin with.&quot; 
 
-    &lt;&lt;if $route1[&quot;r1a&quot;]&gt;&gt;==Ask if a murder weapon was found.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10a&quot;)&gt;&gt;==Ask if a murder weapon was found.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     ==Ask if there were fingerprints on the machine.==
-    &lt;&lt;if $route1[&quot;r1c&quot;]&gt;&gt;==Ask if there&#39;s any security footage.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there&#39;s any security footage.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1c&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $route1[&quot;r1d&quot;]&gt;&gt;==Ask about the storage area.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask about the storage area.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1d&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10c&quot;)&gt;&gt;==Ask if there&#39;s any security footage.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there&#39;s any security footage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10d&quot;)&gt;&gt;==Ask about the storage area.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask about the storage area.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;link &quot;No further questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="98" name="Day 1 Investigate 02b10c" tags="" position="3350,1525" size="100,100">&quot;Has your team reviewed the security footage yet?&quot; 
 	
     &quot;Well we have the footage from the night, but we need time to go through it completely. We&#39;ve already downloaded it for evidence, but there&#39;s a couple people reviewing the footage in the security booth right now if you want to go check on them.&quot; 
@@ -1167,7 +1176,7 @@ $(document).on(':passagestart', function (ev) {
 	
     &quot;I&#39;m not your boss.&quot; 
 	
-    &quot;Righte-o, big bro.&quot; 
+    &quot;Righty-o, big bro.&quot; 
 	
     &quot;I&#39;m not your bro. I&#39;m younger than you too.&quot; 
 	
@@ -1187,19 +1196,19 @@ $(document).on(':passagestart', function (ev) {
 	
     You hum and decide to ask for a summary of the security footage later. You&#39;d rather not venture back in that booth any time soon. 
 
-    &lt;&lt;if $route1[&quot;r1a&quot;]&gt;&gt;==Ask if a murder weapon was found.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $route1[&quot;r1b&quot;]&gt;&gt;==Ask if there were fingerprints on the machine.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10a&quot;)&gt;&gt;==Ask if a murder weapon was found.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10b&quot;)&gt;&gt;==Ask if there were fingerprints on the machine.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     ==Ask if there&#39;s any security footage.==
-    &lt;&lt;if $route1[&quot;r1d&quot;]&gt;&gt;==Ask about the storage area.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask about the storage area.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1d&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10d&quot;)&gt;&gt;==Ask about the storage area.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask about the storage area.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;link &quot;No further questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="100" name="Day 1 Investigate 02b10d" tags="" position="3475,1525" size="100,100">&quot;What&#39;s this about a storage area?&quot;
 	
     &quot;Oh that? It&#39;s right through the curtains.&quot; Nicholas points to the back of the stage. &quot;It&#39;s where they keep the animatronics when they aren&#39;t in use. We found some extra stuff too, like spare parts, tools, extra prizes, all that fun stuff. We checked for blood but couldn&#39;t find anything in there.&quot; 
 	
     You make a note of where the storage area is. 
 
-    &lt;&lt;if $route1[&quot;r1a&quot;]&gt;&gt;==Ask if a murder weapon was found.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $route1[&quot;r1b&quot;]&gt;&gt;==Ask if there were fingerprints on the machine.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $route1[&quot;r1c&quot;]&gt;&gt;==Ask if there&#39;s any security footage.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there&#39;s any security footage.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1c&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10a&quot;)&gt;&gt;==Ask if a murder weapon was found.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10b&quot;)&gt;&gt;==Ask if there were fingerprints on the machine.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there were fingerprints on the machine.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b10c&quot;)&gt;&gt;==Ask if there&#39;s any security footage.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if there&#39;s any security footage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b10c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     ==Ask about the storage area.==
     &lt;&lt;link &quot;No further questions.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b11&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="101" name="Day 1 Investigate 02b11" tags="" position="3100,1775" size="100,100">Nicholas leans against the wall and takes out his phone. &quot;I think we&#39;re gonna pack up soon, but I&#39;ll tell the rest of the crew to wait until you&#39;re done to head out. Just let me know before you leave.&quot; 
 	
@@ -1214,14 +1223,14 @@ $(document).on(':passagestart', function (ev) {
 
     He looks up. &quot;&#39;Sup?&quot;
 
-    &lt;&lt;link &quot;Ask him how he&#39;s been.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Ask if he knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;if $optional_evidence[&quot;panels&quot;]&gt;&gt;&lt;&lt;if $route2[&quot;r2c&quot;]&gt;&gt;==Ask about the panels in the stage.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask about the panels in the stage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;link &quot;Ask him how he&#39;s been.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Ask if he knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;if $optional_evidence[&quot;panels&quot;]&gt;&gt;&lt;&lt;link &quot;Ask about the panels in the stage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;link &quot;Leave.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a02&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="103" name="Day 1 Investigate 02b12a01a" tags="" position="3100,2025" size="100,100">&quot;How&#39;s life been treating you lately?&quot; 
 	
-    Nicholas groans and stares at the ceiling. &quot;Where do I begin? Feels like the world&#39;s stacked against me this week. My sister&#39;s been breathing down my neck trying to get me to visit so I can &#39;finally visit my new niece&#39; but I&#39;m so tired of trying to play nice with her husband that I&#39;m almost glad for the case to give me an excuse put off going for a little longer. 
+    Nicholas groans and stares at the ceiling. &quot;Where do I begin? Feels like the world&#39;s stacked against me this week. My sister&#39;s been breathing down my neck trying to get me to visit so I can &#39;finally visit my new niece&#39; but I&#39;m so tired of trying to play nice with her husband that I&#39;m almost glad for the case to give me an excuse to put off going for a little longer. 
     
-    &quot;And I ordered a custom keycap for Janice but it got lost in the mail and I&#39;m scrambling to find a different gift. Our anniverary&#39;s in a couple weeks you know? Where am I supposed to find something in a couple weeks?&quot; 
+    &quot;And I ordered a custom keycap for Janice but it got lost in the mail and I&#39;m scrambling to find a different gift. Our anniversary is in a couple weeks! Where am I supposed to find something in a couple weeks?!&quot; 
 	
     You awkwardly pat Nicholas&#39;s shoulder. &quot;I know a florist I can give you the contact info for, if it comes down to it.&quot; 
 	
@@ -1229,11 +1238,11 @@ $(document).on(':passagestart', function (ev) {
 	
     &quot;Ah.&quot; 
 	
-    &quot;Yeah. And I already did fake flowers for their birthday so flowers plus more flowers... I need some variety you know?&quot; Nicholas shakes his head before turning back to you. &quot;Ah, well, I&#39;ll figure something out. But anyways, was there anything you needed to know about the case?&quot;
+    &quot;Yeah. And I already did fake flowers for their birthday so flowers plus more flowers... I need some variety, you know?&quot; Nicholas shakes his head before turning back to you. &quot;Ah, well, I&#39;ll figure something out. But anyways, was there anything you needed to know about the case?&quot;
 
     ==Ask him how he&#39;s been.==
-    &lt;&lt;if $route2[&quot;r2b&quot;]&gt;&gt;==Ask if he knows about Watts&#39;s reputation.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if he knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $optional_evidence[&quot;panels&quot;]&gt;&gt;&lt;&lt;if $route2[&quot;r2c&quot;]&gt;&gt;==Ask about the panels in the stage.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask about the panels in the stage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b12a01b&quot;)&gt;&gt;==Ask if he knows about Watts&#39;s reputation.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if he knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if $optional_evidence[&quot;panels&quot;]&gt;&gt;&lt;&lt;link &quot;Ask about the panels in the stage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;link &quot;Leave.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a02&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="104" name="Day 1 Investigate 02b12a01b" tags="" position="3225,2025" size="100,100">&quot;Do you know anything about Watts&#39;s reputation?&quot; &lt;&lt;set $optional_evidence[&quot;eBay&quot;] to true&gt;&gt;
 			
     Nicholas rolls his eyes. &quot;Other than the fact that he&#39;s the prime suspect of a serial killing that was never solved and was basically cast out of society because no one wanted to be associated with a potential serial killer?&quot; 
@@ -1246,16 +1255,16 @@ $(document).on(':passagestart', function (ev) {
 			
     &quot;Mhmm, no prob. Was there anything you needed to know about the case?&quot;  
 
-    &lt;&lt;if $route2[&quot;r2a&quot;]&gt;&gt;==Ask him how he&#39;s been.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask him how he&#39;s been.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b12a01a&quot;)&gt;&gt;==Ask him how he&#39;s been.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask him how he&#39;s been.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     ==Ask if he knows about Watts&#39;s reputation.==
-    &lt;&lt;if $optional_evidence[&quot;panels&quot;]&gt;&gt;&lt;&lt;if $route2[&quot;r2c&quot;]&gt;&gt;==Ask about the panels in the stage.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask about the panels in the stage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if $optional_evidence[&quot;panels&quot;]&gt;&gt;&lt;&lt;link &quot;Ask about the panels in the stage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;link &quot;Leave.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a02&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="105" name="Day 1 Investigate 02b12a01c" tags="" position="3350,2025" size="100,100">&quot;Were you able to look under the circular panels on the stage?&quot; 
 
     Nicholas looks over to where you&#39;re pointing. &quot;Oh those? No, we weren&#39;t. You&#39;re supposed to be able to raise them up with a lever behind the stage, but apparently it&#39;s been stuck since yesterday before opening. That&#39;s why Mr. Cao came in this morning to give it a look.&quot; 
 
     &quot;So it was broken before the crime took place?&quot;
 
-    &quot;Well, the bug activity show that the body&#39;s been dead for less than a day in regular conditions. Unless the killer stored his body in a freezer or something I think we can safely say that yeah it was before Watts was killed.&quot; 
+    &quot;Well, bug activity shows that the body&#39;s been dead for less than a day in regular conditions. Unless the killer stored his body in a freezer or something I think we can safely say that yeah it was before Watts was killed.&quot; 
 
     &quot;Do you think you can get it working again?&quot;
 
@@ -1265,8 +1274,8 @@ $(document).on(':passagestart', function (ev) {
 
     &quot;Yeah. Anyways, anything else?&quot;
 
-    &lt;&lt;if $route2[&quot;r2a&quot;]&gt;&gt;==Ask him how he&#39;s been.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask him how he&#39;s been.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $route2[&quot;r2b&quot;]&gt;&gt;==Ask if he knows about Watts&#39;s reputation.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if he knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;set $route2[&quot;r2b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b12a01a&quot;)&gt;&gt;==Ask him how he&#39;s been.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask him how he&#39;s been.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Investigate 02b12a01b&quot;)&gt;&gt;==Ask if he knows about Watts&#39;s reputation.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Ask if he knows about Watts&#39;s reputation.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a01b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     ==Ask about the panels in the stage.==
     &lt;&lt;link &quot;Leave.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a02&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="106" name="Day 1 Investigate 02b12a02" tags="" position="3100,2150" size="100,100">&quot;Nope, nothing.&quot; 
 
@@ -1303,11 +1312,11 @@ $(document).on(':passagestart', function (ev) {
 
     &lt;&lt;link &quot;Return.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="110" name="Day 1 Investigate 02b12c01b" tags="" position="3725,2025" size="100,100">In front of you is the arcade machine. 
 	
-    The monitor, joystick, and buttons have been removed, leaving only the empty cabinet behind. You check the side and see that it was originally a PACMAN game. Well, doesn&#39;t look like it&#39;ll be operational any time soon. 
+    The monitor, joystick, and buttons have been removed, leaving only the empty cabinet behind. You check the side and see that it was originally a PACMAN game. It probably won&#39;t be operational any time soon. 
 	
     You check where the body was sitting. As you noticed before, there&#39;s no bloodstains on the inside of the cabinet. You try to imagine what the body must have looked like in there when a sudden chill runs down your spine. You remember the case file Pottinger had handed you on the murders of &#39;98 and the photos inside. 
 	
-    &quot;Another cabinet killing...&quot; you murmer quietly to yourself. 
+    &quot;Another cabinet killing...&quot; you murmur quietly to yourself. 
 
     &lt;&lt;link &quot;Return.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="111" name="Day 1 Investigate 02b12c01c" tags="" position="3850,2025" size="100,100">You walk to the back of the stage. 
 	
@@ -1323,7 +1332,7 @@ $(document).on(':passagestart', function (ev) {
 
     You take a closer look at the drawers. The plastic drawers are of varying sizes. The ones at the bottom come up to your knee and you can see a few at the top that look no larger than the height of a milk carton. 
 	
-    You try to read some of the labels on the drawers closest to you. &quot;Bouncy balls.&quot; &quot;Rings.&quot; &quot;Frisbees.&quot; &quot;Finger traps.&quot; These were all prizes, probably the extras that weren&#39;t stored at the front. You take a peak inside the one labeled &quot;bouncy balls&quot; and confirm that there are indeed several bouncy balls inside, enough that the tub is almost full. The bright colors and designs swirl before your eyes. You surpress the urge to grab one and see if it works. 
+    You try to read some of the labels on the drawers closest to you. &quot;Bouncy balls.&quot; &quot;Rings.&quot; &quot;Frisbees.&quot; &quot;Finger traps.&quot; These were all prizes, probably the extras that weren&#39;t stored at the front. You take a peek inside the one labeled &quot;bouncy balls&quot; and confirm that there are indeed several bouncy balls inside, enough that the tub is almost full. The bright colors and designs swirl before your eyes. You suppress the urge to grab one and see if it works. 
 
     &lt;&lt;link &quot;Return.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12c01c02&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="113" name="Day 1 Investigate 02b12c01c01b" tags="" position="3975,2150" size="100,100">You walk over to the lever. 
 
@@ -1355,25 +1364,37 @@ $(document).on(':passagestart', function (ev) {
 
     &lt;&lt;link &quot;Return.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b13&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="117" name="Day 1 Investigate 02b13" tags="" position="3100,2400" size="100,100">You decide your next move. 
 
-    &lt;&lt;link &quot;Talk to Nicholas&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;if $optional_evidence[&quot;scrunchie&quot;]&gt;&gt;==Talk to Nicholas==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Talk to Nicholas&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     &lt;&lt;link &quot;Walk along the outside of the building.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Check the stage.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Check the eating area.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12d&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
     &lt;&lt;link &quot;Check the arcade machine area.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b12e&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Leave&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b14&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="118" name="Day 1 Investigate 02b14" tags="" position="3100,2525" size="100,100">You walk back over to where Nicholas is. &quot;Hey, I&#39;m heading out.&quot;
+    &lt;&lt;link &quot;Leave&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 02b14&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="118" name="Day 1 Investigate 02b14" tags="" position="3100,2525" size="100,100">You decide to leave the Lucy Lemon. 
 
-    He gives you a two-fingered salute. &quot;Alrighty. See you on the other side.&quot; 
+    &lt;&lt;if $optional_evidence(&quot;scrunchie&quot;)&gt;&gt;You walk over to the back of the stage where Nicholas is setting up some evidence markers, camera sitting next to him. &quot;Hey Nicholas, I&#39;m heading out.&quot;
 
-    You wave goodbye and leave the building. 
+    He turns around, an exaggerated frown on his face. &quot;Oh so now that you&#39;ve given me more work you get to leave? Thanks a lot.&quot;
 
-    &lt;&lt;nobr&gt;&gt;&lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 03&quot;&gt;&gt;
-        &lt;&lt;set $route1[&quot;r1a&quot;] to false&gt;&gt;
-        &lt;&lt;set $route1[&quot;r1b&quot;] to false&gt;&gt;
-        &lt;&lt;set $route1[&quot;r1c&quot;] to false&gt;&gt;
-        &lt;&lt;set $route1[&quot;r1d&quot;] to false&gt;&gt;
-        &lt;&lt;set $route2[&quot;r2a&quot;] to false&gt;&gt;
-        &lt;&lt;set $route2[&quot;r2b&quot;] to false&gt;&gt;
-        &lt;&lt;set $route2[&quot;r2c&quot;] to false&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="119" name="Day 1 Investigate 03" tags="" position="1100,2650" size="100,100">&lt;&lt;if ($investigated[&quot;AH&quot;] is false) or ($investigated[&quot;LL&quot;] is false)&gt;&gt;It&#39;s roughly 3PM when you get into your car.
+    You roll your eyes. &quot;You should have just found the emergency latch earlier. Sounds like a skill issue.&quot;
+
+    He punches your leg from where he&#39;s sitting. &quot;Get out of here.&quot;
+
+    You laugh and walk away. &quot;Alright, see ya later.&quot;
+    &lt;&lt;else&gt;&gt;You walk over to where Nicholas is still leaning on the wall, scrolling through his phone. You wave your hand in front of his face. &quot;I&#39;m heading out.&quot;
+
+    He bats your hand out of the air and turns his phone off. &quot;Finally! Means we can go home too.&quot; 
+
+    You laugh. &quot;Sorry for keeping y&#39;all here.&quot;
+
+    Nicholas waves his hand through the air. &quot;Nah, it&#39;s our jobs. I&#39;m just ready to go sleep though.&quot;
+
+    You raise your eyebrow. &quot;It&#39;s only $time.toLowerCase().&quot;
+
+    Nicholas shrugs and walks to the empty space where the front door used to be. &quot;Any time is a good time to take a nap.&quot;
+
+    You roll your eyes and follow him out.
+    &lt;&lt;/if&gt;&gt;
+    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Investigate 03&quot;&gt;&gt;&lt;&lt;set $time = $time+1&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="119" name="Day 1 Investigate 03" tags="" position="1100,2650" size="100,100">&lt;&lt;if ($investigated[&quot;AH&quot;] is false) or ($investigated[&quot;LL&quot;] is false)&gt;&gt;It&#39;s roughly 3PM when you get into your car.
     
     Where to next? 
     
@@ -1384,7 +1405,7 @@ $(document).on(':passagestart', function (ev) {
     
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;set $progress to 2&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 00&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="120" name="Day 1 Outro 00" tags="" position="4450,150" size="100,100">&#39;&#39;The case file has been updated.&#39;&#39; 
 
-    Click the &quot;Case File&quot; button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game in there. The case file will be updated at the end of each section of the game. 
+    Click the &quot;Case File&quot; button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game there. The case file will be updated at the end of each section of the game. 
 
     &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 01&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="121" name="Day 1 Outro 01" tags="" position="4450,275" size="100,100">The day took more out of you than you&#39;d care to admit. Deciding that leftovers sound fine, you grab a container from the fridge and throw it in the microwave. As you wait for the food to heat up, you open your laptop, figuring you could unwind by watching a movie or something. Unfortunately for you, the last page you had been on was the local news, meaning the minute you open your browser you&#39;re greeted with a rerun of this afternoon&#39;s broadcast. 
 
@@ -1410,9 +1431,9 @@ $(document).on(':passagestart', function (ev) {
 
     You remember your food and grab it from the microwave. It&#39;s still hot but you decide you&#39;re too hungry to care. You put the plate next to your laptop and pull up your work email. In your inbox sit three emails: one from Vera, one from Nicholas, and one from the coroner&#39;s office. As you start eating, you click on the emails one by one. 
 
-    &lt;&lt;link &quot;Read Vera&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Read Nicholas&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-    &lt;&lt;link &quot;Read the coroner&#39;s office&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1c&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="125" name="Day 1 Outro 05a" tags="" position="4450,775" size="100,100">You click on Vera&#39;s email. 
+    &lt;&lt;link &quot;Read Vera&#39;s email.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Read Nicholas&#39;s email.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
+    &lt;&lt;link &quot;Read the coroner&#39;s office&#39;s email.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="125" name="Day 1 Outro 05a" tags="" position="4450,775" size="100,100">You click on Vera&#39;s email. 
     
     In it, she details what the team has cataloged so far from &lt;&lt;if $optional_evidence[&quot;trailer&quot;]&gt;&gt;the various upstairs rooms, the shed, and the garage&lt;&lt;else&gt;&gt;the various upstairs rooms and the shed&lt;&lt;/if&gt;&gt;. The amount of items is slightly overwhelming, so you scroll to the end of the email in hopes of something other than a video game console name. At the very end, Vera mentions that the water in the bathtub indeed had human skin cells, but it was a mixture of at least two different people&#39;s DNA. They could fairly confidently say that Archibald Watts was one of the contributors, but they were unable to determine who the second person was. 
     At the end of the email she reminds you of that drink you owe her and attaches an image. You open the attachment to find a very shaky photograph of Vera&#39;s three bulldogs all trying to jump at the camera, giant smiles on their faces. 
@@ -1420,8 +1441,8 @@ $(document).on(':passagestart', function (ev) {
     You make a note of these new observations and save the image to your Camera Roll. 
 
     ==Read Vera&#39;s email.== 
-    &lt;&lt;if $route1[&quot;r1b&quot;]&gt;&gt;==Read Nicholas&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read Nicholas&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $route1[&quot;r1c&quot;]&gt;&gt;==Read the coroner&#39;s office&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read the coroner&#39;s office&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1c&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="126" name="Day 1 Outro 05b" tags="" position="4575,775" size="100,100">You click on Nicholas&#39;s email. 
+    &lt;&lt;if hasVisited(&quot;Day 1 Outro 05b&quot;)&gt;&gt;==Read Nicholas&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read Nicholas&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Outro 05c&quot;)&gt;&gt;==Read the coroner&#39;s office&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read the coroner&#39;s office&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1c&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="126" name="Day 1 Outro 05b" tags="" position="4575,775" size="100,100">You click on Nicholas&#39;s email. 
     
     At the top of it is what looks like a large black arc. As you scroll, you realize it&#39;s just a really big image of a zero. You can almost hear him laughing at you. 
     
@@ -1429,9 +1450,9 @@ $(document).on(':passagestart', function (ev) {
     
     You make a note of these new observations and make a note to kick Nicholas the next time you see him. 
 
-    &lt;&lt;if $route1[&quot;r1a&quot;]&gt;&gt;==Read Vera&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read Vera&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Outro 05a&quot;)&gt;&gt;==Read Vera&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read Vera&#39;s email.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
     ==Read Nicholas&#39;s email.==
-    &lt;&lt;if $route1[&quot;r1c&quot;]&gt;&gt;==Read the coroner&#39;s office&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read the coroner&#39;s office&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1c&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="127" name="Day 1 Outro 05c" tags="" position="4700,775" size="100,100">You click on the email from the coroner&#39;s office. 
+    &lt;&lt;if hasVisited(&quot;Day 1 Outro 05c&quot;)&gt;&gt;==Read the coroner&#39;s office&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read the coroner&#39;s office&#39;s email.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05c&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="127" name="Day 1 Outro 05c" tags="" position="4700,775" size="100,100">You click on the email from the coroner&#39;s office. 
     
     Attached is a copy of the report from the coroner&#39;s office. Their best guess is that Archibald Watts had died some time between 12AM and 3AM this morning. There are traces of cyanide in his bloodstream and eighteen stab wounds to the torso, but they established cause of death to be due to the cyanide poisoning. The stab wounds happened later, but soon enough after the poisoning that blood still flowed out of the wounds. 
     
@@ -1441,13 +1462,14 @@ $(document).on(':passagestart', function (ev) {
 
     You make a note of these new observations. 
 
-    &lt;&lt;if $route1[&quot;r1a&quot;]&gt;&gt;==Read Vera&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read Vera&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1a&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    &lt;&lt;if $route1[&quot;r1b&quot;]&gt;&gt;==Read Nicholas&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read Nicholas&#39;s email.&quot;&gt;&gt;&lt;&lt;set $route1[&quot;r1b&quot;] to true&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
-    ==Read the coroner&#39;s office&#39;s email.==</tw-passagedata><tw-passagedata pid="128" name="Day 1 Outro 06" tags="" position="4450,900" size="100,100">After you finish reading the emails, you take a break from your laptop and finish eating your food. As you eat, you try to organize everything you just read in your brain. Unknown DNA, cyanide poisoning, stab wounds... Seems this case was more complicated than you thought. Hopefully a good night&#39;s sleep will allow you to organize your thoughts.
+    &lt;&lt;if hasVisited(&quot;Day 1 Outro 05a&quot;)&gt;&gt;==Read Vera&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read Vera&#39;s email.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05a&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    &lt;&lt;if hasVisited(&quot;Day 1 Outro 05b&quot;)&gt;&gt;==Read Nicholas&#39;s email.==&lt;&lt;else&gt;&gt;&lt;&lt;link &quot;Read Nicholas&#39;s email.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 05b&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
+    ==Read the coroner&#39;s office&#39;s email.==
+    &lt;&lt;link &quot;Close your inbox.&quot;&gt;&gt;&lt;&lt;goto &quot;Day 1 Outro 06&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="128" name="Day 1 Outro 06" tags="" position="4450,900" size="100,100">After you finish reading the emails, you take a break from your laptop and finish eating your food. As you eat, you try to organize everything you just read in your brain. Unknown DNA, cyanide poisoning, stab wounds... Seems this case was more complicated than you thought. Hopefully a good night&#39;s sleep will allow you to organize your thoughts.
 
-    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;set $progress to 3&gt;&gt;&lt;&lt;set $day to 2&gt;&gt;&lt;&lt;goto &quot;Day 2 Intro 00&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="129" name="Day 2 Intro 00" tags="" position="4925,150" size="100,100">&#39;&#39;The case file has been updated.&#39;&#39; 
+    &lt;&lt;link &quot;Next&quot;&gt;&gt;&lt;&lt;set $progress to 3&gt;&gt;&lt;&lt;set $day to 2&gt;&gt;&lt;&lt;set $time to 0&gt;&gt;&lt;&lt;goto &quot;Day 2 Intro 00&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="129" name="Day 2 Intro 00" tags="" position="4925,150" size="100,100">&#39;&#39;The case file has been updated.&#39;&#39; 
 
-    Click the &quot;Case File&quot; button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game in there. The case file will be updated at the end of each section of the game. 
+    Click the &quot;Case File&quot; button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game there. The case file will be updated at the end of each section of the game. 
 
     &#39;&#39;This is as far as I&#39;ve gotten so far. Please let me know if you&#39;ve found any bugs and in the meantime, please feel free to &lt;&lt;link &quot;play again&quot;&gt;&gt;&lt;&lt;goto &quot;Title Page&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;.</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
