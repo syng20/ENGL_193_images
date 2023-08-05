@@ -29,8 +29,8 @@
         <<set $toldMark to false>>
         <<set $optional_evidence to {"lighter": false, "foundShed": false, "key": false, "trailer": false, "photos": false, "eBay": false, "panels": false, "lever": false, "scrunchie": false}>>
         <<set $investigated to {"AH": false, "LL": false, "AW": false, "KC": false, "MK": false}>>
-        <<set $markCar to "pink car">>
-        <<set $adamCar to "clownmobile">>
+        <<set $markCar to "blue Mazda CX-3">>
+        <<set $adamCar to "silver Honda Accord">>
         <<set $drink to "water">>
         <<set $markMark to false>>
     <<set $temp to 0>>
@@ -1774,7 +1774,7 @@
     
     Perfect. 
     
-    <<link "Next">><<goto "Day 2 Interview 00">><</link>>
+    <<link "Next">><<goto "Day 2 Interview 00">><<set $time to $time+1>><</link>>
     
 :: Day 2 Interview 00 {"position":"5400,150"}
     ''The case file has been updated.'' 
@@ -1783,25 +1783,17 @@
 
     ''This is as far as I've gotten so far. Please let me know if you've found any bugs and in the meantime, please feel free to play again by closing and reopening this window.''
 
+
     /* <<link "Next">><<goto "Day 2 Interview 01">><</link>> */
     
 :: Day 2 Interview 01 {"position":"5400,275"}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    Now the only question is who to meet with first.
+    You stare at your work phone and wonder who to call first. 
 
-    <<link "Adam Watts">><<goto "Day 2 Intro 18">><</link>>
-    <<link "Khanh Cao">><<goto "Day 2 Intro 18">><</link>>
+    <<link "Adam Watts">><<goto "Day 2 Interview 02a">><</link>>
+    <<link "Khanh Cao">><<goto "Day 2 Interview 02b">><</link>>
 
-
-
+:: Day 2 Interview 02 {"position":"5400,400"}
+    
 
 
 
