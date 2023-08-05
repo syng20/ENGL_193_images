@@ -55,7 +55,7 @@
     <h1>The Cabinet Man</h1>
 
 :: Day-Block {"position":"275,400"}
-    <h1>Day $day
+    <h1><<if $day == 1>>Thursday<<elseif $day == 2>>Friday<<else>>Saturday<</if>>
     <<if $time == 1>>Morning <<elseif $time == 2>>Afternoon <<else>>Evening <</if>></h1>
 
 :: Save-Block {"position":"150,400"}
@@ -257,7 +257,7 @@
     <<link "Next">><<goto "Day 1 Intro 08">><</link>>
 
 :: Day 1 Intro 08 {"position":"500,1150"}
-    You pick up the file and open it. Inside is a typed report and several photos. Most of the photos are of the shells of arcade machines with bundles of clothes inside. You take a closer look and realize those bundles are children, curled up and shoved into the machine. "This is..." 
+    You pick up the file and open it. Inside is a typed report and several photos. Most of the photos are of the open cabinets of arcade machines with bundles of clothes inside. You take a closer look and realize those bundles are children, curled up and shoved into the machine. "This is..." 
 
     "This is the report from the serial killings of '98. I think you'll find it useful in your investigations." 
 
@@ -505,7 +505,9 @@
 		
     The CSI hurriedly hands her the lighter before turning back and continuing to photograph the gas stove. 
 	
-    Vera passes you an evidence bag with a silver lighter inside. You study the lighter carefully. It's the kind you need to flip the cap open in order to use, probably used often by the amount of wear and tear you can see on the casing. On one side of the casing, there's a sideways M, or is it a W? 
+    Vera passes you an evidence bag with a silver lighter inside. "We found it in the garage."
+    
+    You study the lighter carefully. It's the kind you need to flip the cap open in order to use, probably used often by the amount of wear and tear you can see on the casing. On one side of the casing, there's a sideways M, or is it a W? 
 	
     <<link "Next">><<goto "Day 1 Investigate 02a05a01">><</link>>
 
@@ -527,7 +529,7 @@
 :: Day 1 Investigate 02a05b {"position":"1225,900"}
     You glance at your notebook to verify your suspicions. "But there was no one in the house when it went up." 
 		
-    Vera frowns. "I'm not entirely sure. There's no body here, but when we investigated the bedroom we did find traces that someone had been there recently. Here, let's go up so I can show you." 
+    Vera frowns. "I'm not entirely sure. There's no body here, but when we investigated the bedroom there was something... Here, let's go up so I can show you." 
 
     <<link "Next">><<goto "Day 1 Investigate 02a06">><</link>>
 
@@ -542,14 +544,8 @@
 
 :: Day 1 Investigate 02a07 {"position":"1100,1275"}
     Vera leads you into the room furthest from the staircase, which turns out to be the master bedroom, or what was left of it. The bed is burned to high hell and the dressers aren't much better. The attached bathroom seems to have come away a bit better, but only because most of it is tile and ceramic. The ceiling still has evidence of the fire and the walls and mirror are covered with soot. 
-	
-    Vera points to the bathtub. "When we got here, there was water in here. I assume the ceiling was intact before the fire and even if it wasn't, it hasn't rained in the last few days. We've already drained the water, but we collected some samples before we did. I'll let you know what the results say once we do some proper analysis. Couldn't get much out of it because it was so clogged up with ash." 
 
-    Your pen is halfway to your notebook before you register what the bath water means. "So someone was in the bath during the fire?"
-
-    Vera shrugs. "I'll let you know if we find skin cells or organic matter, but other than that I can't say." 
-
-	You make a note to follow up about the bath samples. 
+    Vera gestures around the room. "Somehow, this room is the only room worse off than the kitchen. We expected it to be the living room since it's attached, but the bedroom is even worse off. My current thought process is that there was a source of fire up here that's been burnt to ashes, but that only works if there was someone in the house at the time. Otherwise, there wouldn't be any way for there to be two sources of fire." 
 
     <<link "Next">><<goto "Day 1 Investigate 02a08">><</link>>
 
@@ -841,22 +837,11 @@
 
     The sunlight coming in through the large window illuminates the dust and ash particles floating around, giving the room a post-apocalyptic feel. 
 
-    <<link "Check the furniture.">><<goto "Day 1 Investigate 02a09f02a">><</link>>
-    <<link "Check the bathroom.">><<goto "Day 1 Investigate 02a09f02b">><</link>>
-
-:: Day 1 Investigate 02a09f02a {"position":"2975,1775"}
     You look at the sparse furniture in the bedroom. 
 	
-    There are the remains of a king sized bed frame, a partially burnt dresser, an even-worse-off closet, and what looks like it may have been a rocking chair. Nothing of note in the dresser or the closet other than melted hangers and burnt clothes. You don't touch the bed frame or chair for fear of making them crumble to ashes. 
+    There are a partially burnt dresser, an even-worse-off closet, the remains of what you assume was a king sized bed frame, and what looks like it may have been a rocking chair. Nothing of note in the dresser or the closet other than melted hangers and burnt clothes. You don't touch the chair for fear of it crumbling to ashes. 
 
-    <<link "Return.">><<goto "Day 1 Investigate 02a09f01">><</link>>
-
-:: Day 1 Investigate 02a09f02b {"position":"3100,1900"}
-    You enter the bathroom. 
-	
-    Any spare towels that might have been in here are gone, either taken by the CSIs or burnt to ash. The bathtub that Vera mentioned is still wet, even if they'd removed the water already. The attached shower is completely dry, as is the sink. The toilet doesn't have any water in it, but looks damp like the bathtub. You decide not to try the toilet. You're not sure you want to risk Vera's wrath if it suddenly overflows. 
-
-    <<link "Return.">><<goto "Day 1 Investigate 02a09f01">><</link>>
+    <<link "Return.">><<goto "Day 1 Investigate 02a10">><</link>>
 
 :: Day 1 Investigate 02a10 {"position":"1100,2150"}
     You decide your next move. 
@@ -1197,7 +1182,7 @@
 :: Day 1 Investigate 02b12c {"position":"3600,1900"}
     You walk back on stage. 
 	
-    The entirety of the stage is wooden, though there are several spots that look to be circular panels installed in the stage.<<if $optional_evidence["latch"]>> The panels are now raised.<</if>> The arcade machine shell sits in the center of the stage, back facing towards the door so that if you stood where you would be if you were playing the machine, you would be staring at the door. The curtains behind the stage are closed. 
+    The entirety of the stage is wooden, though there are several spots that look to be circular panels installed in the stage.<<if $optional_evidence["latch"]>> The panels are now raised.<</if>> The arcade machine cabinet sits in the center of the stage, back facing towards the door so that if you stood where you would be if you were playing the machine, you would be staring at the door. The curtains behind the stage are closed. 
 
     <<link "Examine the panels.">><<goto "Day 1 Investigate 02b12c01a">><<set $optional_evidence["panels"] to true>><</link>>
     <<link "Examine the arcade machine.">><<goto "Day 1 Investigate 02b12c01b">><</link>>
@@ -1360,7 +1345,7 @@
     <<link "Next">><<goto "Day 1 Outro 02">><</link>>
     
 :: Day 1 Outro 02 {"position":"4450,400"}
-    Almost as if to confirm your thoughts, the newscaster began talking. "This afternoon, we have updates on the fire that claimed the house of Archibald Watts. At 2:45AM this morning, Archibald Watts's son Adam Watts called 911 saying that his father's house was on fire. The fire department quickly arrived on the scene and were able to put out the blaze before it spread to its neighbors. 
+    Almost as if to confirm your thoughts, the newscaster began talking. "This afternoon, we have updates on the fire that claimed the house of Archibald Watts. At 2:45AM this morning, a Archibald Watts's son Adam Watts called 911 saying that his father's house was on fire. The fire department quickly arrived on the scene and were able to put out the blaze before it spread to its neighbors. 
 
     "Adam Watts, who had arrived in town an hour prior, says he had swung by the house to see if his father was still awake. When he got there, the house was already starting to burn. He ran in to check if anyone was in there, but had to exit the house because the fire was too unbearable. Authorities confirmed that they didn't find anyone inside the house. 
 
@@ -1375,7 +1360,7 @@
 
     The reporter continues talking as the camera shifts back to focus on her. "A worker came in to do pre-opening maintenance work on the animatronics and apparently found Archibald Watts's body inside, causing him to call 911. When the authorities arrived, they determined that Archibald Watts was dead and declared the building a crime scene. As a result, this Lucy Lemon will not be operational until investigations wrap up and the building can be completely disinfected. 
     
-    "We are waiting for further news from the investigative team, but because this case involves an individual tied so closely to this city's history, it seems like the authorities are waiting to have a more complete idea of what happened before they present it to the public. Back to you Frederick." 
+    "We are waiting for further news from the investigative team, but because this case involves an individual tied so closely to this city's history, it seems like the authorities are waiting to have a more complete idea of what happened before they present it to the public. However, they are asking anyone with information to contact them either through the police website or by phone to their tip line. Back to you Frederick." 
 
     The newscaster nods and the screen shifts to push the reporter's view out and focus again on the newscaster. "Thank you for your work Natalie. In a public statement, Lucy Lemon management has apologized for the inconvenience and is asking parents who had reservations to reach out to them so that they can either arrange a different date for their celebration or begin the refund process." 
 
@@ -1393,7 +1378,8 @@
 :: Day 1 Outro 05a {"position":"4450,775"}
     You click on Vera's email. 
     
-    In it, she details what the team has cataloged so far from <<if $optional_evidence["trailer"]>>the various upstairs rooms, the shed, and the garage<<else>>the various upstairs rooms and the shed<</if>>. The amount of items is slightly overwhelming, so you scroll to the end of the email in hopes of something other than a video game console name. At the very end, Vera mentions that the water in the bathtub indeed had human skin cells, but it was a mixture of at least two different people's DNA. They could fairly confidently say that Archibald Watts was one of the contributors, but they were unable to determine who the second person was. 
+    In it, she details what the team has cataloged so far from <<if $optional_evidence["trailer"]>>the various upstairs rooms, the shed, and the garage<<else>>the various upstairs rooms and the shed<</if>>. The amount of items is slightly overwhelming, so you scroll to the end of the email in hopes of something other than a video game console name. At the very end, Vera mentions that her crew found traces of tobacco around the house, so the cause of the fire could very well be a cigarette. If that was the case, then that meant there was someone in or near the house when the fire started. 
+
     At the end of the email she reminds you of that drink you owe her and attaches an image. You open the attachment to find a very shaky photograph of Vera's three bulldogs all trying to jump at the camera, giant smiles on their faces. 
 
     You make a note of these new observations and save the image to your Camera Roll. 
@@ -1408,7 +1394,7 @@
     
     At the top of it is what looks like a large black arc. As you scroll, you realize it's just a really big image of a zero. You can almost hear him laughing at you. 
     
-    You scroll a bit faster and finally reach the bluk of the email. In it, Nicholas tells you that his team ultimately didn't find a murder weapon or anything like that in the building. They've got a DNA profile on the cigarette butts but no match in the criminal database. There was also one unsmoke cigarette left outside the back door, but there's also no match for the DNA on that one. <<if $optional_evidence["lever"]>>He also mentions that the button you clicked caused the panels on the stage to pop up, and they found a pink scrunchie inside. The scrunchie itself looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. <<elseif $optional_evidence["scrunchie"]>>He also mentions that the scrunchie you found in the looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. <</if>>
+    You scroll a bit faster and finally reach the bluk of the email. In it, Nicholas tells you that his team ultimately didn't find a murder weapon or anything like that in the building. They've got a DNA profile on the cigarette butts but no match in the criminal database. There was also one unsmoke cigarette left outside the back door, but there's also no match for the DNA on that one. <<if $optional_evidence["scrunchie"]>>He also mentions that the scrunchie you found in the looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. Apparently it had a hidden zipper and pocket inside which in turn contained several very old candies, an arcade coin, and a blue ribbon. <<elseif $optional_evidence["lever"]>>He also mentions that the button you clicked caused the panels on the stage to pop up, and they found a pink scrunchie inside. The scrunchie itself looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. Apparently it had a hidden zipper and pocket inside which in turn contained several very old candies, an arcade coin, and a blue ribbon.<</if>>
     
     You make a note of these new observations and make a note to kick Nicholas the next time you see him. 
 
@@ -1420,11 +1406,11 @@
 :: Day 1 Outro 05c {"position":"4700,775"}
     You click on the email from the coroner's office. 
     
-    Attached is a copy of the report from the coroner's office. Their best guess is that Archibald Watts had died some time between 12AM and 3AM this morning. There are traces of cyanide in his bloodstream and eighteen stab wounds to the torso, but they established cause of death to be due to the cyanide poisoning. The stab wounds happened later, but soon enough after the poisoning that blood still flowed out of the wounds. 
+    Attached is a copy of the report from the coroner's office. Their best guess is that Archibald Watts had died some time between 12AM and 3AM this morning. The cause of death was attributed to the approximately eighteen stab wounds to his torso. 
     
     They also note that there was evidence that Watts's body was moved frequently until he died, and that his final resting position was sitting upright but leaning backwards against something. <<if $optional_evidence["lighter"]>> 
 
-    In response to a message you had sent prior, the coroner also wrote that Watts's lungs didn't look like those of a heavy smoker, and if he smoked he didn't do it very often. <</if>>
+    In response to a message you had sent prior, the coroner also wrote that Watts's lungs didn't look like those of a heavy smoker, so if he smoked he didn't do it very often. <</if>>
 
     You make a note of these new observations. 
 
@@ -1443,7 +1429,6 @@
 
     Click the "Case File" button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game there. The case file will be updated at the end of each section of the game. 
 
-    ''This is as far as I've gotten so far. Please let me know if you've found any bugs and in the meantime, please feel free to <<link "play again">><<goto "Title Page">><<set $time to 0>><<set $day to 1>><</link>>.
-
+    ''This is as far as I've gotten so far. Please let me know if you've found any bugs and in the meantime, please feel free to play again by closing and reopening this window.''
 
 
