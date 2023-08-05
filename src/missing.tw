@@ -29,6 +29,10 @@
         <<set $toldMark to false>>
         <<set $optional_evidence to {"lighter": false, "foundShed": false, "key": false, "trailer": false, "photos": false, "eBay": false, "panels": false, "lever": false, "scrunchie": false}>>
         <<set $investigated to {"AH": false, "LL": false, "AW": false, "KC": false, "MK": false}>>
+        <<set $markCar to "pink car">>
+        <<set $adamCar to "clownmobile">>
+        <<set $drink to "water">>
+        <<set $markMark to false>>
     <<set $temp to 0>>
 
 :: Menu {"position":"25,650"}
@@ -1429,6 +1433,404 @@
 
     Click the "Case File" button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game there. The case file will be updated at the end of each section of the game. 
 
+    <<link "Next">><<goto "Day 2 Intro 01">><</link>>
+
+:: Day 2 Intro 01 {"position":"4925,275"}
+    The buzz of your alarm clock rudely wakes you up. You silence it with a sigh. As you stare up at your bedroom ceiling, you regret reviewing the report the captain gave you before you went to sleep. You had a hard time sleeping because of it, waking up every so often from dreams of being locked in a dark room that was slowly closing in on you with no way out. 
+
+    Your cat Molly who would oh so lovingly lie on your face in the middle of the night also wasn't helping things. 
+
+    Well, dwelling on your lost sleep certainly isn't going to get you anywhere. Groaning, you rip yourself out of bed and get started with your day. Molly has to be fed, and you have to get to work. 
+
+    <<link "Next">><<goto "Day 2 Intro 02">><</link>>
+
+:: Day 2 Intro 02 {"position":"4925,400"}
+    When you arrive at the precinct, you find Mark waiting for you at the door. 
+
+    "Mark?" 
+
+    "Hey, how goes the investigation?" <<if $toldMark == false>>He's smiling but you can tell he's angry at you. 
+
+    <<link "Play dumb.">><<goto "Day 2 Intro 03a">><</link>>
+    <<link "Fake it.">><<goto "Day 2 Intro 03b">><</link>>
+    <<link "Apologize.">><<goto "Day 2 Intro 03c">><</link>><<else>>He has his usual easy grin on his face. He seems to have recovered from the conversation yesterday.
+
+    "Well enough. Visited the locations yesterday, probably doing some interviews today. I got a message this morning from the poor crew manning the tip line saying that the messages about this case have flooded their inbox." 
+
+    Mark laughs. "I'd be more surprised if they didn't. Your case is the talk of the town right now." 
+
+    You groan. "I almost wish it wasn't. C'mon, let's head inside. If I die from message overload, I leave Molly to you." 
+
+    As you walk up the steps through the front door, you can hear Mark's laughter behind you.
+
+    <<link "Next">><<goto "Day 2 Intro 07">><</link>>
+    <</if>>
+
+:: Day 2 Intro 03a {"position":"4925,400"}
+    "...what investigation?" Not that dumb! 
+
+    Mark laughs. "Oh, that's a good one. 'What investigation?' I mean the investigation Pottinger assigned to you. The arson and the death. The one you thought wasn't worth mentioning to me." 
+
+    You wince. So he found out. "It's, uh, going okay." 
+
+    "That's great, that's great." Mark looks away from you and his smile drops. "Is there a reason you didn't tell me?" 
+
+    "... I wasn't sure how you would take it." 
+
+    "Hmm." 
+
+    <<link "Next">><<goto "Day 2 Intro 04">><</link>>
+
+:: Day 2 Intro 03b {"position":"5050,400"}
+    "Oh, you know, just the usual. Digging through the archives and all that. Desk work being boring as usual." 
+
+    Mark hums. "That's funny. Because I heard you were actually assigned to a different Watts case. The one that happened yesterday. How's that one going?"
+
+    You wince. So he found out. "It's, uh, going okay." 
+
+    "That's great, that's great." Mark looks away from you and his smile drops. "Is there a reason you didn't tell me?" 
+
+    "... I wasn't sure how you would take it." 
+
+    "Hmm." 
+
+    <<link "Next">><<goto "Day 2 Intro 04">><</link>>
+    
+:: Day 2 Intro 03c {"position":"5175,400"}
+    You wince. "I'm sorry." 
+
+    "No, don't apologize." Mark looks away from you and his smile drops. "Is there a reason you didn't tell me?" 
+
+    "... I wasn't sure how you would take it." 
+
+    "Hmm." 
+
+    <<link "Next">><<goto "Day 2 Intro 04">><</link>>
+
+:: Day 2 Intro 04 {"position":"4925,525"} 
+    <<if hasVisited("Day 1 Intro 10a")>>"Pottinger said that I was the only one who wasn't connected to the case, and I hadn't read the case file though, so I didn't want to ask you anything in case…" you trail off, not sure how to finish your thought. 
+
+    "In case I told you something that biased you in your investigation," Mark finishes for you. 
+
+    "...yeah."
+
+    Mark sighs. "You know I wouldn't have." 
+
+    "...Paul." 
+
+    <<link "Next">><<goto "Day 2 Intro 05">><</link>>
+
+    <<else>>"Pottinger told me I was working alone on the case, and I wasn't sure why, so I thought it was a secret or something. If it wasn't, I don't know why she would have called me into her office alone." 
+
+    Mark looks down at the ground and scuffs the pavement with his shoe. "I mean, I get it. I wouldn't have wanted to spill the beans on something big either. But like, we're partners. We've worked so many cases together and like, I don't know, I thought you would trust me more." 
+
+    "Hey man, you know I didn't mean it like that." 
+
+    Mark sighs. "I know, I know." He looks up with a slight smile. "Pottinger would have had your head if you'd accidentally let something secret leak."
+
+    <<link "Next">><<goto "Day 2 Intro 06">><</link>>
+    <</if>>
+
+:: Day 2 Intro 05 {"position":"4925,650"} 
+    Mark sharply looks over at you. "What?" 
+
+    "Your brother. His name was Paul. He was one of the victims." 
+
+    Mark's face flashes through a few different emotions. Sadness, anger, and something else you can't be sure of. Finally, it lands on a rueful smile. "Yeah, and he was the best little brother a kid could have asked for." 
+
+    "His giant smile in the photo I saw made him look like the happiest boy on planet Earth." You keep your voice steady as if you were talking to an on-edge suspect. 
+
+    Mark looks up at the sky. "Yeah. That little ball of energy. He was always down for anything. His favorite thing was to watch me play arcade games at Spirit Cell. I sucked at them but he would cheer me on anyways." 
+
+    "...so you can understand why I thought talking to you might bias my investigation." 
+
+    Mark looks back at you, that sad smile still on his face. "Yeah, I guess I can." 
+
+    <<link "Next">><<goto "Day 2 Intro 06">><</link>>
+
+:: Day 2 Intro 06 {"position":"4925,775"} 
+    You smile back at him. "If it makes you feel any better, I really am sorry. I know you don't like being out of the loop and all that." 
+
+    Mark waves his hand through the air. "Don't worry about it. You know I don't hold grudges." 
+
+    You chuckle. "Yeah. If you did, I think I'd be dead a hundred times over by now." 
+
+    Mark shakes his head and smiles, his usual easy one. "C'mon, I'm sure you've got a whole mess on your plate right now. Let's head inside."
+
+    You nod and follow him up the steps to the building. "Yeah, if the desperate message from the crew manning the tip line is anything to go off of, it looks like my inbox is flooded right about now." 
+
+    As he opens the door, you can hear Mark laugh. 
+
+    <<link "Next">><<goto "Day 2 Intro 07">><</link>>
+
+:: Day 2 Intro 07 {"position":"4925,900"} 
+    The tip line crew wasn't kidding when they told you how many messages you had. Your inbox is stacked high with papers; printed-out emails and transcribed calls and voicemails threaten to overflow onto your desk. 
+
+    Mark lets out a low whistle when he sees the stack. "I'm suddenly relieved that I'm not on this case." 
+
+    You sigh as you put down your stuff. "Well, if you need me, you know where I'll be for the next ten years." 
+
+    Mark pats you on the shoulder supportively before escaping to the break room. <<if hasVisited("Day 1 Intro 07a")>>You have a feeling he's behind the ducks, but no one's caught him yet, so you don't say anything.<</if>> 
+
+    <<link "Next">><<goto "Day 2 Intro 08">><</link>>
+
+:: Day 2 Intro 08 {"position":"4925,1025"} 
+    Surprisingly, the tips don't take long for you to sort through. More than half of them are messages from people telling you that Watts deserved to die and that the murderer should be heralded as a hero, not treated like a villain. Others are death threats, telling you that the person who killed Watts is twice the person you or any officer is for finally bringing Watts to justice. 
+
+    Only a few of the messages actually have tips. One of them says that they saw a $markCar following Watts's truck to his house the afternoon before the fire. Another says that they saw a $adamCar driving up and down the street a few hours before the fire. The last one says that they saw Watts's truck leave the estate and arrive back a few hours before the fire. None of them have exact times, but you file these away for later. 
+
+    <<link "Next">><<goto "Day 2 Intro 09">><</link>>
+
+:: Day 2 Intro 09 {"position":"4925,1150"} 
+    As you finish with the last paper, you reach up to stretch your poor back. With a satisfying crack, you can feel some of the tension built up from hunching over your desk getting released. Figuring you deserve a break, you stand up and walk over to the break room. 
+
+    You glance at the time as you pass the clock on the wall and see that it's only 9:52AM. You debate with yourself slightly and decide that you deserve a treat. As you approach the drinks area, you see that the ducks by the coffee machine have been rearranged. This time they don't spell someone's name but instead form a cheerleading pyramid that goes almost as high as the coffee machine. You move carefully to make sure you don't topple them over. 
+
+    <<link "Grab a coffee.">><<goto "Day 2 Intro 10">><<set $drink to "coffee">><</link>>
+    <<link "Grab a tea bag.">><<goto "Day 2 Intro 10">><<set $drink to "tea">><</link>>
+    <<link "Grab a water.">><<goto "Day 2 Intro 10">><</link>>
+
+:: Day 2 Intro 10 {"position":"4925,1275"} 
+    <<if $drink == "coffee">>You spy that there's still coffee in the machine. Seems like not too many people have grabbed a cup since the last person filled the machine. You happily grab a cup, press the lever on the machine, and watch the sub-par office coffee fill your cup. It's not much, but it'll do. <<elseif $drink == "tea">>You look through the tea bag flavors until you find one that you remember tasting alright. After placing the bag in a disposable cup, you partially fill it with water from the hot water machine. You leave the tea bag in the hot water to steep and pick up your cup. Hopefully this turns out fine. <<else>>You grab a disposable cup and fill it with water. Nothing like a lukewarm cup of water to keep you hydrated. <</if>>
+
+    Slowly, you back away from the table only to hit someone behind you. You turn around abruptly, almost spilling your drink on the person you bumped into. "Oh, sorry about-" Your blood runs cold as you realize who it is. "Sorry Captain." 
+
+    Captain Pottinger stands with her arms crossed in front of you. "It's alright, $lname. Just watch where you're going next time." 
+
+    "Will do, Captain." 
+
+    <<link "Next">><<goto "Day 2 Intro 11">><</link>>
+
+:: Day 2 Intro 11 {"position":"4925,1400"} 
+    Pottinger walks over to the coffee machine and brews herself a strong cup of coffee. "How is your investigation progressing? Do you have anything for me to say at today's press conference?"
+
+    "Press conference?" This is the first you'd heard about it. 
+
+    "Yes. There's one later today regarding the Watts case. The news stations want answers about how things are going." Pottinger turns to face you while the coffee brews. "Do you have anything for me?" 
+
+    <<link "Timeline of death.">><<goto "Day 2 Intro 12a">><</link>>
+    <<link "Cause of fire.">><<goto "Day 2 Intro 12b">><</link>>
+    <<if $optional_evidence["scrunchie"]>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker==<</if>>
+    <<link "No.">><<goto "Day 2 Intro 13">><</link>>
+
+:: Day 2 Intro 12a {"position":"4925,1525"} 
+    "The coroner sent over a report with the approximate time and cause of death. Watts died some time between midnight and 3AM, so while the fire was going." 
+
+    Pottinger nods. "Anything else?"
+
+    ==Timeline of death.==
+    <<if hasVisited("Day 2 Intro 12b")>>==Cause of fire.==<<else>><<link "Cause of fire">><<goto "Day 2 Intro 12b">><</link>><</if>>
+    <<if $optional_evidence["scrunchie"] and (hasVisited("Day 2 Intro 12c") is false)>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker==<</if>>
+    <<link "No.">><<goto "Day 2 Intro 13">><</link>>
+
+:: Day 2 Intro 12b {"position":"4925,1525"} 
+    "There were traces of tobacco found in the house. <<if $optional_evidence["lighter"]>>Watts apparently wasn't a heavy smoker, so coupled with the lighter found in the garage, that could indicate arson.<<else>>I'm not sure if Watts was a smoker, but if he wasn't then this could mean arson.<</if>>" 
+
+    Pottinger nods. "Anything else?"
+
+    <<if hasVisited("Day 2 Intro 12a")>>==Timeline of death.==<<else>><<link "Timeline of death.">><<goto "Day 2 Intro 12a">><</link>><</if>>
+    ==Cause of fire==
+   <<if $optional_evidence["scrunchie"] and (hasVisited("Day 2 Intro 12c") is false)>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker==<</if>>
+    <<link "No.">><<goto "Day 2 Intro 13">><</link>>
+
+:: Day 2 Intro 12c {"position":"4925,1650"} 
+    "A scrunchie was found near where Watts's body was discovered. It apparently hadn't been there for very long, so it could be a clue to who the attacker was." Something compels you to keep quiet about the contents of the scrunchie. There's something that's not adding up about it, and you don't want to give the Captain false information. 
+
+    Pottinger nods. "Anything else?"
+
+    <<if hasVisited("Day 2 Intro 12a")>>==Timeline of death.==<<else>><<link "Timeline of death.">><<goto "Day 2 Intro 12a">><</link>><</if>>
+    <<if hasVisited("Day 2 Intro 12b")>>==Cause of fire.==<<else>><<link "Cause of fire">><<goto "Day 2 Intro 12b">><</link>><</if>>
+    <<if $optional_evidence["scrunchie"] and (hasVisited("Day 2 Intro 12c") is false)>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker==<</if>>
+    <<link "No.">><<goto "Day 2 Intro 13">><</link>>
+
+:: Day 2 Intro 13 {"position":"4925,1775"} 
+    "That's about everything, Captain." 
+
+    Pottinger nods. "Sounds good. Write down what you just told me and get it to me by noon." 
+
+    You nod. "Understood." 
+
+    Her coffee brewed, Pottinger grabs her cup and exits the room. 
+
+    You frown slightly as you follow her, your own $drink in hand. If she just wanted you to write it down, then why ask you for details in the first place? Sometimes you didn't understand how the captain's mind worked. 
+
+    <<link "Next">><<goto "Day 2 Intro 14">><</link>>
+
+:: Day 2 Intro 14 {"position":"4925,1900"} 
+
+    Back at your desk, you quickly type out the points you'd told the captain and email it to her. Then, you switch gears to drawing up a list of leads. 
+
+    Behind you, you hear a low whistle. "Done already?" 
+
+    You look over your shoulder to see Mark walking back in the room. "It was mostly trash. The usual 'he deserved to die so stop investigating' death threats. You know the drill." 
+
+    Mark looks at the pile and hums. "Can't say they're wrong."
+
+    You frown. "Hey dude, say something like that and I'll have to put it in the record. Next thing you know you'll tell me you drive a-" You pause as you remember what Mark's car was. A $markCar. 
+
+    "A what? A clown car?" Mark smiles until he catches sight of your face. "What's wrong?" 
+
+    <<link "Pursue this line of questioning.">><<goto "Day 2 Intro 15a">><</link>>
+    <<link "Drop it.">><<goto "Day 2 Intro 15b">><</link>>
+
+:: Day 2 Intro 15a {"position":"4925,2025"}
+    "Hey, Mark." You try to keep your tone neutral. 
+
+    Mark raises an eyebrow. "Yeah, $name?" 
+
+    "What car do you drive?" 
+
+    Mark hesitates. Maybe it's something in your demeanor that clues him into the fact that something's not right. But he responds anyway. "A $markCar. Why?" 
+
+    <<link "Explain.">><<goto "Day 2 Intro 15a01">><</link>>
+    <<link "Don't explain.">><<goto "Day 2 Intro 15b">><</link>>
+
+:: Day 2 Intro 15a01 {"position":"4925,2150"}
+    "Well one of the actual tips I got this morning they saw a car matching yours following Watts home the day before the fire. Do you have anything to say about that?" 
+
+    Mark winces. "Ah, that. Do I have to go on the record for this?" 
+
+    You raise your eyebrows. "Well now you do." 
+
+    Mark sighs. "Ah, I walked into that one didn't I?" He sits down at his desk and turns to face you. "You know how I only work half-days Wednesdays and Fridays?" 
+
+    You nod. "You said it was so you could go get your daughter those days."
+
+    <<link "Next">><<goto "Day 2 Intro 15a02">><</link>>
+
+:: Day 2 Intro 15a02 {"position":"4925,2275"} 
+    Mark nods. "Yeah, exactly. Well I'm picking Ashley up from school Wednesday and I see Watts hanging around the school. I'm off-duty and I can't arrest the guy for hanging around a school, so my hands are a bit tied. But my gut was telling me that he was up to something. So I asked one of Ashley's friend's moms if she could hang around for a bit and, if I wasn't back in ten minutes, if she wouldn't mind taking Ashley home with them for the afternoon. She agreed, and so I followed Watts." 
+    
+    "He got in his car after a couple minutes, so I trailed him in mine. It looks like my gut was wrong on this one because he didn't do much, just went home. I didn't hang around to see if he'd go out again though- I'm not stalking the guy- I just wanted to be sure he didn't kidnap a kid. So I went back to school, picked up Ashely, and then went home." 
+
+    <<link "Next">><<goto "Day 2 Intro 15a03">><</link>>
+
+:: Day 2 Intro 15a03 {"position":"4925,2400"} 
+    "And who was the mom who watched Ashley while you were going after Watts?" 
+
+    Mark scrunches his face up in concentration. "Oh, you'll have to give me a minute with this one. Kevin's better with names since he usually deals with the PTA stuff. She's uh, she's Monica's mom, what's her name… Something that starts with a 'W'? Willow? I think?" Mark pauses. "Yeah I'll have to double check with Kevin, sorry." 
+
+    "No worries. Just let me know when you remember." 
+
+    Mark raises his eyebrows. "What, am I a suspect?" 
+
+    <<link "Next">><<goto "Day 2 Intro 15a04">><</link>>
+
+:: Day 2 Intro 15a04 {"position":"4925,2525"} 
+    You huff out a breath. "Well you've told me you're glad he's dead<<if $toldMark>> twice now<</if>>, and your car was seen around the area before the fire. I just want to make sure I'm covering my bases so some reporter doesn't call me out for doing some cover up." 
+
+    Mark thinks for a second, then nods. "Yeah, I guess. Sucks to be the one interviewed though." 
+
+    You wince. "I know, sorry Mark." 
+
+    Mark raises his hands in surrender. "Don't worry about it. Just warn me ahead of time next time." 
+
+    You nod. "Will do."
+
+    <<link "Next">><<goto "Day 2 Intro 16">><</link>>
+
+:: Day 2 Intro 15b {"position":"5050,2025"} 
+    You shake your head. "Nah, it's nothing, don't worry about it." 
+
+    Mark frowns. "You know you can trust me, right $name?" 
+
+    You nod. "Yeah, and I promise I'll let you know if I need something from you. This really isn't anything important." 
+
+    Mark hesitates, but eventually nods. "Alright, just let me know if you need anything." 
+
+    "Will do." You hope this time that that's the truth. 
+
+    <<link "Next">><<goto "Day 2 Intro 15b01">><</link>>
+
+:: Day 2 Intro 15b01 {"position":"5050,2150"} 
+    "Hey, Mark, you take off early today, right?" 
+
+    Mark nods. "Yeah, I have to go pick up my kid. What's up?"
+
+    You shake your head. "No reason, I just wanted to know if you'll be around." You make a note of that. 
+
+    <<link "Next">><<goto "Day 2 Intro 16">><</link>>
+
+:: Day 2 Intro 16 {"position":"4925,2650"}
+    Mark resumes working at his desk, and you take that as your cue to do the same. You flip to the page you were writing on earlier. Titled, "Interviewees," the page had two names written on it: Adam Watts and Khanh Cao. Now the question was, did you want to also interview Mark? 
+
+    <<link "Yes.">><<goto "Day 2 Intro 17a">><<set $markMark to true>><</link>>
+    <<link "No.">><<goto "Day 2 Intro 17b">><<set $markMark to false>><</link>>
+
+:: Day 2 Intro 17a {"position":"4925,2775"} 
+    You write "Mark Keeley" down in your notebook. 
+
+    There were some points you wanted to follow up with him on. You probably wouldn't be able to talk to him today though, seeing as you haven't even gotten the phone numbers and addresses of the other two yet, let alone talked to them. You figured you'd let him know you wanted to talk with him tomorrow. Hopefully he doesn't mind you encroaching on his Saturday morning. 
+
+    <<link "Next">><<goto "Day 2 Intro 18">><</link>>
+
+:: Day 2 Intro 17b {"position":"5050,2775"} 
+    You choose not to write Mark's name down. You figured there wasn't any reason to talk any further to Mark about the case.
+
+    <<link "Next">><<goto "Day 2 Intro 18">><</link>>
+
+:: Day 2 Intro 18 {"position":"4925,2900"} 
+    Satisfied with your list, you pull out your laptop and navigate to the emails the patrol officers who were first at the scenes sent you this morning. Luckily, both emails were concise and to-the-point, listing facts you'd heard from Vera and Nicholas. At the bottom of the email about the Watts house was Adam Watts's phone number and current address, with a note that Watts was renting an AirBnB, and at the bottom of the email about the Lucy Lemon was Khanh Cao's phone number and current address. 
+    
+    Perfect. 
+    
+    <<link "Next">><<goto "Day 2 Interview 00">><</link>>
+    
+:: Day 2 Interview 00 {"position":"5400,150"}
+    ''The case file has been updated.'' 
+
+    Click the "Case File" button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game there. The case file will be updated at the end of each section of the game. 
+
+    ''This is as far as I've gotten so far. Please let me know if you've found any bugs and in the meantime, please feel free to play again by closing and reopening this window.''
+
+    /* <<link "Next">><<goto "Day 2 Interview 01">><</link>> */
+    
+:: Day 2 Interview 01 {"position":"5400,275"}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    Now the only question is who to meet with first.
+
+    <<link "Adam Watts">><<goto "Day 2 Intro 18">><</link>>
+    <<link "Khanh Cao">><<goto "Day 2 Intro 18">><</link>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+:: Final Passage {"position":"8000,8000"}
     ''This is as far as I've gotten so far. Please let me know if you've found any bugs and in the meantime, please feel free to play again by closing and reopening this window.''
 
 
