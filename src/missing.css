@@ -250,6 +250,13 @@ body {
     color: var(--link_select_color);
 }
 
+.headshot { 
+    width: 250px; 
+    align-items: center;
+}
+
+
+
 
 /***************************
     Headers
