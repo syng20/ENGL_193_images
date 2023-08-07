@@ -27,12 +27,14 @@
             <<set $time to 1>>
             <<set $progress to 0>>
         <<set $toldMark to false>>
-        <<set $optional_evidence to {"lighter": false, "foundShed": false, "key": false, "trailer": false, "photos": false, "eBay": false, "panels": false, "lever": false, "scrunchie": false}>>
-        <<set $investigated to {"AH": false, "LL": false, "AW": false, "KC": false, "MK": false}>>
+        <<set $optional_evidence to {"lighter": false, "foundShed": false, "key": false, "investigatedShed": false, "trailer": false, "photos": false, "eBay": false, "panels": false, "lever": false, "scrunchie": false}>>
+        <<set $investigated to {"AH": false, "LL": false}>>
+        <<set $optional_testimony to {"markStalk": false, "markPhoto": false, "markAlibi": false, "markScrun": false, "adamAlibi": false, "adamSmoke": false, "adamPhoto": false, "adamLeave": false, "adamScrun": false, "kcaoAlibi": false, "kcaoLeave": false, "kcaoCough": false, "kcaoScrun": false, "kcaoWants": false}>>
         <<set $markCar to "blue Mazda CX-3">>
         <<set $adamCar to "silver Honda Accord">>
         <<set $drink to "water">>
         <<set $markMark to false>>
+        <<set $answer to 'A'>>
     <<set $temp to 0>>
 
 :: Menu {"position":"25,650"}
@@ -59,8 +61,8 @@
     <h1>The Cabinet Man</h1>
 
 :: Day-Block {"position":"275,400"}
-    <h1><<if $day == 1>>Thursday<<elseif $day == 2>>Friday<<else>>Saturday<</if>>
-    <<if $time == 1>>Morning <<elseif $time == 2>>Afternoon <<else>>Evening <</if>></h1>
+    <h1><<if $day == 1>>Thursday <<elseif $day == 2>>Friday <<elseif $day == 3>>Saturday <<else>>Two Months Later <</if>>
+    <<if $time == 1>>Morning <<elseif $time == 2>>Afternoon <<elseif $time == 3>>Evening <<else>>(Epilogue) <</if>></h1>
 
 :: Save-Block {"position":"150,400"}
     <<link "Save Menu">><<script>>
@@ -110,8 +112,12 @@
     <</script>><</link>>
 
 :: Case File Suspects [cf] {"position":"150,900"}
-    <h2>People (in order of appearance):</h2> 
-    <<if $progress >= 1>><<link "Archibald Watts">><</link>> 
+    ''People (in order of appearance):''
+    <<if $progress >= 1>><<link "Archibald Watts">><<script>>
+        Dialog.setup("Archibald Watts"); 
+        Dialog.wiki(Story.get("ArW").processText()); 
+        Dialog.open(); 
+    <</script>><</link>> 
         <<link "Mark Keeley">><</link>>
         <<link "Grace Pottinger">><</link>>
         <<link "The Dead Children">><</link>><</if>>
@@ -128,6 +134,22 @@
         Dialog.open(); 
     <</script>><</link>>
 
+:: ArW {"position":"150,1025"}
+
+:: MK {"position":"150,1150"}
+
+:: GP {"position":"150,1275"}
+
+:: DC {"position":"150,1400"}
+
+:: VE {"position":"150,1525"}
+
+:: NH {"position":"150,1650"}
+
+:: AdW {"position":"150,1775"}
+
+:: KC {"position":"150,1900"}
+
 :: Credits [cf] {"position":"275,900"}
     Written by Sam Ng 
     
@@ -137,7 +159,11 @@
     
     Inspiration was taken from the video game series //Five Nights at Freddy's// and the album //Spirit Phone// by Lemon Demon. 
     
-    Course works that influenced this story include //The Likeness// by Tara French (and //In the Woods// by Tara French, the first book in the Dublin Murder Squad series), //Rear Window// directed by Sir Alfred Hitchcock, and //The Man with the Twisted Lip// by Sir Arthur Conan Doyle. 
+    Course works that influenced this story include //Murder on the Orient Express// by Dame Agatha Christie, //The Man with the Twisted Lip// by Sir Arthur Conan Doyle, and //The Likeness// by Tara French (and //In the Woods// by Tara French, the first book in the Dublin Murder Squad series). 
+
+    Special thanks to my family for being my references and my beta testers. 
+
+    Disclaimer: All people and places mentioned in the story are purely fictional.
 
     <<link "Return">><<script>>
         Dialog.setup("Case File"); 
@@ -146,6 +172,8 @@
     <</script>><</link>>
 
 :: Title Page {"position":"500,25"}
+    ''Please know that some aspects of this game have not been optimized for a mobile phone. For the best viewing experience, please play play this game using a computer or tablet.''
+
     Please input your name: 
     <<textbox "$name" "First name">> <<textbox "$lname" "Last name">> 
 
@@ -159,6 +187,11 @@
 
     <<link "Start game">><<goto "Day 1 Intro 00">><</link>>
 
+    /* <<link "Test epilogues">>
+        <<set $optional_testimony to {"markStalk": true, "markPhoto": true, "markAlibi": true, "markScrun": true, "adamAlibi": true, "adamSmoke": true, "adamPhoto": true, "adamLeave": true, "adamScrun": true, "kcaoAlibi": true, "kcaoLeave": true, "kcaoCough": true, "kcaoScrun": true, "kcaoWants": true}>>
+        <<goto "Day 2 Outro 00">>
+    <</link>> */
+
 :: Day 1 Intro 00 {"position":"500,150"}
     <h1>Day 1</h1>
     Tip: Watch the people around you.
@@ -170,12 +203,12 @@
     <<set $His to $his.toUpperFirst()>> 
 
 :: Day 1 Intro 01 {"position":"500,275"}
-    You heard about the fire before you even got into the office. 
+    You heard about the fire before you even got to work. 
 
     <<link "Next">><<goto "Day 1 Intro 02">><</link>>
 
 :: Day 1 Intro 02 {"position":"500,400"}
-    The minute you woke up you were bombarded with text messages, missed calls, and news reports of the fire that took place less than an hour away from your apartment. You had replied to the most pressing messages and briefly glanced through the news reports. You wish you'd studied them a bit more carefully now. Maybe then you'd know why the mood in the police station was so… weird. 
+    The minute you woke up you were bombarded with text messages, missed calls, and news reports of the fire that took place about an hour away from your apartment. You had replied to the most pressing messages and briefly glanced through the news reports. You wish you'd studied them a bit more carefully now. Maybe then you'd know why the mood in the police station was so… weird. 
     
     You set your stuff down at your desk and lean over to your partner's desk. "Hey Mark, what's up with everyone today? Feels like there's a surprise party planned and I'm the only one out of the loop."
 
@@ -195,9 +228,7 @@
     <<link "Next">><<goto "Day 1 Intro 04">><</link>>
 
 :: Day 1 Intro 04 {"position":"500,650"}
-    You look up for the source of the shout and see Captain Pottinger standing in the doorway to her office. 
-
-    "Come over here. I need to talk to you for a second." 
+    You look up for the source of the shout and see Captain Pottinger standing in the doorway to her office. She looks vaguely annoyed, like someone get her coffee order wrong. "Come over here. I need to talk to you for a second." 
 
     As she walks back into her office, you glance at Mark. He grins and teasingly whispers, "Oooooh, someone's in trouble."
 
@@ -227,9 +258,9 @@
 
     Captain Pottinger is sitting behind the large desk in the room and seems to be reading a paper when you walk in. When you close the door, she closes the file and looks at you, gesturing for you to take a seat on one of the chairs in front of her desk. 
 
-    You sit down. 
+    You sit down. "Everything alright, Captain?"
 
-    She folds her hands and stares at you over the table. "Do you know why I called you in today?" 
+    She folds her hands and stares at you over the table. "Everything is dandy on my end, $lname. I was out of town at county-wide police chief meeting until 6AM today when I was called back to the station, so I'm a bit tired, but that's neither here nor there. Do you know why I called you into my office?" 
 
     <<link "Preemptively apologize.">><<goto "Day 1 Intro 07a">><</link>>
     <<link "Say no.">><<goto "Day 1 Intro 07b">><</link>>
@@ -274,7 +305,7 @@
 :: Day 1 Intro 09 {"position":"500,1275"}
     "Murder? I thought his house burnt down?" You pick up the second file and begin flipping through it. 
 
-    "It did. And then his charred body was found in the Lucy Lemon off Dalby Road. The techs are still out at both locations doing their preliminary investigations, but they'll probably be packing up soon. Any questions?"
+    "It did. And then his charred body was found in the Lucy Lemon off Dalby Road. The techs are still out at both locations doing their preliminary investigations. Any questions?"
 
     <<link "\"Why me?\"">><<goto "Day 1 Intro 10a">><</link>>
     <<link "\"Who else is on the case with me?\"">><<goto "Day 1 Intro 10b">><</link>>
@@ -283,11 +314,11 @@
 :: Day 1 Intro 10a {"position":"500,1400"}
     "Why me? This feels like a case that would usually be assigned to someone a bit more senior." Even though you were a detective, there were plenty of other detectives that had more experience than you. 
 
-    Captain Pottinger leans back in her chair and looks up at the ceiling. "When did you move to town, $name?" 
+    Captain Pottinger leans back in her chair and looks up at the ceiling. "When did you move to Los Oso, $name?" 
     
     You don't have to think long. "My junior year of high school. The summer of '05."
 
-    "Do you know how long every other detective has lived in this city?"
+    "Do you know how long every other detective has lived in Los Oso?"
 
     You genuinely don't know how to respond to that. 
 
@@ -411,8 +442,7 @@
 
 	    You make a mental note to look for Mark's last name in the case file. <<else>> "No, not really."
 
-		Mark glances over at the captain's office. "Hmmm." 
-    <</if>>
+		Mark glances over at the captain's office. "Hmmm." <</if>>
 
     In an attempt to break the awkward silence, you cough and wave the files. "Anyways, I'll probably be in the field most of today. Two crime scene to cover and only one of me so..." 
 
@@ -460,7 +490,7 @@
 :: Day 1 Investigate 02a01 {"position":"1100,525"}
     You arrive at the address Pottinger gave you. 
 	
-    The block is lined with cars parked almost end to end. Most of them seem to belong to the houses they're parking in front of, but you have a feeling more than a few of them belong to reporters trying to get scoop of what's going on. Miraculously finding an open spot, you park at the end of the block and grab your notebook from the cup holder where you'd placed it earlier. You dodge around the reporters gathered around the area as you make your way to the house. As you approach the crime scene tape, you pull out your badge to show to one of the officers on the scene who lets you through. 
+    The block is lined with cars parked almost end to end. Most of them seem to belong to the houses they're parking in front of, but you have a feeling more than a few of them belong to reporters trying to get the scoop of what's going on. Miraculously finding an open spot, you park at the end of the block and grab your notebook from the cup holder where you'd placed it earlier. You dodge around the reporters gathered around the area as you make your way to the house. As you approach the crime scene tape, you pull out your badge to show to one of the officers on the scene who lets you through. 
     
     You walk over to the head of the CSI unit who's standing in the front door. Sarcastically, you announce your presence, "Efimov, just who I was hoping to see." 
 
@@ -482,7 +512,7 @@
 :: Day 1 Investigate 02a03 {"position":"1100,775"}
     A moment passes before you break your snarky character to smile back at her. "How've you been, Vera?" 
 
-    You and Vera had both moved here during high school and became fast friends. Her quick wit and surprisingly insightful analysis of the texts assigned in English class were fun to listen to and even more fun to debate with. You were surprised when she went into science rather than literature, but whenever you asked she just shrugged and said that science was her first love. 
+    You and Vera had both moved to Los Oso during high school and became fast friends. Her quick wit and surprisingly insightful analysis of the texts assigned in English class were fun to listen to and even more fun to debate with. You were surprised when she went into science rather than literature, but whenever you asked she just shrugged and said that science was her first love. 
     
     Vera shrugs. "No better than the last time you saw me $name. Still hanging around crime scenes like my job depends on it. Oh wait." 
 	
@@ -509,7 +539,7 @@
 		
     The CSI hurriedly hands her the lighter before turning back and continuing to photograph the gas stove. 
 	
-    Vera passes you an evidence bag with a silver lighter inside. "We found it in the garage."
+    Vera passes you an evidence bag with a silver lighter inside. "We found it in the driveway."
     
     You study the lighter carefully. It's the kind you need to flip the cap open in order to use, probably used often by the amount of wear and tear you can see on the casing. On one side of the casing, there's a sideways M, or is it a W? 
 	
@@ -603,13 +633,13 @@
     <</if>><<link "Leave.">><<goto "Day 1 Investigate 02a09a02">><</link>>
 
 :: Day 1 Investigate 02a09a01b {"position":"1225,1650"}
-    "Do you know anything about Watts's reputation here?"
+    "Do you know anything about Watts's reputation in Los Oso?"
 
-    Vera gives you a weird look. "Who doesn't? Dude was everyone's prime suspect for the murders in '98. Only reason he was never charged is because they couldn't find enough evidence against him. It must have been a nightmare living here at that time. We were, what, 8 years old?" 
+    Vera gives you a weird look. "Who doesn't? He was everyone's prime suspect for the murders in '98. Only reason he was never charged is because they couldn't find enough evidence against him. It must have been a nightmare living here at that time. We were, what, 8 years old?" 
 	
     You do the math in your head. "Yeah, 8 years old." 
 	
-    Vera nods. "There's a lot of resentment towards him. I'm surprised you don't know, detective. Isn't it your job to know about these sorts of people?" 
+    Vera nods. "A lot of people I know our age said the town was almost on a complete lockdown because everyone was so scared. There's a lot of resentment towards him. I'm surprised you don't know, detective. Isn't it your job to know about these sorts of people?" 
 	
     You put your hands up in surrender. "Point taken, point taken. I was just trying to figure out if you knew anything beyond what I did."
 	
@@ -675,7 +705,7 @@
     <</if>>
 
 :: Day 1 Investigate 02a09b01a01 {"position":"1475,1775"}
-    You look around the workshop. 
+    You look around the workshop. <<set $optional_evidence["investigatedShed"] to true>>
     
     Inside are two tables: one on the wall next to the door and another on the far wall next to a window. The first table has several electronic devices carelessly placed on it, each one with a note taped to it. You recognize a few video game consoles from your childhood. The other table has a set of tools carefully placed in an organizer leaning against the wall. There's an open laptop lying on the bench. 
 
@@ -741,7 +771,7 @@
     <<link "Look at the floor.">><<goto "Day 1 Investigate 02a09d01a">><</link>>
     <<link "Look at the walls.">><<set $optional_evidence["photos"] to true>><<goto "Day 1 Investigate 02a09d01b">><</link>>
     <<link "Look at the furniture.">><<goto "Day 1 Investigate 02a09d01c">><</link>>
-    <<link "Look at the furniture.">><<goto "Day 1 Investigate 02a09d01d">><</link>>
+    <<link "Look at the windows.">><<goto "Day 1 Investigate 02a09d01d">><</link>>
     <<link "Leave.">><<goto "Day 1 Investigate 02a10">><</link>>
 
 :: Day 1 Investigate 02a09d01a {"position":"1975,1650"}
@@ -1024,7 +1054,7 @@
 	
     Nicholas walks over to the machine and runs his gloved hand over the top of it. "There was nothing on it. No fingerprints, no glove prints, no ear prints, no prints to speak of. It's as if this little baby came off a completely automated factory line right before Watts's body was shoved in. Any prints that were on it were wiped off really meticulously. Or there weren't any to begin with." 
 
-    <<if hasVisited("Day 1 Investigate 02b10a")>>==Ask if a murder weapon was found.==<<else>><<link "Ask if there were fingerprints on the machine.">><<goto "Day 1 Investigate 02b10b">><</link>><</if>>
+    <<if hasVisited("Day 1 Investigate 02b10a")>>==Ask if a murder weapon was found.==<<else>><<link "Ask if a murder weapon was found.">><<goto "Day 1 Investigate 02b10a">><</link>><</if>>
     ==Ask if there were fingerprints on the machine.==
     <<if hasVisited("Day 1 Investigate 02b10c")>>==Ask if there's any security footage.==<<else>><<link "Ask if there's any security footage.">><<goto "Day 1 Investigate 02b10c">><</link>><</if>>
     <<if hasVisited("Day 1 Investigate 02b10d")>>==Ask about the storage area.==<<else>><<link "Ask about the storage area.">><<goto "Day 1 Investigate 02b10d">><</link>><</if>>
@@ -1058,7 +1088,7 @@
 	
     Nicholas swears in Spanish and slams the door shut. "KEEP IT OUT OF THE WORKPLACE I swear some of these people have never learned what workplace decency is I'll kill them both I-" 
 	
-    You look at the ceiling and wish to erase the past five seconds from your memory. "Careful what you say, I could arrest you for threatening a government employee." 
+    You look at the ceiling and wish to erase the past five seconds from your memory. "Careful what you say, I could arrest you for threatening government employees." 
 	
     Nicholas scoffs. "No one respects me here, I swear." 
 	
@@ -1132,7 +1162,7 @@
 			
     You sigh. "Yeah, other than that." 
 			
-    "Nope. Heard he had an eBay store for fixed up game consoles, but I'm more of a modern games man so I never went looking. Besides, not sure I wouldn't trust him to not kill me if we met up to do a sale." 
+    "Nope. I know he used to work at Sprit Cell Arcade back before the Lucy Lemon was built on top of it, but that's because- fun fact!- I found that out when looking for a decent arcade around here. Spirit Cell was the last big one before it went out of business." Nicholas shrugs. "I think I heard Watts had an eBay store for fixed up game consoles, but I'm more of a modern games man so I never went looking. Besides, not sure I wouldn't trust him to not kill me if we met up to do a sale." 
 			
     "I'll check that out. Thanks Nicholas."
 			
@@ -1146,7 +1176,7 @@
 :: Day 1 Investigate 02b12a01c {"position":"3350,2025"}
     "Were you able to look under the circular panels on the stage?" 
 
-    Nicholas looks over to where you're pointing. "Oh those? No, we weren't. You're supposed to be able to raise them up with a lever behind the stage, but apparently it's been stuck since yesterday before opening. That's why Mr. Cao came in this morning to give it a look." 
+    Nicholas looks over to where you're pointing. "Oh those? No, we weren't. You're supposed to be able to raise them up with a lever behind the stage, but apparently it's been broken since this morning. Mr. Cao said it was working fine yesterday." 
 
     "So it was broken before the crime took place?"
 
@@ -1313,14 +1343,13 @@
 
     Nicholas waves his hand through the air. "Nah, it's our jobs. I'm just ready to go sleep though."
 
-    You raise your eyebrow. "It's only $time.toLowerCase()."
+    You raise your eyebrow. "It's only <<if $time == 1>>morning<<elseif $time == 2>>afternoon<<else>>evening<</if>>."
 
     Nicholas shrugs and walks to the empty space where the front door used to be. "Any time is a good time to take a nap."
 
     You roll your eyes and follow him out.
     <</if>>
     <<link "Next">><<goto "Day 1 Investigate 03">><<set $time = $time+1>><</link>>
-
 
 :: Day 1 Investigate 03 {"position":"1100,2650"}
     <<if ($investigated["AH"] is false) or ($investigated["LL"] is false)>>It's roughly 3PM when you get into your car.
@@ -1355,7 +1384,7 @@
 
     "The older Watt's location had been a mystery until this morning when his body was found in a Lucy Lemon Family Entertainment Center. Natalie, what can you tell us about the current situation?" 
 
-    Ah so it is about your case. 
+    Ah, so it is about your case. 
 
     <<link "Next">><<goto "Day 1 Outro 03">><</link>>
     
@@ -1364,7 +1393,7 @@
 
     The reporter continues talking as the camera shifts back to focus on her. "A worker came in to do pre-opening maintenance work on the animatronics and apparently found Archibald Watts's body inside, causing him to call 911. When the authorities arrived, they determined that Archibald Watts was dead and declared the building a crime scene. As a result, this Lucy Lemon will not be operational until investigations wrap up and the building can be completely disinfected. 
     
-    "We are waiting for further news from the investigative team, but because this case involves an individual tied so closely to this city's history, it seems like the authorities are waiting to have a more complete idea of what happened before they present it to the public. However, they are asking anyone with information to contact them either through the police website or by phone to their tip line. Back to you Frederick." 
+    "We are waiting for further news from the investigative team, but because this case involves an individual tied so closely to Los Oso's history, it seems like the authorities are waiting to have a more complete idea of what happened before they present it to the public. However, they are asking anyone with information to contact them either through the police website or by phone to their tip line. Back to you Frederick." 
 
     The newscaster nods and the screen shifts to push the reporter's view out and focus again on the newscaster. "Thank you for your work Natalie. In a public statement, Lucy Lemon management has apologized for the inconvenience and is asking parents who had reservations to reach out to them so that they can either arrange a different date for their celebration or begin the refund process." 
 
@@ -1389,7 +1418,7 @@
     You make a note of these new observations and save the image to your Camera Roll. 
 
     ==Read Vera's email.== 
-    <<if hasVisited("Day 1 Outro 05b")>>==Read Nicholas's email.==<<else>><<link "Read Nicholas's email.">><</link>><</if>>
+    <<if hasVisited("Day 1 Outro 05b")>>==Read Nicholas's email.==<<else>><<link "Read Nicholas's email.">><<goto "Day 1 Outro 05b">><</link>><</if>>
     <<if hasVisited("Day 1 Outro 05c")>>==Read the coroner's office's email.==<<else>><<link "Read the coroner's office's email.">><<goto "Day 1 Outro 05c">><</link>><</if>>
     <<link "Close your inbox.">><<goto "Day 1 Outro 06">><</link>>
 
@@ -1398,9 +1427,9 @@
     
     At the top of it is what looks like a large black arc. As you scroll, you realize it's just a really big image of a zero. You can almost hear him laughing at you. 
     
-    You scroll a bit faster and finally reach the bluk of the email. In it, Nicholas tells you that his team ultimately didn't find a murder weapon or anything like that in the building. They've got a DNA profile on the cigarette butts but no match in the criminal database. There was also one unsmoke cigarette left outside the back door, but there's also no match for the DNA on that one. <<if $optional_evidence["scrunchie"]>>He also mentions that the scrunchie you found in the looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. Apparently it had a hidden zipper and pocket inside which in turn contained several very old candies, an arcade coin, and a blue ribbon. <<elseif $optional_evidence["lever"]>>He also mentions that the button you clicked caused the panels on the stage to pop up, and they found a pink scrunchie inside. The scrunchie itself looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. Apparently it had a hidden zipper and pocket inside which in turn contained several very old candies, an arcade coin, and a blue ribbon.<</if>>
+    You scroll a bit faster and finally reach the bluk of the email. In it, Nicholas tells you that his team ultimately didn't find a murder weapon or anything like that in the building. They've got a DNA profile on the cigarette butts but no match in the criminal database. There was also one unsmoked cigarette left outside the back door, but there's also no match for the DNA on that one either. <<if $optional_evidence["scrunchie"]>>He also mentions that the scrunchie you found in the looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. Apparently it had a hidden zipper and pocket inside which in turn contained several very old candies, an arcade coin, and a blue ribbon. <<elseif $optional_evidence["lever"]>>He also mentions that the button you clicked caused the panels on the stage to pop up, and they found a pink scrunchie inside. The scrunchie itself looks pretty old, but there isn't any dust on the top to suggest that it had been there for very long. Apparently it had a hidden zipper and pocket inside which in turn contained several very old candies, an arcade coin, and a blue ribbon.<</if>>
     
-    You make a note of these new observations and make a note to kick Nicholas the next time you see him. 
+    You make a note of these new observations. You also make a note to kick Nicholas the next time you see him. 
 
     <<if hasVisited("Day 1 Outro 05a")>>==Read Vera's email.==<<else>><<link "Read Vera's email.">><<goto "Day 1 Outro 05a">><</link>><</if>>
     ==Read Nicholas's email.==
@@ -1424,9 +1453,13 @@
     <<link "Close your inbox.">><<goto "Day 1 Outro 06">><</link>>
 
 :: Day 1 Outro 06 {"position":"4450,900"}
-    After you finish reading the emails, you take a break from your laptop and finish eating your food. As you eat, you try to organize everything you just read in your brain. Unknown DNA, cyanide poisoning, stab wounds... Seems this case was more complicated than you thought. Hopefully a good night's sleep will allow you to organize your thoughts.
+    After you finish reading the emails, you take a break from your laptop and finish eating your food. As you eat, you try to organize everything you just read in your brain. Unknown DNA, cyanide poisoning, stab wounds... Seems this case was more complicated than you thought. 
+    
+    Unbidden, Pottinger's voice floats through your mind, reminding you that Los Oso won't be worse off if you fail to catch the killer. Finally at a place where you can breath, you mull that over for a few minutes. If Watts really killed that many kids, would it be a good thing for his killer to go free? Maybe this is one time you could just let the murderer go?
+    
+    You shake your head. What are you thinking? When you joined the police force you made an oath to uphold the values of your community, and that includes making sure murderers don't walk free. Letting this person go would go against what you stand for. Hopefully a good night's sleep will allow you to organize your thoughts.
 
-    <<link "Next">><<set $progress to 3>><<set $day to 2>><<set $time to 0>><<goto "Day 2 Intro 00">><</link>>
+    <<link "Next">><<set $progress to 3>><<set $day to 2>><<set $time to 1>><<goto "Day 2 Intro 00">><</link>>
 
 :: Day 2 Intro 00 {"position":"4925,150"}
     ''The case file has been updated.'' 
@@ -1570,7 +1603,7 @@
 
     You sigh as you put down your stuff. "Well, if you need me, you know where I'll be for the next ten years." 
 
-    Mark pats you on the shoulder supportively before escaping to the break room. <<if hasVisited("Day 1 Intro 07a")>>You have a feeling he's behind the ducks, but no one's caught him yet, so you don't say anything.<</if>> 
+    Mark pats you on the shoulder supportively before escaping to the break room. <<if hasVisited("Day 1 Intro 07a")>>You have a feeling he's the person behind the ducks, but no one's caught him yet, so you don't say anything.<</if>> 
 
     <<link "Next">><<goto "Day 2 Intro 08">><</link>>
 
@@ -1610,7 +1643,7 @@
 
     <<link "Timeline of death.">><<goto "Day 2 Intro 12a">><</link>>
     <<link "Cause of fire.">><<goto "Day 2 Intro 12b">><</link>>
-    <<if $optional_evidence["scrunchie"]>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker==<</if>>
+    <<if $optional_evidence["scrunchie"]>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker== (You did not collect the evidence to unlock this option.)<</if>>
     <<link "No.">><<goto "Day 2 Intro 13">><</link>>
 
 :: Day 2 Intro 12a {"position":"4925,1525"} 
@@ -1620,7 +1653,7 @@
 
     ==Timeline of death.==
     <<if hasVisited("Day 2 Intro 12b")>>==Cause of fire.==<<else>><<link "Cause of fire">><<goto "Day 2 Intro 12b">><</link>><</if>>
-    <<if $optional_evidence["scrunchie"] and (hasVisited("Day 2 Intro 12c") is false)>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker==<</if>>
+    <<if $optional_evidence["scrunchie"] and (hasVisited("Day 2 Intro 12c") is false)>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker== (You did not collect the evidence to unlock this option.)<</if>>
     <<link "No.">><<goto "Day 2 Intro 13">><</link>>
 
 :: Day 2 Intro 12b {"position":"4925,1525"} 
@@ -1630,8 +1663,8 @@
 
     <<if hasVisited("Day 2 Intro 12a")>>==Timeline of death.==<<else>><<link "Timeline of death.">><<goto "Day 2 Intro 12a">><</link>><</if>>
     ==Cause of fire==
-   <<if $optional_evidence["scrunchie"] and (hasVisited("Day 2 Intro 12c") is false)>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker==<</if>>
-    <<link "No.">><<goto "Day 2 Intro 13">><</link>>
+   <<if $optional_evidence["scrunchie"] and (hasVisited("Day 2 Intro 12c") is false)>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker== (You did not collect the evidence to unlock this option.)<</if>>
+   <<link "No.">><<goto "Day 2 Intro 13">><</link>>
 
 :: Day 2 Intro 12c {"position":"4925,1650"} 
     "A scrunchie was found near where Watts's body was discovered. It apparently hadn't been there for very long, so it could be a clue to who the attacker was." Something compels you to keep quiet about the contents of the scrunchie. There's something that's not adding up about it, and you don't want to give the Captain false information. 
@@ -1640,7 +1673,7 @@
 
     <<if hasVisited("Day 2 Intro 12a")>>==Timeline of death.==<<else>><<link "Timeline of death.">><<goto "Day 2 Intro 12a">><</link>><</if>>
     <<if hasVisited("Day 2 Intro 12b")>>==Cause of fire.==<<else>><<link "Cause of fire">><<goto "Day 2 Intro 12b">><</link>><</if>>
-    <<if $optional_evidence["scrunchie"] and (hasVisited("Day 2 Intro 12c") is false)>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker==<</if>>
+    <<if $optional_evidence["scrunchie"] and (hasVisited("Day 2 Intro 12c") is false)>><<link "Possible evidence of attacker.">><<goto "Day 2 Intro 12c">><</link>><<else>>==Possible evidence of attacker== (You did not collect the evidence to unlock this option.)<</if>>
     <<link "No.">><<goto "Day 2 Intro 13">><</link>>
 
 :: Day 2 Intro 13 {"position":"4925,1775"} 
@@ -1657,7 +1690,6 @@
     <<link "Next">><<goto "Day 2 Intro 14">><</link>>
 
 :: Day 2 Intro 14 {"position":"4925,1900"} 
-
     Back at your desk, you quickly type out the points you'd told the captain and email it to her. Then, you switch gears to drawing up a list of leads. 
 
     Behind you, you hear a low whistle. "Done already?" 
@@ -1696,7 +1728,7 @@
 
     You nod. "You said it was so you could go get your daughter those days."
 
-    <<link "Next">><<goto "Day 2 Intro 15a02">><</link>>
+    <<link "Next">><<set $optional_testimony["markStalk"] to true>><<goto "Day 2 Intro 15a02">><</link>>
 
 :: Day 2 Intro 15a02 {"position":"4925,2275"} 
     Mark nods. "Yeah, exactly. Well I'm picking Ashley up from school Wednesday and I see Watts hanging around the school. I'm off-duty and I can't arrest the guy for hanging around a school, so my hands are a bit tied. But my gut was telling me that he was up to something. So I asked one of Ashley's friend's moms if she could hang around for a bit and, if I wasn't back in ten minutes, if she wouldn't mind taking Ashley home with them for the afternoon. She agreed, and so I followed Watts." 
@@ -1708,7 +1740,7 @@
 :: Day 2 Intro 15a03 {"position":"4925,2400"} 
     "And who was the mom who watched Ashley while you were going after Watts?" 
 
-    Mark scrunches his face up in concentration. "Oh, you'll have to give me a minute with this one. Kevin's better with names since he usually deals with the PTA stuff. She's uh, she's Monica's mom, what's her name… Something that starts with a 'W'? Willow? I think?" Mark pauses. "Yeah I'll have to double check with Kevin, sorry." 
+    Mark scrunches his face up in concentration. "You'll have to give me a minute with this one. Fred's better with names since he usually deals with the PTA stuff. She's uh, Rachel's mom. I think her name starts with a 'W.'" Mark pauses. "Yeah I don't remember. I'll have to double check with Fred, sorry." 
 
     "No worries. Just let me know when you remember." 
 
@@ -1717,7 +1749,7 @@
     <<link "Next">><<goto "Day 2 Intro 15a04">><</link>>
 
 :: Day 2 Intro 15a04 {"position":"4925,2525"} 
-    You huff out a breath. "Well you've told me you're glad he's dead<<if $toldMark>> twice now<</if>>, and your car was seen around the area before the fire. I just want to make sure I'm covering my bases so some reporter doesn't call me out for doing some cover up." 
+    You huff out a breath. "Well you've told me you're glad he's dead<<if $toldMark>> twice now<</if>>, and your car was seen around the area before the fire. I just want to make sure I'm covering my bases so some reporter doesn't try to suggest I'm being biased." 
 
     Mark thinks for a second, then nods. "Yeah, I guess. Sucks to be the one interviewed though." 
 
@@ -1752,7 +1784,7 @@
     <<link "Next">><<goto "Day 2 Intro 16">><</link>>
 
 :: Day 2 Intro 16 {"position":"4925,2650"}
-    Mark resumes working at his desk, and you take that as your cue to do the same. You flip to the page you were writing on earlier. Titled, "Interviewees," the page had two names written on it: Adam Watts and Khanh Cao. Now the question was, did you want to also interview Mark? 
+    Mark resumes working at his desk, and you take that as your cue to do the same. You flip to the page you were writing on earlier titled, "Interviewees." The page has two names written on it: Adam Watts and Khanh Cao. Now the question was, did you want to also interview Mark? 
 
     <<link "Yes.">><<goto "Day 2 Intro 17a">><<set $markMark to true>><</link>>
     <<link "No.">><<goto "Day 2 Intro 17b">><<set $markMark to false>><</link>>
@@ -1760,7 +1792,19 @@
 :: Day 2 Intro 17a {"position":"4925,2775"} 
     You write "Mark Keeley" down in your notebook. 
 
-    There were some points you wanted to follow up with him on. You probably wouldn't be able to talk to him today though, seeing as you haven't even gotten the phone numbers and addresses of the other two yet, let alone talked to them. You figured you'd let him know you wanted to talk with him tomorrow. Hopefully he doesn't mind you encroaching on his Saturday morning. 
+    There were some points you wanted to follow up with him on. You knew that you probably wouldn't be able to catch him before he left the office, but maybe you could talk to him later this evening. You lean over to Mark and tap him on the shoulder. "Hey, can I ask you some stuff about the Watts case?"
+
+    Mark looks back at you. "Yeah, sure. Now?"
+
+    You shake your head. "Nah, probably some time this evening. I've got a couple people I need to ask first. I know you're heading out early, but I figured I could swing by your place this evening."
+
+    Mark mulls it over for a minute before nodding. "Sure. Fred and Ashley would love to see you too. Come over around 8PM; we should be done with dinner by then. "
+
+    You nod and jot that down. "Sounds good. Thanks man."
+    
+    Mark smiles. "No problem." 
+    
+    You already know where Mark lives, so there's no need for you to ask him about that.
 
     <<link "Next">><<goto "Day 2 Intro 18">><</link>>
 
@@ -1781,10 +1825,7 @@
 
     Click the "Case File" button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game there. The case file will be updated at the end of each section of the game. 
 
-    ''This is as far as I've gotten so far. Please let me know if you've found any bugs and in the meantime, please feel free to play again by closing and reopening this window.''
-
-
-    /* <<link "Next">><<goto "Day 2 Interview 01">><</link>> */
+    <<link "Next">><<goto "Day 2 Interview 01">><</link>> 
     
 :: Day 2 Interview 01 {"position":"5400,275"}
     You stare at your work phone and wonder who to call first. 
@@ -1792,37 +1833,1142 @@
     <<link "Adam Watts">><<goto "Day 2 Interview 02a">><</link>>
     <<link "Khanh Cao">><<goto "Day 2 Interview 02b">><</link>>
 
-:: Day 2 Interview 02 {"position":"5400,400"}
+:: Day 2 Interview 02a {"position":"5400,400"}
+    You dial Adam Watts's phone number and wait for him to pick up. 
+
+    The phone is picked up after the first ring. "H-hello?" 
+
+    "Hi, is this Adam Watts?" 
+
+    The voice on the other end is nervous. "Who's asking?" 
+
+    "This is Detective $name $lname from the Los Oso Police Department. I'm the detective in charge of the case regarding your father. Do you have time to talk with me?" 
+
+    "OH! Sorry, I thought you were, well, no, it doesn't matter. Yeah sure I have time to speak with you." You hear him murmur in a quieter voice, "My plans for this trip are down the drain anyways." 
+
+    <<link "Next">><<goto "Day 2 Interview 02a01">><</link>>
+
+:: Day 2 Interview 02a01 {"position":"5400,525"}
+    You glance at the clock and see that it's close to 11AM. "In that case, would you be available around noon? I know it's a bit early but I'd like to talk to you as soon as possible." 
+
+    "Yeah, sure, that works." 
+
+    "Would meeting at your residence be fine or would you prefer to come to the station?" 
+
+    You hear what can only be described as a quiet whimper at the end before Adam responds. "Uh, I'll come by the police station. The neighbors around here are nosy." 
+
+    You note that Adam will visit the police station at noon. "Sounds good. See you soon, Mr. Watts." 
+
+    "Just call me Adam. Mr. Watts sounds too much like…" Adam trails off, but you get the message. 
+
+    "Alright Adam. See you in an hour." 
+
+    "See you." //click// 
+
+    <<if hasVisited("Day 2 Interview 02b")>>Now to figure out which of the interrogation rooms are open. 
+
+    <<link "Next">><<goto "Day 2 Interview 03">><<set $time to $time+1>><</link>>
+
+    <<else>>One phone call down, one to go. 
+
+    <<link "Next">><<goto "Day 2 Interview 02b">><</link>><</if>>
+
+:: Day 2 Interview 02b {"position":"5525,400"}
+    You dial Khanh Cao's phone number and wait for him to pick up. 
+
+    The phone rings long enough where you think he might just reject the call when the line connects. "Hello?" A weary voice answers the phone.
+
+    "Hello, this is Detective $name $lname from the Los Oso police department. Is this Mr. Khanh Cao?"
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    "Yes, this is he. Is this about the body?" 
     
-    
-    
-:: Final Passage {"position":"8000,8000"}
-    ''This is as far as I've gotten so far. Please let me know if you've found any bugs and in the meantime, please feel free to play again by closing and reopening this window.''
+    "Yes, it is. Do you have a minute to speak to me?" 
 
+    "Yes, yes, I can- Sorry, hold on for a second." His next words are very faint, and you assume they were not meant for you. "I TOLD YOU NOT TO TOUCH THAT WHILE I'M NOT THERE DIEGO. PUT THE WELDING TORCH DOWN." There's some rustling and Khanh's voice is the volume it was before. "Apologies, Detective. I'm in the middle of class right now so I'd appreciate it if you could call me another time." 
 
+    "Yes, sure, that's fine. Could I call you around 2PM?" 
+
+    "3PM works better for me." 
+
+    "3PM it is then."
+
+    "Thank you. Talk to you then, Detective." 
+
+    You don't even have a chance to respond before the line goes dead. <<if hasVisited("Day 2 Interview 02b")>>You hope you didn't just cause something to burn down.  
+
+    <<link "Next">><<goto "Day 2 Interview 03">><<set $time to $time+1>><</link>>
+
+    <<else>>One phone call down, one to go. 
+
+    <<link "Next">><<goto "Day 2 Interview 02a">><</link>><</if>>
+
+:: Day 2 Interview 03 {"position":"5400,650"}
+    You're in the middle of checking the availability of the interrogation rooms when a patrol officer alerts you to the fact that Adam had arrived. 
+
+    You walk back to the reception area and see Adam standing by the front desk, looking like he would run at the next loud sound. "Adam Watts?" 
+
+    Adam straightens up from his slouch. "Hi, yeah, that's me. You're Detective, ah shit wait I wrote this one down, uh-" He looks at his hand. "Detective Foster?" 
+
+    You shake your head. "No, I'm Detective $lname, but if it makes you feel better you can call me $name." 
+
+    Adam shakes his head. "Detective $lname, I'll remember that. Promise. Sorry. I think I should say sorry in advance, just because I'm not great with the all," he waves his hands through the air, "social and all that jazz, yeah." He shoves them back into the pockets of his jeans. "Sorry." 
+
+    You try to be as calm as possible to make Adam feel a little more relaxed. "It's fine, don't worry abou it. Do you want to come inside? Our coffee isn't the best but I can grab you a cup before we go to a more private room." 
+
+    Adam shakes his head. Poor guy seems to do that a lot. "No, I'm, I'm not much for the taste of coffee. Can we, can we just get this over with?" 
+
+    You nod. "Sure thing. Follow me." 
+
+    <<link "Next">><<goto "Day 2 Interview 04">><</link>>
+
+:: Day 2 Interview 04 {"position":"5400,775"}
+    You lead Adam over to Interrogation Room 5 which last you checked is not scheduled to be used for the next few hours. You sit down on one side of the table and gesture for Adam to sit on the other side. He slowly sits down and after taking a quick glance around the room, trains his eyes on the edge of the table in front of him. He's shaking slightly. 
+
+    You start the conversation. "So, Adam." 
+
+    Adam nervously glances up at you. "Yeah?" 
+
+    <<link "Ask about his relationship to the victim.">><<goto "Day 2 Interview 05a">><</link>>
+    <<link "Ask about his alibi.">><<goto "Day 2 Interview 05b">><</link>>
+    <<if $optional_evidence["lighter"]>><<link "Ask about the lighter.">><<goto "Day 2 Interview 05c">><</link>><<else>>==Ask about the lighter.==<</if>>
+    <<if $optional_evidence["foundShed"]>><<link "Ask about the shed.">><<goto "Day 2 Interview 05d">><</link>><<else>>==Ask about the shed.==<</if>>
+    <<if $optional_evidence["trailer"]>><<link "Ask about the trailer.">><<goto "Day 2 Interview 05e">><</link>><<else>>==Ask about the trailer.==<</if>>
+    <<if $optional_evidence["photos"]>><<link "Ask about the smashed photos.">><<goto "Day 2 Interview 05f">><</link>><<else>>==Ask about the photos.==<</if>>
+    <<if $optional_evidence["eBay"]>><<link "Ask about the eBay shop.">><<goto "Day 2 Interview 05g">><</link>><<else>>==Ask about the eBay shop.==<</if>>
+    <<if $optional_evidence["scrunchie"]>><<link "Ask about the scrunchie.">><<goto "Day 2 Interview 05h">><</link>><<else>>==Ask about the scrunchie.==<</if>>
+
+:: Day 2 Interview 05a {"position":"5400,900"}
+    "Archibald Watts was your father, right?" 
+
+    Adam scoffed quietly but then froze and glanced at you like a child caught for doing something bad before turning his gaze to the table. "Yeah. He was shit at it though." 
+
+    "Did you keep in touch with him?" 
+
+    Adam shakes his head. "No. I cut off contact when I was 18. I didn't even finish my last year of high school, just grabbed some stuff and left." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 05a01">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05a01 {"position":"5400,1025"}
+    "When you say you left, do you mean you ran away from home?" 
+
+    Adam shakes his head furiously. "I was an adult. I left a note saying I was leaving. It wasn't running away." He repeated to himself in a quieter voice, "It wasn't running away." 
+
+    "Where did you stay after you ran- after you left?" 
+
+    Adam shrugged. "Shelters. Eventually made some friends through online forums and couch-surfed. It's not a time I like to remember." He seems unwilling to say anything else. 
+
+    <<link "Next">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05b {"position":"5525,900"}
+    "Where were you, Wednesday before you arrived at your dad's house?" 
+
+    "Driving. I've been on the road almost all day." 
+
+    "Where are you coming from?" 
+
+    "From Isla Gatos. It's, uh, a few hours south of here." 
+
+    "And you decided to come back to Los Oso because...?"
+
+    Adam hunched further into himself. "I heard that the city was holding a memorial for, for..." He takes a moment to compose himself. "For my friends." 
+
+    You remember hearing about that. "So you decided to come back to town for the memorial? And you decided to visit your dad when you got here?" 
+
+    Adam nods. "Yeah. I felt I owed it to them to get some sort of closure. Figured I'd start with my dad. It, uh, it didn't go well." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 05b01">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05b01 {"position":"5525,1025"}
+    "What do you mean?" 
+
+    Adam laughs quietly. "Well, the house burnt down. Not exactly a stellar reunion. I didn't even see him." 
+
+    "You mean you didn't see Archibald Watts that night?" 
+
+    Adam shakes his head. "No." 
+
+    <<link "Next">><<goto "Day 2 Interview 06">><<set $optional_testimony["adamAlibi"] to true>><</link>>
+
+:: Day 2 Interview 05c {"position":"5650,900"}
+    "Do you recognize this lighter?" You pull up a picture of the lighter on your phone and pass it to Adam. 
+
+    Adam's eyes widen as he stares at the screen. "Where did you find it?" 
+
+    <<link "Answer him.">><<goto "Day 2 Interview 05c01a">><<set $optional_testimony["adamSmoke"] to true>><</link>> 
+    <<link "Deflect the question.">><<goto "Day 2 Interview 05c01b">><<set $optional_testimony["adamSmoke"] to true>><</link>>
+
+:: Day 2 Interview 05c01a {"position":"5650,1025"}
+    "In the garage of your father's house. Do you recognize it?" 
+
+    Adam nods. "Yeah, it's my, uh, it's my father's." He keeps his eyes trained on the phone, and you notice he starts fidgiting with his hands. 
+
+    <<link "Press it.">><<goto "Day 2 Interview 05c02">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05c01b {"position":"5775,1025"}
+    "Why, do you recognize it?" 
+
+    Adam nods. "Yeah, it's my, uh, it's my father's." He keeps his eyes trained on the phone, and you notice he starts fidgiting with his hands. 
+
+    <<link "Press it.">><<goto "Day 2 Interview 05c02">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05c02 {"position":"5650,1150"}
+    "Is something the matter, Adam?" 
+
+    Adam shakes his head. "No. I mean, yes, but this is normal. For me I mean. I'm, uh, I'm trying to quit but seeing the lighter, well it, it kinda makes me feel like, like I need a cigarette." He pushes the phone back to you. "I'd rather not look at it if it's okay." 
+
+    You nod and take back the phone. "Of course." 
+
+    <<link "Next">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05d {"position":"5900,900"}
+    "Do you know anything about the shed behind your father's house?" 
+
+    Adam looks up and thinks for a while. "You mean his workshop?" 
+
+    "Is that what it is?" 
+
+    Adam shrugs before returning his gaze to the table. "I think so? I was never allowed inside so I'm not sure. I know he was in there a lot so I just assumed it was a workshop." He looks to the side. "Sometimes I thought he spent more time there than inside the actual house." 
+
+    <<link "Next">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05e {"position":"6025,900"}
+    "Were you aware your father was keeping arcade machines inside a horse trailer?" 
+
+    Adam looked up with a start. "He bought a horse trailer?" He pouts slightly as he looks away. "I thought he hated horses." 
+
+    Guess that answers your question. 
+
+    <<link "Next">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05f {"position":"6150,900"}
+    "There were several broken picture frames in your father's house. Do you know what they might have been?" 
+
+    Adam furiously shakes his head. "He wasn't sentimental." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 05f01">><<set $optional_testimony["adamPhoto"] to true>><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 06">><<set $optional_testimony["adamPhoto"] to true>><</link>>
+
+:: Day 2 Interview 05f01 {"position":"6150,1025"} 
+    "What do you mean?" 
+
+    Adam keeps his eyes trained on one of the corners of the table next to you. "I doubt those photos mattered anyways." 
+
+    <<link "Keep pressing.">><<goto "Day 2 Interview 05f02">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05f02 {"position":"6150,1150"}
+    "What photos were they?" 
+
+    "They were-" Adam suddenly stops and looks up. "I have the right to speak to a lawyer." 
+
+    "I'm sorry?" 
+
+    Adam shakes his head frantically and stands up. "I want a lawyer. I won't say anything else until I have one." 
+
+    <<link "Try to continue the interrogation.">><<goto "Day 2 Interview 05f03">><</link>> 
+    <<link "Let him leave.">><<goto "Day 2 Interview 05f04">><</link>>
+
+:: Day 2 Interview 05f03 {"position":"6150,1275"}
+    "Adam, I'm sorry if you feel on edge. If you want, we can revisit this question later." 
+
+    Adam just keeps shaking his head. It doesn't look like he'll answer any more of your questions. 
+
+    ==Try to continue the interrogation.==
+    <<link "Let him leave.">><<goto "Day 2 Interview 05f04">><</link>>
+
+:: Day 2 Interview 05f04 {"position":"6150,1400"}
+    "Okay. In that case, I'll leave my card with you. If you remember anything, just give me a call, okay?" 
+    
+    Adam grabs the card, but says nothing. It doesn't look like he'll say anything else at this point. 
+
+    You walk him out of the station. He doesn't look back as he quickly walks to what you assume is his car. You note that he drives a $adamCar. 
+
+    <<link "Next">><<goto "Day 2 Interview 08">><<set $optional_testimony["adamLeave"] to true>><</link>>
+
+:: Day 2 Interview 05g {"position":"6275,900"}
+    "Did you know how your dad was making money?" 
+
+    Adam shook his head. "I cut off all contact after I left. I haven't talked to him since I graduated high school." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 05g01">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05g01 {"position":"6275,1025"}
+    "Why?" 
+
+    Adam frowns at you. "Take a guess." 
+
+    "I'd prefer to hear it from you." 
+
+    Adam looks down. "He was suspected of murdering my sister and her friends. And who knows how many other kids. Connect the dots." He doesn't look like he'll say anything other than that. 
+
+    <<link "Next">><<goto "Day 2 Interview 06">><</link>>
+
+:: Day 2 Interview 05h {"position":"6400,900"}
+    "Do you recognize this scrunchie?" You pull up a picture of the scrunchie on your phone and pass it to Adam. 
+
+    Adam reaches out to touch the phone then stops himself halfway. "I think- no, I don't recognize it." 
+
+    "Are you sure?" 
+
+    Adam retracts his hand and looks down again. "...yeah, it's not ringing any bells." 
+
+    <<link "Next">><<goto "Day 2 Interview 06">><<set $optional_testimony["adamScrun"] to true>><</link>>
+
+:: Day 2 Interview 06 {"position":"5400,1525"}
+    You think carefully about your next question. 
+
+    <<if hasVisited("Day 2 Interview 05a") is false>><<link "Ask about his relationship to the victim.">><<goto "Day 2 Interview 05a">><</link>><<else>>==Ask about his relationship to the victim.==<</if>>
+    <<if hasVisited("Day 2 Interview 05b") is false>><<link "Ask about his alibi.">><<goto "Day 2 Interview 05b">><</link>><<else>>==Ask about his alibi.==<</if>>
+    <<if ($optional_evidence["lighter"]) and (hasVisited("Day 2 Interview 05c") is false)>><<link "Ask about the lighter.">><<goto "Day 2 Interview 05c">><</link>><<else>>==Ask about the lighter.==<</if>>
+    <<if ($optional_evidence["foundShed"]) and (hasVisited("Day 2 Interview 05d") is false)>><<link "Ask about the shed.">><<goto "Day 2 Interview 05d">><</link>><<else>>==Ask about the shed.==<</if>>
+    <<if ($optional_evidence["trailer"] and (hasVisited("Day 2 Interview 05e") is false))>><<link "Ask about the trailer.">><<goto "Day 2 Interview 05e">><</link>><<else>>==Ask about the trailer.==<</if>>
+    <<if ($optional_evidence["photos"]) and (hasVisited("Day 2 Interview 05f") is false)>><<link "Ask about the smashed photos.">><<goto "Day 2 Interview 05f">><</link>><<else>>==Ask about the photos.==<</if>>
+    <<if ($optional_evidence["eBay"]) and (hasVisited("Day 2 Interview 05g") is false)>><<link "Ask about the eBay shop.">><<goto "Day 2 Interview 05g">><</link>><<else>>==Ask about the eBay shop.==<</if>>
+    <<if ($optional_evidence["scrunchie"]) and (hasVisited("Day 2 Interview 05h") is false)>><<link "Ask about the scrunchie.">><<goto "Day 2 Interview 05h">><</link>><<else>>==Ask about the scrunchie.==<</if>>
+    <<link "No more questions.">><<goto "Day 2 Interview 07">><</link>>
+
+:: Day 2 Interview 07 {"position":"5400,1650"}
+    "Alright, Adam, those are all the questions I have for you." 
+
+    Adam looks up with a grateful smile. "So I can go?" 
+
+    "Yep, you're free to go. Here's my card in case you remember anything or you need to reach me for any reason." 
+
+    Adam hastily grabs the card and shoves it in his pocket. "Thanks Detective." 
+
+    "No worries. Let's get you out of here, shall we?" You stand up and open the door for Adam, who quickly walks through it. You walk him to the front of the station and watch as he gives you a grateful nod (which you return) and then speed walks to his car. You note that he drives a $adamCar. 
+
+    <<link "Next">><<goto "Day 2 Interview 08">><</link>>
+
+:: Day 2 Interview 08 {"position":"5400,1775"}
+    You check the clock and see that it's a little past 1PM. You have some time to kill before you can call Khanh Cao back. As you wonder what to do, you feel your stomach rumble. Realizing you haven't eaten since breakfast, you decide a quick meal is probably in order. You quickly walk back to your desk and, after some deliberation, decide on the sandwich shop walking distance from the station. You put a little "Out to Lunch" note on your desk and make a beeline for the door. 
+
+    <<link "Next">><<goto "Day 2 Interview 09">><</link>>
+
+:: Day 2 Interview 09 {"position":"5400,1900"}
+    When you arrive at the shop, the worker behind the counter greets you with a smile. "$name! How's it going?" 
+
+    You've visited here enough times for most of the lunchtime staff to know your name, and for you to know most of theirs. "Going alright, Monica. Just stopping by for lunch." You order your usual sandwich and Monica rings you up. It feels a bit odd ordering just for yourself when Mark's not there, but you figure he's probably left the station by now to make it to his daughter's school on time so you don't order him a sandwich. <<if $markMark>>
+    
+    You write a quick text message to him to ask if you can talk to him about the Watts case tomorrow. He replies soon after with a house emoji, a thumbs up emoji, a sunglasses emoji, a sun emoji, and two 1 emojis. You always get on his case for taking forever to reply because he tries to use emojis for everything, but he just counters with the idea that not everything has to be instantaneous and that the emojis are funny. Luckily, you've known him long enough to be able to interpret his message to mean that he wants you to swing by his house tomorrow at 11AM. You send back a quick thanks and turn your attention back to your lunch. <</if>>
+
+    <<link "Next">><<goto "Day 2 Interview 10">><</link>>
+
+:: Day 2 Interview 10 {"position":"5400,2025"}
+    One sandwich and a full belly later, you walk back to the station. The late autumn afternoon sun feels nice on your walk, and you try your best to savor it before you enter the land of unforgiving LEDs once more. 
+    
+    About halfway back to the station, a quiet voice in the back of your brain that sounds oddly like Mark says that if Archibald Watts was such a bad person, maybe him being dead wasn't so bad after all. Maybe there were people who deserved to die. You shake your head and try to ignore the voice as you continue your walk. If the air is a little colder and your strides a little faster, that's nobody's business but yours. 
+    
+    As you enter the building, you check your phone and note that it's a few minutes before two. You set your stuff back down at your desk and dial Khanh Cao's number. You wait on the line only to get sent to voicemail. After checking the clock (it's now 3:01PM), you leave a voicemail asking him to call you back at his earliest convenience. Less than five minutes later, you get a call back from him. 
+
+    "Hello, Detective $lname speaking." 
+
+    "Detective, this is Khanh Cao." 
+
+    "Thank you for calling me back, Professor Cao. Is now a good time to speak to you?" 
+
+    "Yes. That's why I called you back." He doesn't seem to be the type to beat around the bush. 
+
+    "Thank you for doing so. If you wouldn't mind, I have a few questions to ask you about Archibald Watts. Would you be available to meet later today?" 
+
+    "My classes are finished for today. Come by Edenvale College. My office is ML413." 
+
+    You jot down that information. "When would you like to meet?" 
+
+    "Didn't you say some time today? Just get here before 6PM. I want to go home before dinner." 
+
+    You quickly pull up Edenvale College on the maps app. Talking to Cao felt like being grilled by Pottinger after a case gone wrong. "Understood. In that case I can be there in about half an hour." 
+
+    "That's fine. See you then, Detective." 
+
+    "See-" *click* You stop for a second as you realize you've been hung up on. What is it with this man and ending calls so abruptly? You shake your head and grab your stuff once more. Hopefully you'll figure that out when you meet him. 
+
+    <<link "Next">><<goto "Day 2 Interview 11">><</link>>
+
+:: Day 2 Interview 11 {"position":"5400,2150"}
+    The drive thankfully doesn't take a full half hour. Tracking down Cao's office, however, takes much longer than you thought it would. Ten minutes past your promised hour, you find your way to the back of the campus where a tall building sits. You quickly enter through the door closest to you and jog down the long hallway, glancing at the numbers next to the doors. 
+
+    402, 404, 40- you quickly notice these offices are all even numbers. Frantically, you look between the map you had grabbed from the Welcome Center and the map app on your phone to try and figure out where you are. Eventually realizing that you were on the opposite side of the building, you exit the building through the door you had entered from and make a mad dash to the other side of the building. 
+
+    You quickly open the first door you see and almost crash into someone. "Sorry about that." 
+
+    <<link "Next">><<goto "Day 2 Interview 12">><</link>>
+
+:: Day 2 Interview 12 {"position":"5400,2275"}
+    "Hmm." The man in front of you squints up at you through his glasses. "Are you the detective?" 
+
+    You quickly realize that this is Khanh Cao. "Yes, I'm Detective $lname." You pull out your badge to show him and he takes it to examine it. 
+
+    Satisfied with what he sees, he passes it back to you and turns around to enter the building again. "You're late."
+
+    You laugh awkwardly as you follow after him. "I'm afraid I'm not familiar with the campus, so finding my way over here was a bit tricky. My apologies, Professor Cao." 
+
+    You're met with another disapproving hum. You sense that frivolities are not appreciated here. 
+
+    <<link "Next">><<goto "Day 2 Interview 13">><</link>>
+
+:: Day 2 Interview 13 {"position":"5400,2400"}
+    Cao leads you to his office, a space cluttered with so many books, spare metal parts, and loose pieces of paper that you can barely find a path to the unoccupied chair across the desk from where Cao sits down. He folds his hands on his desk and stares you down. "So, what did you want to talk to me about?" 
+
+    <<link "Ask about his relationship to the victim.">><<goto "Day 2 Interview 14a">><</link>>
+    <<link "Ask about his alibi.">><<goto "Day 2 Interview 14b">><</link>>
+    <<if $optional_evidence["lighter"]>><<link "Ask about the lighter.">><<goto "Day 2 Interview 14c">><</link>><<else>>==Ask about the lighter.==<</if>>
+    <<if $optional_evidence["foundShed"]>><<link "Ask about the shed.">><<goto "Day 2 Interview 14d">><</link>><<else>>==Ask about the shed.==<</if>>
+    <<if $optional_evidence["trailer"]>><<link "Ask about the trailer.">><<goto "Day 2 Interview 14e">><</link>><<else>>==Ask about the trailer.==<</if>>
+    <<if $optional_evidence["photos"]>><<link "Ask about the smashed photos.">><<goto "Day 2 Interview 14f">><</link>><<else>>==Ask about the photos.==<</if>>
+    <<if $optional_evidence["eBay"]>><<link "Ask about the eBay shop.">><<goto "Day 2 Interview 14g">><</link>><<else>>==Ask about the eBay shop.==<</if>>
+    <<if $optional_evidence["scrunchie"]>><<link "Ask about the scrunchie.">><<goto "Day 2 Interview 14h">><</link>><<else>>==Ask about the scrunchie.==<</if>>
+
+:: Day 2 Interview 14a {"position":"5400,2525"}
+    "What was your relationship with Archibald Watts?" 
+
+    Khanh's face darkens. "A once-friend." 
+
+    You raise an eyebrow. "Can you elaborate on that?" 
+
+    Khanh sighs and shakes his head. His voice is terse, like thinking about Watts brings nothing but bad memories. "We were coworkers. We both worked as mechanics for the GMC dealership that used to be on Capitol. It's closed now. We got along well enough. Our kids were in the same grade, his twins and my daughter." Cao pauses for a moment. "After Sunny's body was found, I never spoke to him again." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 14a01">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 15">><</link>>
+
+:: Day 2 Interview 14a01 {"position":"5400,2650"}
+    "Why?" 
+
+    Khanh's face grows furious. "Why? Because the bastard killed her that's why! I know he did! That s-" Khanh's next words were cut off by a coughing fit. 
+
+    You jump up to, well, you're not sure what, but Khanh waves at you to sit down. Hesitantly, you sit back down. His coughing eventually subsides, and he looks much more tired than he was earlier. He continues in a much quieter voice. "I don't know what deal he made with the devil to escape justice, but that man should not have walked free." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 14a02">><<set $optional_testimony["kcaoCough"] to true>><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 15">><<set $optional_testimony["kcaoCough"] to true>><</link>>
+
+:: Day 2 Interview 14a02 {"position":"5400,2775"}
+    "What makes you so sure?" 
+
+    Cao stares you in the eyes, rage evident. "The bodies were in the cabinets he had been fixing. The poison that killed them was found in his house. There was no question about it." He pauses for a second, weighing his next words. "You should have seen him when little Delilah went missing. There was no emotion in those eyes, Detective. It's like he didn't care that she was gone." He shakes his head. 
+    
+    It doesn't seem like he'll say anything else on the matter. 
+
+    <<link "Next.">><<goto "Day 2 Interview 15">><</link>>
+
+:: Day 2 Interview 14b {"position":"5525,2525"}
+    "Where were you Wednesday night?" 
+
+    Cao shrugs. "Asleep. My age is catching up to me. Can't stay up too late these days." 
+
+    "Can anyone verify that?" 
+
+    He looks at you sharply. "I don't like what you're implying, Detective." 
+
+    "I can assure you, this is routine questioning." 
+
+    "And I've already answered your question." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 14b01">><<set $optional_testimony["kcaoAlibi"] to true>><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 15">><<set $optional_testimony["kcaoAlibi"] to true>><</link>>
+
+:: Day 2 Interview 14b01 {"position":"5525,2650"}
+    "Professor Cao, please answer while I'm asking politely. Can anyone verify your alibi for the night of the murder?" 
+
+    Cao's face darkens. "Am I under arrest?" 
+
+    "No, why-" 
+
+    "Then leave." 
+
+    "I'm sorry?" 
+
+    Cao gets up and walks to the door. "I know my rights, Detective. If you want to ask me any more questions, you can do so when I have a lawyer. Leave, while I'm being polite." 
+
+    <<link "Try to continue the interrogation.">><<goto "Day 2 Interview 14b02">><</link>> 
+    <<link "Agree to leave.">><<goto "Day 2 Interview 14b03">><</link>>
+
+:: Day 2 Interview 14b02 {"position":"5525,2775"}
+    "Professor Cao, I didn't mean to offend. If you-" 
+
+    "I refuse to answer any other questions. Now leave." He remains standing at the door. It really doesn't look like he'll say anything else to you. 
+
+    ==Try to continue the interrogation.==
+    <<link "Agree to leave.">><<goto "Day 2 Interview 14b03">><</link>>
+
+:: Day 2 Interview 14b03 {"position":"5525,2900"}
+    "Okay, I'll leave. If you want to speak to me again, don't hesitate to call me." You place your card on the desk in front of you before crossing the room. 
+
+    "Hmph." Cao doesn't say anything, but sharply closes the door behind you after you exit. 
+
+    <<link "Next">><<goto "Day 2 Interview 15">><<set $optional_testimony["kcaoLeave"] to true>><</link>>
+
+:: Day 2 Interview 14c {"position":"5650,2525"}
+    "Do you recognize this lighter?" You pull up a picture of the lighter on your phone and pass it to Cao. 
+
+    Cao looks at the lighter and shakes his head. "No, it doesn't look familiar." He passes your phone back to you. 
+
+    <<link "Next">><<goto "Day 2 Interview 15">><</link>>
+
+:: Day 2 Interview 14d {"position":"5775,2525"}
+    "Do you know anything about the shed behind Archibald Watts's house?" 
+
+    Cao shakes his head. <<if not hasVisited("Day 2 Interview 14f")>>"Archibald was a very private man. When we worked together, we very rarely went to each other's houses. We saw each other at work and that was it." <<else>>"I already said, Archibald was a very private man. I don't know anything about his house."<</if>>
+
+    <<link "Next">><<goto "Day 2 Interview 15">><</link>>
+
+:: Day 2 Interview 14e {"position":"5900,2525"}
+    "Were you aware Archibald Watts was keeping arcade machines inside a horse trailer?" 
+
+    Cao shakes his head. "No. I didn't even know he had a horse trailer." 
+
+    <<link "Next">><<goto "Day 2 Interview 15">><</link>>
+
+:: Day 2 Interview 14f {"position":"6025,2525"}
+    "There were several broken picture frames in Archibald Watts's house. Do you know what they might have been?" 
+
+    Cao shakes his head. <<if not hasVisited("Day 2 Interview 14d")>>"Archibald was a very private man. When we worked together, we very rarely went to each other's houses. We saw each other at work and that was it." <<else>>"I already said, Archibald was a very private man. I don't know anything about his house."<</if>>
+
+    <<link "Next">><<goto "Day 2 Interview 15">><</link>>
+
+:: Day 2 Interview 14g {"position":"6150,2525"}
+    "Did you know Archibald Watts was making money?" 
+
+    Cao shakes his head. "Not after we stopped talking. And if he wanted to tell me, I wouldn't have cared." 
+
+    <<link "Next">><<goto "Day 2 Interview 15">><</link>>
+
+:: Day 2 Interview 14h {"position":"6025,2525"}
+    "Do you recognize this scrunchie?" You pull up a picture of the scrunchie on your phone and pass it to Cao. 
+
+    He looks at the phone and pauses, the mildly annoyed look he'd had on his face since you walked through the door softening briefly. "Oh, I would recognize this pattern anywhere. This is one of Sunny's." 
+
+    You think for a second before remembering why that name sounds familiar. "Your daughter?" 
+
+    Cao nods and smiles sadly. "Yes. She and my wife sewed these. Sunny got the idea from one of the girls in her class to put a pocket inside a scrunchie. Practically begged Hellen to help her make a set of her own. I think she hid mostly candies in those pockets, sneaky little girl." 
+
+    "Do you still have the other scrunchies?" 
+
+    "Most of them. I remember she gave some away to other children and would come home with her hair down." He chuckles. "When I asked her where her scrunchie went she would proudly proclaim that she made a new friend. I think she used them like friendship bracelets."
+
+    <<link "Press it.">><<goto "Day 2 Interview 14h01">><<set $optional_testimony["kcaoScrun"] to true>><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 15">><<set $optional_testimony["kcaoScrun"] to true>><</link>>
+
+:: Day 2 Interview 14h01 {"position":"6025,2650"}
+    "Do you remember how many she gave away, or to whom she gave them to?" 
+
+    Cao shakes his head. "No. It's been a very long time." He pauses for a moment. "When all this is resolved, what will happen to the scrunchie?" 
+
+    You think for a minute. "I'm not sure. The police will have to hold onto it until this case goes to court at the very least. Why do you ask?" 
+
+    Cao sighs. "No reason, no reason." He looks somewhere behind you for a moment before snapping back to reality. His mildly annoyed look is back. "Any other questions, Detective?" He seems unwilling to say anything else on the matter. 
+
+    <<link "Next">><<goto "Day 2 Interview 15">><<set $optional_testimony["kcaoWants"] to true>><</link>>
+
+:: Day 2 Interview 15 {"position":"5400,3025"}
+    You think carefully about your next question. 
+
+    <<if hasVisited("Day 2 Interview 14a") is false>><<link "Ask about his relationship to the victim.">><<goto "Day 2 Interview 14a">><</link>><<else>>==Ask about his relationship to the victim.==<</if>>
+    <<if hasVisited("Day 2 Interview 14b") is false>><<link "Ask about his alibi.">><<goto "Day 2 Interview 14b">><</link>><<else>>==Ask about his alibi.==<</if>>
+    <<if ($optional_evidence["lighter"]) and (hasVisited("Day 2 Interview 14c") is false)>><<link "Ask about the lighter.">><<goto "Day 2 Interview 14c">><</link>><<else>>==Ask about the lighter.==<</if>>
+    <<if ($optional_evidence["foundShed"]) and (hasVisited("Day 2 Interview 14d") is false)>><<link "Ask about the shed.">><<goto "Day 2 Interview 14d">><</link>><<else>>==Ask about the shed.==<</if>>
+    <<if ($optional_evidence["trailer"] and (hasVisited("Day 2 Interview 14e") is false))>><<link "Ask about the trailer.">><<goto "Day 2 Interview 14e">><</link>><<else>>==Ask about the trailer.==<</if>>
+    <<if ($optional_evidence["photos"]) and (hasVisited("Day 2 Interview 14f") is false)>><<link "Ask about the smashed photos.">><<goto "Day 2 Interview 14f">><</link>><<else>>==Ask about the photos.==<</if>>
+    <<if ($optional_evidence["eBay"]) and (hasVisited("Day 2 Interview 14g") is false)>><<link "Ask about the eBay shop.">><<goto "Day 2 Interview 14g">><</link>><<else>>==Ask about the eBay shop.==<</if>>
+    <<if ($optional_evidence["scrunchie"]) and (hasVisited("Day 2 Interview 14h") is false)>><<link "Ask about the scrunchie.">><<goto "Day 2 Interview 14h">><</link>><<else>>==Ask about the scrunchie.==<</if>>
+    <<link "No more questions.">><<goto "Day 2 Interview 16">><</link>>
+
+:: Day 2 Interview 16 {"position":"5400,3150"}
+    "I think that's all the questions I had for you, Professor Cao. If anything else comes to mind, feel free to contact me. My number and email are on this card."
+
+    Cao takes the card and glances at it briefly before placing it to the side of his desk. You can already see it getting lost in the mounds of papers he already has sitting on the desk. At least your phone number is somewhere in his phone. You hope. "I will call if I need to, Detective. But I have grading to get done right now."
+
+    You take that as your cue to leave and stand up. "Thank you for speaking to me, Professor Cao." 
+
+    Cao merely hums in response and turns to one of the stacks of paper on his desk, picking the top one off and beginning to read it. 
+
+    <<nobr>>
+        <<if $markMark>><<link "Next">><<goto "Day 2 Interview 17">><<set $time to $time+1>><</link>>
+        <<else>><<link "Next">><<goto "Day 2 Outro 00">><<set $time to $time+1>><</link>><</if>>
+    <</nobr>>
+
+:: Day 2 Interview 17 {"position":"5400,3275"}
+    At 8:00PM, you stand outside Mark's house, knocking on the door. After a minute, the door opens to reveal Mark. "Hey $name, come on in." He stands aside to let you pass through the door and yells into the hallway. "$name's here!" He then turns back to you. "You doing alright?"
+
+    You nod as you walk through the door. "Same as this morning. How are-" 
+    
+    You don't even have a chance to finish your setnece when you hear a pitter patter of small feet running. Suddenly a young girl tackles your legs. "Detective!" 
+
+    You laugh as you try to keep your balance. "Hi Ashley." You've always thought it was a bit funny that Ashley Keeley addresses you as "Detective" instead of your name, especially since Mark was promoted to Detective before you were, but no one objected to the nickname and you personally found it endearing, so the nickname stuck. 
+
+    Mark grabs Ashley and hoists her in his arms. "Careful ticklebug, you'll knock poor $name off $his feet." He nods for you to follow as he makes his way to the kitchen. You follow after him, nodding and expressing your surprise where appropriate while Ashley looks over her father's shoulder as she regales you with her exciting day at school. 
+
+    <<link "Next">><<goto "Day 2 Interview 18">><</link>>
+
+:: Day 2 Interview 18 {"position":"5400,3400"} 
+    Your group quickly arrives in the kitchen where Mark puts Ashley down. "Go tell Papa that Dad's going to be in the backyard, okay?" 
+
+    Ashley quickly nods and goes darting past you in search of her other father. 
+
+    Mark grabs a cup and gestures to you with it. "Anything to drink?" 
+
+    <<link "Accept a drink.">><<goto "Day 2 Interview 19a">><</link>>
+    <<link "Turn down the drink.">><<goto "Day 2 Interview 19b">><</link>>
+
+:: Day 2 Interview 19a {"position":"5400,3525"} 
+    "Sure, what do you have?" 
+
+    "We've got water, coffee, tea, or juice." 
+
+    "I'll take a $drink." 
+
+    Mark nods and grabs you <<if $drink == water>>a bottle of water from the fridge. <<elseif $drink == coffee>>a can of coffee from the fridge. <<elseif $drink == tea>>an Arizona iced tea from the fridge. 
+
+    You raise your eyebrows as he holds it out to you. "This barely counts as tea, you know that right?" 
+
+    He shrugs. "This is a coffee and juice household first and foremost."
+
+    You decide that this isn't a hill worth dying on and drop the subject. <</if>> You murmur a quick thanks and take the drink. 
+    
+    Mark pours himself a glass of water and gestures for you to follow him through the back door to the backyard. 
+
+    <<link "Next">><<goto "Day 2 Interview 20">><</link>>
+
+:: Day 2 Interview 19b {"position":"5525,3525"} 
+    Mark nods. "Suit yourself." 
+
+    He pours himself a glass of water and gestures for you to follow him through the back door to the backyard. 
+
+    <<link "Next">><<goto "Day 2 Interview 20">><</link>>
+
+:: Day 2 Interview 20 {"position":"5400,3650"} 
+    The warm night air wraps around you when you walk out the door, though you know it'll start to get cold soon. The sun has set by now but the streetlamp in front of the house casts a bit of light into the backyard allowing you to see. The two of you sit in two of the three lawn chairs the Keeleys have setup outside. 
+
+    Mark takes a sip of his water. "So, you wanted to talk about the Watts case?" 
+
+    You nod and take out your notebook. 
+
+    <<link "Ask about his relationship to the victim.">><<goto "Day 2 Interview 21a">><</link>>
+    <<link "Ask about his alibi.">><<goto "Day 2 Interview 21b">><</link>>
+    <<if $optional_evidence["lighter"]>><<link "Ask about the lighter.">><<goto "Day 2 Interview 21c">><</link>><<else>>==Ask about the lighter.==<</if>>
+    <<if $optional_evidence["foundShed"]>><<link "Ask about the shed.">><<goto "Day 2 Interview 21d">><</link>><<else>>==Ask about the shed.==<</if>>
+    <<if $optional_evidence["trailer"]>><<link "Ask about the trailer.">><<goto "Day 2 Interview 21e">><</link>><<else>>==Ask about the trailer.==<</if>>
+    <<if $optional_evidence["photos"]>><<link "Ask about the smashed photos.">><<goto "Day 2 Interview 21f">><</link>><<else>>==Ask about the photos.==<</if>>
+    <<if $optional_evidence["eBay"]>><<link "Ask about the eBay shop.">><<goto "Day 2 Interview 21g">><</link>><<else>>==Ask about the eBay shop.==<</if>>
+    <<if $optional_evidence["scrunchie"]>><<link "Ask about the scrunchie.">><<goto "Day 2 Interview 21h">><</link>><<else>>==Ask about the scrunchie.==<</if>>
+
+:: Day 2 Interview 21a {"position":"5400,3775"} 
+    "What did you think of Archibald Watts?" 
+
+    Mark shakes his head. "He was a nasty piece of work." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 21a01">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 22">><</link>>
+
+:: Day 2 Interview 21a01 {"position":"5400,3900"} 
+    "What do you mean by that?" 
+
+    Mark sighs. "Well, Paul was best friends with the Watts twins and Mr. Cao's daughter. And that group of kids was the first to go missing. It was Delilah first, one of the twins. Then Paul. Then Sunny Cao. After a few months, Adam was the only one left. But Delilah, when she disappeared, I remember our family and the Caos were really worried. But Watts? He didn't do anything. Didn't show any sign of concern for his own daughter, didn't even put out Missing Person posters." Mark shakes his head, his mouth set in a grim line. "I heard that when they found the bodies that he didn't even react. Just said that the cabinets were empty the last he saw them." 
+
+    <<link "Next">><<goto "Day 2 Interview 22">><</link>>
+
+:: Day 2 Interview 21b {"position":"5525,3775"} 
+    "Where were you Wednesday night?" 
+
+    Mark gives you an unimpressed look. "I was here, with Fred and Ashley. Fred and I were helping Ashley with her math homework." 
+
+    You raise your eyebrows. "Past midnight?" 
+
+    Mark laughs. "As if we'd ever let her stay up that late. No, midnight I think I was probably asleep. Fred might have still been awake- he has a commission due soon so he's been working on it where he can- but I was done for the day." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 21b01">><<set $optional_testimony["markAlibi"] to true>><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 22">><<set $optional_testimony["markAlibi"] to true>><</link>>
+
+:: Day 2 Interview 21b01 {"position":"5525,3900"} 
+    "Do you have security footage that could verify that neither of you left the house that evening?" 
+
+    Mark shakes his head. "We have a set of motion-detection cameras but we go through and erase everything the day after. It's mostly seagulls and raccoons, so we almost never save it." 
+
+    <<link "Next">><<goto "Day 2 Interview 22">><</link>>
+
+:: Day 2 Interview 21c {"position":"5650,3775"} 
+    "Do you recognize this lighter?" You pull up a picture of the lighter on your phone and show it to Mark. 
+
+    Mark thinks for a moment before shaking his head. "Nope, doesn't look familiar." 
+
+    <<link "Next">><<goto "Day 2 Interview 22">><</link>>
+
+:: Day 2 Interview 21d {"position":"5775,3775"} 
+    "Do you know anything about the shed behind Watts's house?" 
+
+    Mark shakes his head. "I've never been to his house. Never had a reason to go." 
+
+    <<link "Next">><<goto "Day 2 Interview 22">><</link>>
+
+:: Day 2 Interview 21e {"position":"5900,3775"}
+    "Do you know anything about the arcade shells in the horse trailer?" 
+
+    Mark gives you a confused look. "Why would I know anything about that?" 
+
+    "Humor me." 
+
+    He shakes his head. "Don't know anything about that." You can hear him quietly murmuring, "Horse trailer..." 
+
+    <<link "Next">><<goto "Day 2 Interview 22">><</link>>
+
+:: Day 2 Interview 21f {"position":"6025,3775"}
+    "Do you know anything about why the photo frames in the house would be smashed?"
+
+    Mark thinks for a second. "I didn't know Watts very well, but from what I remember from twenty years ago, he doesn't seem like the kind of guy to get angry and smash things. It might be someone else who went in the house, saw the photos, and smashed the frames. You could be looking for someone with a longstanding grudge against Watts." 
+
+    <<link "Next">><<goto "Day 2 Interview 22">><<set $optional_testimony["markPhoto"]>><</link>>
+
+:: Day 2 Interview 21g {"position":"6150,3775"}
+    "Do you know how Watts was making money?" 
+
+    Mark gives you a confused look before cracking a grin. "I may have followed him one time but I wasn't stalking the guy. How he earns his income doesn't concern me unless it's illegal." 
+
+    <<link "Next">><<goto "Day 2 Interview 22">><</link>>
+
+:: Day 2 Interview 21h {"position":"6275,3775"}
+    "Do you recognize this scrunchie?" You pull up a picture of the scrunchie on your phone and show it to Mark. 
+
+    He looks at it for a second before slowly shaking his head. "I don't think so." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 21h01">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 22">><</link>>
+
+:: Day 2 Interview 21h01 {"position":"6275,3900"}
+    "Are you sure?"
+
+    Mark sighs, a slight frown settling on his face. "The thing is, I know it's a scrunchie, and like, most of them look the same. But this pattern is like, vaguely familiar." 
+
+    <<if hasVisited("Day 2 Interview 14h")>><<link "Mention Cao's response.">><<goto "Day 2 Interview 21h02">><</link>><<else>>==Mention Cao's response.==<</if>>
+    <<link "Leave it.">><<goto "Day 2 Interview 22">><</link>>
+
+:: Day 2 Interview 21h02 {"position":"6275,4025"}
+    "Someone told me that this might have been Sunny Cao's if that rings any bells." 
+
+    Mark's expression lights up and he snaps his fingers. "That's why it looked familiar. Paul had one." 
+
+    "Paul?" 
+
+    Mark smiles and nods. "Yeah. The ones with the pockets, right? Sunny Cao used to give these out to kids as tokens of friendship. I remember Paul begging me for something to give back to her the day she gave him one, so I gave him a coin or something. Wait, no, I gave him a small bag of my arcade tokens. I think those tokens were my allowance for the week, but it was that or my action figures. I think their whole crew each had a scrunchie from Sunny and a token from Paul."
+
+    "Do you still have the scrunchie Paul had?" 
+
+    Mark shakes his head, his smile falling from his face. "No. It was on his arm when he-" He stops and looks away. "He had it with him when he was found. The officers took it as evidence. We never got it back." 
+
+    <<link "Next">><<goto "Day 2 Interview 22">><<set $optional_testimony["markScrun"] to true>><</link>>
+
+:: Day 2 Interview 22 {"position":"5400,4150"}
+    You think carefully about your next question. 
+
+    <<if hasVisited("Day 2 Interview 21a") is false>><<link "Ask about his relationship to the victim.">><<goto "Day 2 Interview 21a">><</link>><<else>>==Ask about his relationship to the victim.==<</if>>
+    <<if hasVisited("Day 2 Interview 21b") is false>><<link "Ask about his alibi.">><<goto "Day 2 Interview 21b">><</link>><<else>>==Ask about his alibi.==<</if>>
+    <<if ($optional_evidence["lighter"]) and (hasVisited("Day 2 Interview 21c") is false)>><<link "Ask about the lighter.">><<goto "Day 2 Interview 21c">><</link>><<else>>==Ask about the lighter.==<</if>>
+    <<if ($optional_evidence["foundShed"]) and (hasVisited("Day 2 Interview 21d") is false)>><<link "Ask about the shed.">><<goto "Day 2 Interview 21d">><</link>><<else>>==Ask about the shed.==<</if>>
+    <<if ($optional_evidence["trailer"] and (hasVisited("Day 2 Interview 21e") is false))>><<link "Ask about the trailer.">><<goto "Day 2 Interview 21e">><</link>><<else>>==Ask about the trailer.==<</if>>
+    <<if ($optional_evidence["photos"]) and (hasVisited("Day 2 Interview 21f") is false)>><<link "Ask about the smashed photos.">><<goto "Day 2 Interview 21f">><</link>><<else>>==Ask about the photos.==<</if>>
+    <<if ($optional_evidence["eBay"]) and (hasVisited("Day 2 Interview 21g") is false)>><<link "Ask about the eBay shop.">><<goto "Day 2 Interview 21g">><</link>><<else>>==Ask about the eBay shop.==<</if>>
+    <<if ($optional_evidence["scrunchie"]) and (hasVisited("Day 2 Interview 21h") is false)>><<link "Ask about the scrunchie.">><<goto "Day 2 Interview 21h">><</link>><<else>>==Ask about the scrunchie.==<</if>>
+    <<link "No more questions.">><<goto "Day 2 Interview 23">><</link>>
+
+:: Day 2 Interview 23 {"position":"5400,4275"}
+    "I think that's all of my questions. Thanks for the help, Mark." 
+
+    Mark smiles and nods. "Don't worry about it. What are partners for?" 
+
+    "For helping with the dishes, I would hope." The two of you look back to the door to see Fred standing in the doorway. He gives you a friendly smile. "Good to see you again, $name." 
+
+    You smile back. "Same to you, Fred." 
+
+    Mark stands up and stretches. "I guess that's my cue to ask if you want to stay a while longer. Ashley will be thrilled to have another person to play 'Space Travelers' with." 
+
+    You shake your head. "I wouldn't want to impose. Besides, I think I need to go back to my place to put the pieces of this puzzle together." You hold up your notebook before putting it back in your pocket. 
+
+    Mark nods. "Fair enough. I'll walk you out then." He turns to Fred with a smile. "And then I'll do the dishes." 
+
+    "Thanks, love." Fred smiles at Mark before heading back inside the house. You can hear him calling for Ashley, who's probably already started thinking up the space mission extravaganza she'll perform tonight. 
+
+    <<link "Next">><<goto "Day 2 Interview 24">><</link>>
+
+:: Day 2 Interview 24 {"position":"5400,4400"} 
+    Mark walks you back to your car. As you unlock the car, Mark puts a hand on your shoulder. "Hey." 
+
+    You raise your eyebrows. "Hey back at you." 
+
+    Mark's usual easy smile is gone again, replaced with a serious face you usually only see during interrogations. "I know you've been assigned this case and you want to see it through. But if you don't find his murderer, don't beat yourself up. It might be for the best." 
+
+    <<link "Press it.">><<goto "Day 2 Interview 25a">><</link>> 
+    <<link "Leave it.">><<goto "Day 2 Interview 25b">><</link>>
+
+:: Day 2 Interview 25a {"position":"5400,4525"} 
+    "What do you mean?" 
+
+    "I mean that this city's seen enough murders that Archibald Watts is involved in. Maybe this one should be the one to end them." 
+
+    You shake off his hand. "Mark, we're sworn to uphold justice. You can't just abandon that when it's convenient." 
+
+    Mark sighs. "I'm just saying maybe one unsolved case won't be the end of the world." 
+
+    You shake your head. "I told Pottinger I'd solve this case as best as I can and I'm sticking to my word." 
+
+    Mark nods. "Alright. Drive safely." 
+
+    You nod back, a little surprised that he dropped it so easily. As you get in your car and start the engine, you catch Mark's concerned look in the headlights. You wave good-bye and drive home, doing your best not to think about his expression the entire trip back. 
+
+    <<link "Next">><<goto "Day 2 Outro 00">><<set $time to $time+1>><</link>>
+
+:: Day 2 Interview 25b {"position":"5525,4525"} 
+    You laugh a bit awkwardly. "Come on, don't tell me you doubt my skills." 
+
+    Mark shakes his head and smiles, the serious look gone. "You wound me. I would never." He drops his hand from your shoulder and takes a step back. "Drive safely." 
+
+    You nod back. "Will do." As you get in your car and start the engine, you catch Mark's concerned look in the headlights, a stark change from the smile he was wearing moments prior. You wave good-bye and drive home, doing your best not to think about his expression the entire trip back. 
+
+    <<link "Next">><<goto "Day 2 Outro 00">><<set $progress to $progress+1>><<set $time to $time+1>><</link>>
+
+:: Day 2 Outro 00 {"position":"6625,150"}
+    ''The case file has been updated.'' 
+
+    Click the "Case File" button at the bottom right of the screen to access the case file. You can check relevant information you collect through the game there. The case file will be updated at the end of each section of the game. 
+
+    ''Caution:'' Based on your previous actions, the next few pages may or may not contain an overwhelming amount of text. Please proceed with this in mind.
+
+    <<link "Next">><<goto "Day 2 Outro 01">><</link>> 
+
+:: Day 2 Outro 01 {"position":"6625,275"} 
+    Nighttime finds you back at your apartment, looking through the casefiles before you go to sleep. You have all the pieces in front of you, but finding the connections is proving to be difficult. 
+
+    <<link "Next">><<goto "Day 2 Outro 02">><</link>>
+
+:: Day 2 Outro 02 {"position":"6625,400"} 
+    At first you considered that there was a slim chance that Pottinger could possibly be involved, but an email to the organizer in charge of the meeting Pottinger was at that night confirmed that general meetings ended at midnight and that Pottinger hadn't left until 6AM the morning after. Since the location was about an hour away, unless she somehow left without an entire conference of police chiefs noticing, drove an hour to town and an hour back, and somehow was awake at 6AM, there was no way she could have pulled it off. 
+    
+    You know that Pottinger has a very strict sleep schedule and that keeping her awake past 1AM without a good reason usually results in someone getting written up, so the scenario you thought up makes no sense. You cross her off your list of possible suspects. 
+
+    <<link "Next">><<goto "Day 2 Outro 03">><</link>>
+
+:: Day 2 Outro 03 {"position":"6625,525"} 
+    You run through what you've learned today. 
+    <<if $markMark>> 
+    <<nobr>> 
+        Mark's warning when he saw you off didn't sit well with you.
+        <<if $optional_testimony["markStalk"]>>
+            You know that Mark visited Watts's house in the afternoon, because he saw Watts hanging around the elementary school. 
+        <<else>> 
+            You know that a car matching Mark's car's description was seen around Watts's house that afternoon. 
+        <</if>>
+        <<if $optional_testimony["markPhoto"]>> 
+            Mark seems to think that someone with a strong grudge smashed the photo frames in the house. If that's the case then would he count as someone with a grudge? Does he have enough of a reason to set a house on fire?
+        <</if>>
+        <<if $optional_testimony["markAlibi"]>> 
+            Mark says he was at home that night, but that could only be confirmed by Fred who you know wouldn't hesitate to cover for his husband.
+        <</if>>
+    <</nobr>>
+    <</if>> 
+    <<nobr>>
+        You know a car matching the one you saw Adam driving was seen near the house before the fire, but Adam was the one who reported the fire, so that makes sense. <<if $optional_testimony["adamAlibi"]>>Not to mention that Adam says he didn't see his dad at all that day. <</if>>
+        <<if $optional_testimony["adamSmoke"]>>
+            Adam said that the lighter belonged to his father, but the coroner reported that Watts wasn't a heavy smoker, so having an engraved lighter doesn't sound likely. If the lighter belonged to a smoker, wouldn't it be more likely to be Adam's? Or are you reaching? 
+        <</if>>
+        <<if $optional_testimony["markPhoto"] and $optional_testimony["adamPhoto"]>> 
+            If what Mark said is true, that you should be looking for someone who has a strong reaction to whatever was in the photos on the wall. Adam had a pretty strong reaction when you mentioned the photos<<if $optional_testimony["adamLeave"]>>, strong enough to leave the station in a rush<</if>>, so there's a chance the person who broke the photos could be him.
+        <</if>> 
+        <<if $optional_testimony["adamScrun"] and $optional_testimony["markScrun"]>> 
+            There's also the question of why Adam lied about never having seen the scrunchie before. If Mark is telling the truth, then he should have gotten one from Sunny Cao too. Even if he didn't, Delilah Watts should have gotten one. It could be that he doesn't remember being given one, but his reaction makes you think otherwise. 
+        <</if>>
+    <</nobr>>
+
+    <<nobr>>
+        <<if $optional_testimony["kcaoAlibi"]>>
+            Cao's lack of an alibi <<if $optional_testimony["kcaoLeave"]>>and refusal to answer your questions after you pressed him <</if>>could be a sign of guilt. It's also possible he was just annoyed at you for being nosy. He seems to have a short temper for these sorts of things.
+        <</if>>
+        <<if $optional_testimony["markPhoto"]>> 
+            Cao could have a reason to smash the frames if they had content that could make him mad enough. <<if $optional_testimony["kcaoCough"]>>Coupled with how just thinking too hard about Watts seems to make him mad enough to induce a coughing fit, that could fit. And that cough, could it have been because of smoke inhalation from running through the fire?<</if>>
+        <</if>>
+        <<if $optional_testimony["kcaoScrun"]>>
+            Cao identified the scrunchie as one of the ones Sunny had. Is there a chance he left it behind as he was disposing of the body? <<if $optional_testimony["kcaoWants"]>>He definitely wanted it back, but you could chalk that up to it having sentimental value.<</if>>
+        <</if>>
+    <</nobr>>
+
+    Mark, Adam, and Cao are all resentful towards Archibald Watts, especially since they're all related to the children who died twenty years ago. You reason that any of them would have the motive for murder. The thing is, anyone in this town or anyone who was affected by the cabinet killings of '98 could have enough malice in their hearts to kill Watts. Just these three are the ones who happen to be within the scope of your investigation, and there doesn't seem to be significant evidence pointing to any person outside of them. 
+
+    So now the question is, which one of them did it? 
+
+    <<listbox "$answer">>
+        <<option "Adam Watts is the culprit." 'A'>>
+        <<option "Khanh Cao is the culprit." 'B'>>
+        <<option "Mark Keeley is the culprit." 'C'>>
+        <<option "It's impossible to determine the culprit." 'D'>>
+    <</listbox>>
+
+    <<link "Confirm.">><<goto "Day 2 Outro 04">><</link>>
+
+:: Day 2 Outro 04 {"position":"6625,650"} 
+    <<nobr>>Are you sure that 
+        <<if $answer == 'A'>>Adam Watts is the culprit
+        <<elseif $answer == 'B'>>Khanh Cao is the culprit
+        <<elseif $answer == 'C'>>Mark Keeley is the culprit
+        <<else>>you can't determine who the culprit is<</if>>? 
+        <<if ($optional_testimony["markScrun"]) and ($answer == 'A')>>
+            <<set _temp = "Epilogue A1 00">>
+        <<elseif $answer == 'A'>>
+            <<set _temp = "Epilogue A2 00">>
+        <<else>>
+            <<set _temp = "Epilogue " + $answer + " 00">>
+        <</if>>
+    <</nobr>>
+
+    <<link "Yes.">><<goto _temp>><</link>>
+    <<link "No. Let me try again.">><<goto "Day 2 Outro 03">><</link>>
+
+:: Epilogue A1 00 {"position":"6850,150"} 
+    You knock on the door to the address in your notebook. You hear a quiet, "Be right there," and several footsteps before the door opens. 
+
+    Adam Watts looks at you, a bit confused, before his face shuts down. "I refuse to speak to you without an attorney present." He tries to close the door in your face but not before you show him the picture of the scrunchie. 
+
+    "It's yours, isn't it? Sunny gave it to you."
+
+    A mixture of different emotions flash across Adam's face. You can see fear, grief, longing, and others that move too fast for you to catch them. Eventually, Adam closes his eyes and opens the door. "Come in. You'll, you'll want to sit down." He turns around and walks away without checking to see if you follow. 
+
+    You walk into the house and shut the front door. 
+
+    <<link "Next">><<goto "Epilogue A1 01">><</link>>
+
+:: Epilogue A1 01 {"position": "6850,275"}
+    Adam leads you into what you assume is the dining room and sits at the small circular table situated there. 
+
+    You take the seat across from him. You push your phone over to Adam, the photo still displayed on the screen. In a slightly gentler tone, you repeat your question. "This is yours, isn't it?" 
+
+    Adam nods. "Yeah, it is. I, uh, I dropped it at Spirit Cell." 
+
+    You assume he means Lucy Lemon. "Why did you go there?" 
+
+    Adam tears his eyes away from your phone to look you in the eye. When he speaks, it's in a whisper. "To hide the body." 
+    
+    <<link "Next">><<goto "Epilogue A1 02">><</link>>
+
+:: Epilogue A1 02 {"position": "6850,400"}
+    "Adam, you realize that you're confessing to a crime right now, right?" 
+
+    Adam nods. "It's the end of the line for me, I guess. Nowhere left to run." His voice cracks slightly and you can hear him begin to sniffle. You see a tissue box sitting on a nearby counter and grab it to give to him. Adam takes the box with a thankful nod. "I guess I should give you the whole story, before, well. Before." 
+
+    You nod for him to proceed. 
+
+    <<link "Next">><<goto "Epilogue A1 03">><</link>>
+
+:: Epilogue A1 03 {"position": "6850,400"}
+    Adam takes a deep breath and lets it out before he begins speaking. "I wasn't lying when I said I was here for the memorial. I am. Visiting my dad was a side trip.
+
+    "I wanted to see if my dad had changed at all. Maybe there was some small part of me that wished that my dad wasn't a murderer, that he truly, I don't know, had been innocent. I was telling the truth all those years ago, that I really didn't know anything about the deaths. All I knew was that my friends were disappearing one by one until I was left all alone. 
+
+    "So I visited him, brought over dinner and everything. And the meal was, well, it was okay. Quiet. Tense. Everything I remember living in that house. And then I pulled out the bottle of wine I'd brought and the words started pouring out. I didn't realize how much of a lightweight my dad was.
+
+    "I was holding out hope that maybe this was all a misunderstanding, but as I spoke to him, I realized that he was completely delusional. He kept going on about how he had cracked the code to eternal life and how the human soul could be used as a power source. I actually confronted him, about Delilah and why he never felt, I don't know, anything about her passing, but all he said was that her soul wasn't strong enough. I asked what he meant, and he looked me dead in the eyes and said-" 
+
+    Adam pauses to blow his nose, then continues, voice shakier than it was before. "He grabbed my arms and said, 'I used her soul because she was the stronger of you two. If you had lived up to the name I gave you, I would have killed you instead.'"
+
+    <<link "Next">><<goto "Epilogue A1 04">><</link>>
+
+:: Epilogue A1 04 {"position": "6850,525"}
+    You suddenly recall Vera telling you about the seven Bibles. Adam, the chosen son of God. Delilah, the traitor who betrayed the last Judge of Israel. You silently wonder who had chosen the names of their children, Archibald or his wife? 
+    
+    Adam shakes his head frantically, as if trying to drive away some unseen spectre. After letting out a shuddering breath, he continues in a slightly steadier voice. "I think that's when I snapped. I grabbed the knife that was lying on the table and stabbed him in the gut. And I just, I just kept stabbing him. It's like I couldn't control myself. The knife, it just kept going. When I came to, I realized I was kneeling over a corpse, the bloody knife still in my hand. For a minute, I felt… I don't know, happy? Like everything was finally over? I'm not sure honestly. 
+
+    "And then the reality of what I'd done caught up to me and I started panicking. I dragged his body up the stairs and dumped it in the bathtub while I searched for towels and bedsheets to wrap it in. 
+
+    "I couldn't find the extra bed sheets- they weren't where I remember them being, but that was twenty years ago- so I just took the ones off the bed and wrapped his body in them. When I came back to grab him, he looked like Bloody Mary, just soaking in a pool of blood. I drained the tub, bleached it as best as I could, wrapped his body in the bedsheets, and then dragged him out the door. 
+
+    "I parked in the driveway, so it was pretty easy to just throw him in the backseat. I'm stronger than I look." Adam lets out a weak laugh. "Probably inherited that from him. Maybe. I remember him being strong, but maybe that's because I was a lot younger when I last saw him. He didn't look that strong when I saw him that day. He wasn't strong enough to stop me."  
+
+    <<link "Next">><<goto "Epilogue A1 05">><</link>>
+
+:: Epilogue A1 05 {"position": "6850,650"}
+    Adam pauses, engrossed in his own memory, before he shakes himself back to reality and continues. "I went back in to bleach the rest of the house but I was so scared and the bleach was making the carpet a different color and... I needed a smoke. So I lit a cigarette and stood there in the bloody bedroom for a minute. And then I left the cigarette there. Still lit. Did the same in the kitchen, just left it by the stove. Turned the gas for the stove on. 
+
+    "I realized then that, well, that I had a dead body in my car. And that I was covered in blood. You'd be surprised how much an old man can bleed. So I went back to my AirBnB, changed my clothes and headed over to Spirit- sorry, I still get the name wrong after all these years- to the Lucy Lemon. 
+
+    "Security was surprisingly lax. Did you know that they still use key-locks for the back door? And they don't have any security guards. You'd think such a big place would, but I guess it was my lucky night. My initial plan was to dump the body in a back alley, figured it would make the news anyways the next day, but as I drove by the Lucy Lemon, something possessed me to stop and try. I was able to get in through the back door and into the main building. There was already an arcade machine cabinet just sitting on the stage. It was like fate.
+
+    <<link "Next">><<goto "Epilogue A1 06">><</link>>
+
+:: Epilogue A1 06 {"position": "6850,775"}
+    Adam's gaze slowly drifts to the window in the kitchen, hovering somewhere to your right. "So I put the body in the cabinet. Just like what he did to my sister and my friends and all those children twenty years ago. And then I left. I went back to the house, called the fire department, and, well, you know the rest, detective.: 
+    
+    Adam shakes his head and returns his gaze to you. "I'm genuinely surprised I wasn't stopped on the road that night. It feels like something was helping me. But I guess my luck has run out, detective. My dad always said I would run out of places to run away too." 
+
+    <<link "Next">><<goto "Epilogue A1 07">><</link>>
+
+:: Epilogue A1 07 {"position": "6850,900"}
+    You sit there, motionless. It's a lot to take in. A full confession, straight from the horse's mouth. But there are some details that don't fit quite right with you. 
+
+    "So how did you lose the scrunchie?"
+
+    Adam shrugs. "The panels were lifted when I got there. When I hauled the body into the arcade cabinet, I think the scrunchie fell out of my pocket and slipped through the crack between the panel and the floor. When I went to go grab it, I stepped on the panel and pushed it into the ground by accident. I ran backstage and found a lever I thought might work but I, uh, I guess I was panicking too much because I broke it."
+
+    <<link "Next">><<goto "Epilogue A1 08">><</link>>
+
+:: Epilogue A1 08 {"position": "6850,1025"}
+    "Where's the knife now?"
+
+    Adam nods to the kitchen. "It's, uh, it's in the drawer. Nobody's come around looking yet so I haven't chucked it." 
+
+    "What about-"
+
+    Adam cuts you off. "Can you just get it over with?"
+
+    You pause for a moment. "Sorry?"
+
+    Adam holds out his hands in front of him, fists closed and wrists up. "Just arrest me already. You're obligated to by law or whatever and I just-" He closes his eyes. "I just want to get it over with."
+
+    <<link "Arrest Adam.">><<goto "Epilogue A1 09b">><</link>>
+    <<link "Let Adam go.">><<goto "Epilogue A1 09a">><</link>>
+
+:: Epilogue A1 09a {"position":"6850,1150"}
+    "No."
+
+    Adam opens his eyes. "Huh?"
+
+    You stand up and put your phone and notebook back in your pocket. "I said, 'no.' I am not arresting you. I am instead going to apologize for wasting your time on an interrogation you refused to comply with since you do not have a lawyer, and I am going to leave. You are going to find yourself a lawyer, and you are going to show that you had been on the road until right before the fire." You meet Adam's eyes. "And then after I agree that there's no way you could have set the fire, you are going to leave and go back to your life. You are going to carry on the memory of your sister and your friends, and I am going to conclude that any evidence that would point to the murderer was burnt in the fire." 
+
+    Adam's eyes are almost comically wide, and you wish you could take a photo to show him. "Huh?" 
+
+    You walk back to the front door. "I'm sorry for wasting your time, Adam. Please have your lawyer contact me as soon as possible. You can understand why we want to get the ball rolling on this." 
+
+    Adam runs after you as you step outside of the house. "Wait!" 
+
+    You stop and turn around. "Is there something wrong?" 
+
+    Despite being a couple of years older than you, at that moment, Adam Watts looks like a lost child. "Why?" 
+
+    You smile. "Because this city has seen enough death associated with Archibald Watts, and enough is enough. Have a good day, Adam." You turn around and make your way back to your car. As you pull away from the curb, you choose not to look at Adam kneeling on the ground, sobbing in relief. 
+
+    <<link "Next">><<goto "Epilogue D 00">><</link>>
+
+:: Epilogue A1 09b {"position":"6975,1150"}
+    You nod and pull out your handcuffs. "You have the right to remain silent. Anything you say can and will be used against you in court. You have the right to a lawyer. If you cannot afford a lawyer, one will be appointed for you upon request. If you decide to answer questions now without a lawyer present, you have the right to stop answering at any time."
+
+    As you recite Adam his Miranda rights, you shut the handcuffs around his wrists. His eyes are still shut tight, but you can see the tears leaking out and his quiet sobs. You listen closely and realize that in between sobs, Adam is chanting, "I'm sorry, I'm sorry, I'm sorry."
+
+    <<link "Next">><<goto "Epilogue A2 00">><</link>>
+
+:: Epilogue A2 00 {"position":"6975,1275"}
+    The video shuffles through a series of photos with the newscaster's voice overlaid on it. 
+
+    Photo 1: the burnt down Watts house. "Just two days after the fire that claimed the house of Archibald Watts and the murder that claimed his life, police have arrested a suspect in relation to the crime." 
+
+    Photo 2: a picture of Watts while he was still alive, overlaid on top of the ruined houses. "Archibald Watts, age 71, was the prime suspect in the serial killings that took place in '98, although he was never arrested. Earlier this week, a fire broke out at his house and he was later found stabbed to death in a Lucy Lemon Family Entertainment Centre." 
+
+    Photo 3: a photo of the Lucy Lemon Family Entertainment Centre. "Authorities say that it's likely Watts was stabbed in his house, at which point he was moved to the Lucy Lemon and his house burnt down." 
+
+    Photo 4: a photo of a lanky short person with a blanket over their head being helped into a police car. "Authorities are keeping a lock on the information for now, but we do know that an arrest was made earlier this morning. We hope to learn more about the arrest at the press conference with Police Captain Brooke Pottinger and Detective $name $lname later today." 
+
+    <<link "Next">><<goto "Epilogue A2 01">><<set $time to 0>><</link>>
+
+:: Epilogue A2 01 {"position":"6975,1400"}
+    You don't talk about the Watts case with the people around you. Everyone asks how you knew, what the decisive evidence was, but to this day you're not sure. You usually chalk it up to a number of different components that just fit together in the right way, and that seems to satisfy the general public. 
+
+    You've been in and out of court these past few months, testifying and doing your best not to meet the eyes of the people in the jury and the eyes of the person sitting in the defendant's seat. 
+
+    You fail more often than not. 
+
+    <<link "Next">><<goto "Epilogue A2 02">><</link>>
+
+:: Epilogue A2 02 {"position":"6975,1525"}
+    Adam never lifts his eyes from the defense's table. He's even skinnier than he was when you first met him, a shadow of his former self. You heard a rumor that he might switch his plea to "guilty" for a reduced sentence. You quietly think that it's because if the trial drags on any longer, he might just die. 
+
+    Adam doesn't have any family at the trial. You don't know the details, but apparently after his mother's death when he was only two, his mother's side of the family never contacted them ever again. His father's side of the family never contacted them in the first place. Looking at Adam sitting there all alone, you imagine it must be quite lonely. 
+
+    You just hope you did the right thing. 
+
+    <<link "End.">><<goto "Epilogue End">><</link>>
+
+:: Epilogue B 00 {"position":"7100,150"}
+    The video shuffles through a series of photos with the newscaster's voice overlaid on it. 
+
+    Photo 1: the burnt down Watts house. "Just two days after the fire that claimed the house of Archibald Watts and the murder that claimed his life, police have arrested a suspect in relation to the crime." 
+
+    Photo 2: a picture of Watts while he was still alive, overlaid on top of the ruined houses. "Archibald Watts, age 71, was the prime suspect in the serial killings that took place in '98, although he was never arrested. Earlier this week, a fire broke out at his house and he was later found stabbed to death in a Lucy Lemon Family Entertainment Centre." 
+
+    Photo 3: a photo of the Lucy Lemon Family Entertainment Centre. "Authorities say that it's likely Watts was stabbed in his house, at which point he was moved to the Lucy Lemon and his house burnt down." 
+
+    Photo 4: a photo of a short stocky person with a blanket over their head being helped into a police car. "Authorities are keeping a lock on the information for now, but we do know that an arrest was made earlier this morning. We hope to learn more about the arrest at the press conference with Police Captain Brooke Pottinger and Detective $name $lname later today." 
+
+    <<link "Next">><<goto "Epilogue B 01">><<set $time to 0>><</link>>
+
+:: Epilogue B 01 {"position":"7100,275"}
+    You don't talk about the Watts case with the people around you. Everyone asks how you knew, what the decisive evidence was, but to this day you're not sure. You usually chalk it up to a number of different components that just fit together in the right way, and that seems to satisfy the general public. 
+
+    You've been in and out of court these past few months, testifying and doing your best not to meet the eyes of the people in the jury and the eyes of the person sitting in the defendant's seat. 
+
+    You fail more often than not. 
+
+    <<link "Next">><<goto "Epilogue B 02">><</link>>
+
+:: Epilogue B 02 {"position":"7100,400"}
+    Cao stares at you whenever you're on the stand. It's the defiant stare of a man who holds fast to his belief that the court will find him not guilty. It scares you a bit, how little prison has changed him. 
+
+    Cao doesn't have any other family, apparently. His wife had passed away from grief a few years after Sunny had died and he had never remarried. There were no family or friends who came to support him during the trial. You imagine it must be lonely. 
+
+    You just hope you did the right thing. 
+
+    <<link "End.">><<goto "Epilogue End">><</link>>
+
+:: Epilogue C 00 {"position":"7225,150"}
+    The video shuffles through a series of photos with the newscaster's voice overlaid on it. 
+
+    Photo 1: the burnt down Watts house. "Just two days after the fire that claimed the house of Archibald Watts and the murder that claimed his life, police have arrested a suspect in relation to the crime." 
+
+    Photo 2: a picture of Watts while he was still alive, overlaid on top of the ruined houses. "Archibald Watts, age 71, was the prime suspect in the serial killings that took place in '98, although he was never arrested. Earlier this week, a fire broke out at his house and he was later found stabbed to death in a Lucy Lemon Family Entertainment Centre." 
+
+    Photo 3: a photo of the Lucy Lemon Family Entertainment Centre. "Authorities say that it's likely Watts was stabbed in his house, at which point he was moved to the Lucy Lemon and his house burnt down." 
+
+    Photo 4: a photo of a tall lanky person with a blanket over their head being helped into a police car. "Authorities are keeping a lock on the information for now, but we do know that an arrest was made earlier this morning. We hope to learn more about the arrest at the press conference with Police Captain Brooke Pottinger and Detective $name $lname later today." 
+
+    <<link "Next">><<goto "Epilogue C 01">><<set $time to 0>><</link>>
+
+:: Epilogue C 01 {"position":"7225,275"}
+    You don't talk about the Watts case with the people around you. Everyone asks how you knew, what the decisive evidence was, but to this day you're not sure. You usually chalk it up to a number of different components that just fit together in the right way, and that seems to satisfy the general public. 
+
+    You've been in and out of court these past few months, testifying and doing your best not to meet the eyes of the people in the jury and the eyes of the person sitting in the defendant's seat. 
+
+    You fail more often than not. 
+
+    <<link "Next">><<goto "Epilogue C 02">><</link>>
+
+:: Epilogue C 02 {"position":"7225,400"}
+    Mark doesn't meet your eyes in court, choosing to stare blankly at a wall more often than not. You can see that he isn't faring well in prison, his features gaunt and eyes sunken. But through it all, his lawyer is still fighting for a "Not Gulty" verdict. 
+
+    Fred doesn't talk to you anymore, and you haven't seen Ashley since the arrest. You still remember her cheerful smile as you led her dad away, believing that he would come right back home and that everything would be fine. You don't envy whoever broke the news to her that her dad wouldn't be coming home for a while. 
+
+    You just hope you did the right thing. 
+
+    <<link "End.">><<goto "Epilogue End">><</link>>
+
+:: Epilogue D 00 {"position":"7350,150"}
+    <<set $time to 0>>"Are you sure about this, $lname?" Pottinger looks at you over the case file you submitted to her. 
+
+    "Yes, captain. I'm confident that because of insufficient evidence and a pool of people too wide to be properly investigated, that determining who killed Archibald Watts will not be possible." 
+
+    Pottinger steadily holds your gaze as she closes the file and places it at her desk. "Is that what you plan to tell the press?" 
+
+    You gulp, a little nervous, before nodding. "I'll probably change it slightly and say that as of now we do not have any leads, and that if concerned folk have anything to share that they should contact the tip line, but other than that? Yes. I think it would do Los Oso some good to let this case go cold." 
+
+    Pottinger nods, satisfied with your answer. She stands up and grabs her jacket from where it hangs on her chair. "Alright then, $lname, let's get out there and tell the public." 
+
+    You stand up and wait for Pottinger to walk out the door to her office before falling in step slightly behind her. 
+
+    <<link "Next">><<goto "Epilogue D 01">><</link>>
+
+:: Epilogue D 01 {"position":"7350,275"}
+    As you reach the station doors, you pause. The faint sound of laughter tickles your ears, melodic and carefree the way only children are. You step outside and look around, but there isn't a soul in sight. Then a cool autumn breeze blows past you, and you swear you hear a whispered, "thank you."
+    
+    You chalk it up to your imagination and continue on your way. 
+    
+    <<link "End.">><<goto "Epilogue End">><</link>>
+
+:: Epilogue End {"position":"6850,4400"} 
+    You've reached the end of //The Cabinet Man//. If you aren't satisfied with your ending, try playing again with different choices. To play again, close this tab and re-open the .html file for this game. 
+    
+    Thank you for playing. I hope you enjoyed //The Cabinet Man//. 
